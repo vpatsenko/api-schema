@@ -4,6 +4,15 @@
 #
 version: 2.1
 
+git_config: &git_config
+  name: configure git bot
+  command: |
+    if [ -z "$CIRCLE_PR_USERNAME" -a "$CIRCLE_USERNAME" != "dialog-bot" -a -n "$CIRCLE_USERNAME" ]
+    then
+      git config user.name "$GITHUB_BOT_USERNAME"
+      git config user.email "$GITHUB_BOT_EMAIL"
+    fi
+
 executors:
   build-executor:
     docker:
@@ -43,13 +52,17 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      - run:
+          <<: *git_config
       - restore_cache:
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run:
+          name: Change origin to push by bot
+          command: |
+            git remote set-url origin https://${GITHUB_BOT_TOKEN}@github.com/dialogs/api-schema.git
+      - run:
           name: Release
           command: echo -ne '\n\n' | ./gradlew release
-
-
 workflows:
   version: 2
   java-build-release:
