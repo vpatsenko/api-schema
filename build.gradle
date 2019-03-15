@@ -114,9 +114,6 @@ artifacts {
 
 release {
     preCommitText = System.env.COMMIT_PREFIX != null ? System.env.COMMIT_PREFIX : ""
-    git {
-        requireBranch = 'chore/circle-ci'
-    }
 }
 
 publishing {

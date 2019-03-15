@@ -47,7 +47,7 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
       - run:
           name: Release
-          command: ./gradlew release
+          command: echo -ne '\n\n' | ./gradlew release
 
 
 workflows:
