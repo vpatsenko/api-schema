@@ -18,7 +18,7 @@ executors:
   sbt-build-executor:
     docker:
       - image: circleci/openjdk:8-jdk
-    resource_class: xlarge
+    resource_class: large
     working_directory: ~/code/scala
     environment:
       SCALA_VERSION: 2.11.12
@@ -90,7 +90,7 @@ jobs:
   sbt-build:
     executor: sbt-build-executor
     environment:
-      JVM_OPTS: -Xmx12g
+      JVM_OPTS: -Xmx6g
     steps:
       - checkout:
           path: ~/code
@@ -120,7 +120,7 @@ jobs:
   sbt-release:
     executor: sbt-build-executor
     environment:
-      JVM_OPTS: -Xmx12g
+      JVM_OPTS: -Xmx6g
     steps:
       - checkout:
           path: ~/code
