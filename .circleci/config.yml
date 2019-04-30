@@ -91,7 +91,8 @@ jobs:
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-      - checkout
+      - checkout:
+          path: ~/code
       - run:
           <<: *git_config
       - restore_cache:
@@ -123,7 +124,8 @@ jobs:
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-      - checkout
+      - checkout:
+          path: ~/code
       - run:
           <<: *git_config
       - restore_cache:
