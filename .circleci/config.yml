@@ -89,7 +89,7 @@ jobs:
   sbt-build:
     executor: sbt-build-executor
     environment:
-      JVM_OPTS: -Xmx3200m
+      JVM_OPTS: -Xmx6G
     steps:
       - checkout:
           path: ~/code
@@ -122,7 +122,7 @@ jobs:
   sbt-release:
     executor: sbt-build-executor
     environment:
-      JVM_OPTS: -Xmx3200m
+      JVM_OPTS: -Xmx6G
     steps:
       - checkout:
           path: ~/code
