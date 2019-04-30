@@ -15,11 +15,12 @@ executors:
     docker:
       - image: circleci/openjdk:8-jdk
     working_directory: ~/code
-  sbt-build-executor:
+  sbt-build-executor: &sbt_executor
     docker:
       - image: circleci/openjdk:8-jdk
     working_directory: ~/scio/scala
-    SCALA_VERSION: 2.11.12
+    environment:
+      SCALA_VERSION: 2.11.12
 
 jobs:
   dependencies:
@@ -86,7 +87,7 @@ jobs:
              --data '{"text":"java-api-schema release successful! Check it here: '${ARTIFACT_URL}' "}' \
               $DIALOG_HOOK_URL
   sbt-build:
-    executor: sbt-build-executor
+    executor: sbt_executor
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -115,7 +116,7 @@ jobs:
              --data '{"text":"❌ sbt-api-schema build failed: '${CIRCLE_BUILD_URL}'"}' \
               $DIALOG_HOOK_URL
   sbt-release:
-    executor: sbt-build-executor
+    executor: sbt_executor
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
