@@ -145,7 +145,7 @@ jobs:
              --data '{"text":"sbt-api-schema release successful! Check it here: '${ARTIFACT_URL}' "}' \
               $DIALOG_HOOK_URL
 workflows:
-  version: 3
+  version: 2
   java-build-release:
     jobs:
       - dependencies     
