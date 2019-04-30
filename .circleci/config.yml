@@ -18,7 +18,7 @@ executors:
   sbt-build-executor:
     docker:
       - image: circleci/openjdk:8-jdk
-    working_directory: ~/scala
+    working_directory: ~/code/scala
     environment:
       SCALA_VERSION: 2.11.12
 
@@ -101,6 +101,9 @@ jobs:
       - run:
           name: Compilation
           command: sbt compile
+      - run:
+          name: lslsls
+          command: ls
       - save_cache:
           key: v3-dependencies-{{ .Environment.CIRCLE_JOB }}-{{ checksum "build.sbt" }}
           paths:
@@ -124,7 +127,7 @@ jobs:
       - run:
           <<: *git_config
       - restore_cache:
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+          key: v1-dependencies-{{ .Environment.CIRCLE_JOB }}-{{ checksum "build.sbt" }}
       - run:
           name: Change origin to push by bot
           command: |
