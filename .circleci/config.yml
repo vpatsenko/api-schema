@@ -18,7 +18,7 @@ executors:
   sbt-build-executor:
     docker:
       - image: circleci/openjdk:8-jdk
-    working_directory: ~/code/scala
+    working_directory: ~/scala
     environment:
       SCALA_VERSION: 2.11.12
 
