@@ -11,16 +11,16 @@ git_config: &git_config
       git config user.email "$GITHUB_BOT_EMAIL"
 
 executors:
-  build-executor:
-    docker:
-      - image: circleci/openjdk:8-jdk
-    working_directory: ~/code
-  sbt-build-executor: &sbt_executor
-    docker:
-      - image: circleci/openjdk:8-jdk
-    working_directory: ~/scio/scala
-    environment:
-      SCALA_VERSION: 2.11.12
+  - build-executor:
+      docker:
+        - image: circleci/openjdk:8-jdk
+      working_directory: ~/code
+  - sbt-build-executor: &sbt_executor
+      docker:
+        - image: circleci/openjdk:8-jdk
+      working_directory: ~/scio/scala
+      environment:
+        SCALA_VERSION: 2.11.12
 
 jobs:
   dependencies:
