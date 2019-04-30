@@ -6,7 +6,7 @@ name := "dialog-platform-services"
 
 version := "0.2.0.52"
 
-scalaVersion := "2.11.11"
+scalaVersion := "2.11.12"
 
 libraryDependencies ++= DialogHouseRules.scalapbGrpcDeps ++ DialogHouseRules.scalapbDeps
 
@@ -21,6 +21,8 @@ licenses += ("Apache-2.0", url(
   "https://www.apache.org/licenses/LICENSE-2.0.html"))
 
 publishMavenStyle := true
+
+bintrayOrganization := Some("dialog")
 
 bintrayOrganization := Some("dialog")
 

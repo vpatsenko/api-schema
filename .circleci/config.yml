@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2.1
+version: 2.2
 
 git_config: &git_config
   name: configure git bot
@@ -15,6 +15,11 @@ executors:
     docker:
       - image: circleci/openjdk:8-jdk
     working_directory: ~/code
+  sbt-build-executor:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/scio/scala
+    SCALA_VERSION: 2.11.12
 
 jobs:
   dependencies:
@@ -80,8 +85,67 @@ jobs:
             curl --header "Content-Type: application/json" --request POST \
              --data '{"text":"java-api-schema release successful! Check it here: '${ARTIFACT_URL}' "}' \
               $DIALOG_HOOK_URL
+  sbt-build:
+    executor: sbt-build-executor
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - run:
+          <<: *git_config
+      - restore_cache:
+          keys:
+            - v3-dependencies-{{ .Environment.CIRCLE_JOB }}-{{ checksum "build.sbt" }}
+            - v3-dependencies-
+      - run:
+          name: Compilation
+          command: sbt compile
+      - save_cache:
+          key: v3-dependencies-{{ .Environment.CIRCLE_JOB }}-{{ checksum "build.sbt" }}
+          paths:
+            - "~/.ivy2/cache"
+            - "~/.sbt"
+            - "~/.m2"
+            - "~/.cache/coursier"
+      - run:
+          name: Report build failure
+          when: on_fail
+          command: |
+            curl --header "Content-Type: application/json" --request POST \
+             --data '{"text":"❌ sbt-api-schema build failed: '${CIRCLE_BUILD_URL}'"}' \
+              $DIALOG_HOOK_URL
+  sbt-release:
+    executor: sbt-build-executor
+      environment:
+        JVM_OPTS: -Xmx3200m
+      steps:
+        - checkout
+        - run:
+          <<: *git_config
+        - restore_cache:
+            key: v1-dependencies-{{ checksum "build.gradle" }}
+        - run:
+            name: Change origin to push by bot
+            command: |
+              git remote set-url origin https://${GITHUB_BOT_TOKEN}@github.com/dialogs/api-schema.git
+        - run:
+            name: Release
+            command: sbt -Dbintray.user=${bintrayUser} -Dbintray.pass=${bintrayPassword} publish
+        - run:
+            name: Report build failure
+            when: on_fail
+            command: |
+              curl --header "Content-Type: application/json" --request POST \
+               --data '{"text":"❌ sbt-api-schema release failed: '${CIRCLE_BUILD_URL}'"}' \
+                $DIALOG_HOOK_URL
+        - run:
+            name: Report success
+            command: |
+              curl --header "Content-Type: application/json" --request POST \
+               --data '{"text":"sbt-api-schema release successful! Check it here: '${ARTIFACT_URL}' "}' \
+                $DIALOG_HOOK_URL
 workflows:
-  version: 2
+  version: 3
   java-build-release:
     jobs:
       - dependencies     
@@ -91,6 +155,15 @@ workflows:
       - release:
           requires:
             - build
+          filters:
+            branches:
+              only: master
+  sbt-build-release:
+    jobs:
+      - sbt-build
+      - sbt-release:
+          requires:
+            - sbt-build
           filters:
             branches:
               only: master
