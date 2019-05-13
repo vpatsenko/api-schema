@@ -170,4 +170,4 @@ workflows:
             - sbt-build
           filters:
             branches:
-              only: master
+              only: feature/sbt-circleci
