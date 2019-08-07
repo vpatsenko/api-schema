@@ -58,9 +58,6 @@ message SimpleGroupSearchCondition {
     string query_string = 1;
 }
 
-message criterion {
-}
-
 message SimpleSearchCondition {
     oneof criterion {
         SimpleContactSearchCondition contact = 1;
@@ -69,6 +66,31 @@ message SimpleSearchCondition {
         SimpleUserProfileSearchCondition userProfile = 4;
         SimpleGroupSearchCondition group = 5;
     }
+}
+
+// Message container
+message MessageSearchResult {
+    Peer peer = 1 [(dlg).log="visible"];
+    reserved 2; // rid
+    int64 date = 3 [(dlg).log="visible"];
+    int32 sender_id = 4 [(dlg).log="visible"];
+    MessageContent content = 5 [(dlg).log="visible"];
+}
+
+ // Message Search result container
+message MessageSearchItem {
+    MessageSearchResult result = 1;
+}
+
+ // Search Result with related peers and entities
+message ResponseSimpleSearch {
+    option (scalapb.message).extends = "im.dlg.grpc.GrpcResponse";
+    repeated MessageSearchItem search_results = 1 [(dlg).log="visible"];
+    repeated User users = 2 [(dlg).log="visible"];
+    repeated Group groups = 3 [(dlg).log="visible"];
+    google.protobuf.BytesValue load_more_state = 4 [(dlg).log="hidden"];
+    repeated UserOutPeer user_out_peers = 5 [(dlg).log="visible"];
+    repeated GroupOutPeer group_out_peers = 6 [(dlg).log="visible"];
 }
 
 message SearchCondition {
@@ -163,45 +185,6 @@ message ResponseResolvePeer {
     OutPeer peer = 1;
 }
 
-// Message container
-message MessageSearchResult {
-    Peer peer = 1 [(dlg).log="visible"];
-    int64 rid = 2 [(dlg).log="visible"]; /// deprecated
-    int64 date = 3 [(dlg).log="visible"];
-    int32 sender_id = 4 [(dlg).log="visible"];
-    MessageContent content = 5 [(dlg).log="visible"];
-}
-
-// Message Search result container
-message MessageSearchItem {
-    MessageSearchResult result = 1;
-}
-
-// Search Result with related peers and entities
-message ResponseMessageSearchResponse {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcResponse";
-    repeated MessageSearchItem search_results = 1 [(dlg).log="visible"];
-    repeated User users = 2 [(dlg).log="visible"];
-    repeated Group groups = 3 [(dlg).log="visible"];
-    google.protobuf.BytesValue load_more_state = 4 [(dlg).log="hidden"];
-    repeated UserOutPeer user_out_peers = 5 [(dlg).log="visible"];
-    repeated GroupOutPeer group_out_peers = 6 [(dlg).log="visible"];
-}
-
-// Performing message search
-message RequestMessageSearch {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    SearchCondition query = 1 [(dlg).log="hidden"];
-    repeated UpdateOptimization optimizations = 2 [(dlg).log="visible"];
-}
-
-// Performing message search paging
-message RequestMessageSearchMore {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    bytes load_more_state = 1 [(dlg).log="hidden"]; /// Cursor
-    repeated UpdateOptimization optimizations = 2 [(dlg).log="visible"];
-}
-
 message RequestSimpleSearch {
     option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
     repeated SimpleSearchCondition criteria = 1;
@@ -283,27 +266,14 @@ service Search {
             body: "*"
         };
     }
-    /// Search by messages
-    rpc MessageSearch (RequestMessageSearch) returns (ResponseMessageSearchResponse) {
-        option (google.api.http) = {
-            post: "/v1/grpc/Search/MessageSearch"
-            body: "*"
-        };
-    }
-    rpc MessageSearchMore (RequestMessageSearchMore) returns (ResponseMessageSearchResponse) {
-        option (google.api.http) = {
-            post: "/v1/grpc/Search/MessageSearchMore"
-            body: "*"
-        };
-    }
     /// Custom search by conditions
-    rpc SimpleSearch (RequestSimpleSearch) returns (ResponseMessageSearchResponse) {
+    rpc SimpleSearch (RequestSimpleSearch) returns (ResponseSimpleSearch) {
         option (google.api.http) = {
             post: "/v1/grpc/Search/SimpleSearch"
             body: "*"
         };
     }
-    rpc SimpleSearchMore (RequestSimpleSearchMore) returns (ResponseMessageSearchResponse) {
+    rpc SimpleSearchMore (RequestSimpleSearchMore) returns (ResponseSimpleSearch) {
         option (google.api.http) = {
             post: "/v1/grpc/Search/SimpleSearchMore"
             body: "*"
