@@ -60,7 +60,6 @@ enum SupportedServerMethodsType {
 // maxGroupSize Current maximum group size
 // discover Discover configuration
 // shareEndpoint Share endpoint
-// callsConfig Calls configuration
 // groupInviteConfig Group invite configuration
 // serverMetaInfo Server meta information (version, etc.)
 // customProfileSchema Custom profile JSON Schema
@@ -69,7 +68,7 @@ message Config {
     int32 max_group_size = 1 [(dlg).log="visible"];
     Discover discover = 2 [(dlg).log="visible"];
     google.protobuf.StringValue share_endpoint = 4 [(dlg).log="visible"];
-    CallsConfig calls_config = 5 [(dlg).log="visible"];
+    reserved 5; // calls config
     InvitesConfig group_invite_config = 6 [(dlg).log="visible"];
     ServerMetaInfo server_meta_info = 7 [(dlg).log="visible"];
     string custom_profile_schema = 8 [(dlg).log="visible"];
@@ -92,30 +91,6 @@ message ServicePeers {
 message ServerMetaInfo {
     int64 release_date = 1 [(dlg).log="visible"];
     google.protobuf.Int64Value api_version = 2 [(dlg).log="visible"];
-}
-
-enum RtcpMuxPolicy {
-    RTCPMUXPOLICY_UNKNOWN = 0;
-    RTCPMUXPOLICY_NEGOTIATE = 1;
-    RTCPMUXPOLICY_REQUIRE = 2;
-}
-
-// Calls configuration
-// callsEnabled If true then client should enable calls
-// videoCallsEnabled If true then client should enable video calls
-// groupCallsEnabled If true then client should enable group calls
-// groupCallsMaxMembers Determines how many members may participate in call
-// rtcpMuxPolicy The RTCP mux policy to use when gathering ICE candidates
-// emojiSecurityEnabled If true then client should send and render emoji security
-// screenSharingEnabled If true then client should enable screen sharing
-message CallsConfig {
-    google.protobuf.BoolValue calls_enabled = 1 [(dlg).log="visible"];
-    google.protobuf.BoolValue video_calls_enabled = 2 [(dlg).log="visible"];
-    google.protobuf.BoolValue group_calls_enabled = 3 [(dlg).log="visible"];
-    google.protobuf.Int32Value group_calls_max_members = 4 [(dlg).log="visible"];
-    RtcpMuxPolicy rtcp_mux_policy = 5 [(dlg).log="visible"];
-    google.protobuf.BoolValue emoji_security_enabled = 6 [(dlg).log="visible"];
-    google.protobuf.BoolValue screen_sharing_enabled = 7 [(dlg).log="visible"];
 }
 
 // Group invites configuration

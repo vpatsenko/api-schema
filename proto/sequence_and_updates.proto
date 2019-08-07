@@ -21,8 +21,6 @@ import "authentication.proto";
 import "groups.proto";
 import "stickers.proto";
 import "typing_and_online.proto";
-import "event_bus.proto";
-import "web_rtc.proto";
 import "config_sync.proto";
 import "counters.proto";
 import "contacts.proto";
@@ -43,6 +41,9 @@ message UpdateSeqUpdate {
     int32 seq = 1 [(dlg).log="visible"];
     bytes state = 2 [(dlg).log="compact"];
     int32 update_header = 3 [(dlg).log="visible"];
+
+    reserved 81, 82, 83, 84; // calls
+    reserved 77, 78, 79, 80; // event bus
 
     oneof update {
       UpdateForceReloadState updateForceReloadState = 4;
@@ -118,14 +119,6 @@ message UpdateSeqUpdate {
       UpdateUserOffline updateUserOffline = 74;
       UpdateUserLastSeen updateUserLastSeen = 75;
       UpdateGroupOnline updateGroupOnline = 76;
-      UpdateEventBusDeviceConnected updateEventBusDeviceConnected = 77;
-      UpdateEventBusDeviceDisconnected updateEventBusDeviceDisconnected = 78;
-      UpdateEventBusMessage updateEventBusMessage = 79;
-      UpdateEventBusDisposed updateEventBusDisposed = 80;
-      UpdateIncomingCallDeprecated updateIncomingCallDeprecated = 81;
-      UpdateIncomingCall updateIncomingCall = 82;
-      UpdateCallHandled updateCallHandled = 83;
-      UpdateCallDisposed updateCallDisposed = 84;
       UpdateParameterChanged updateParameterChanged = 85;
       UpdateRawUpdate updateRawUpdate = 86;
       UpdateEmptyUpdate updateEmptyUpdate = 87;
