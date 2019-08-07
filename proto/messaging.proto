@@ -203,67 +203,9 @@ message TextMessage {
     string text = 1 [(dlg).log="hidden"];
     /// User mentions in message
     repeated int32 mentions = 2 [(dlg).log="visible"];
-    /// Optional bytes of extension
-    TextMessageEx ext = 3 [(dlg).log="visible"];
+    reserved 3; // TextMessageEx
     repeated MessageMedia media = 4 [(dlg).log="visible"];
     repeated Any extensions = 5 [(dlg).log="visible"];
-}
-
-message TextMessageEx {
-    oneof body {
-        TextExMarkdown textExMarkdown = 1;
-        TextModernMessage textModernMessage = 2;
-        TextCommand textCommand = 3;
-    }
-}
-
-// Markdown extension
-message TextExMarkdown {
-    string markdown = 2 [(dlg).log="hidden"]; /// Markdown text
-}
-
-// Modern text message
-message TextModernMessage {
-    google.protobuf.StringValue text = 1 [(dlg).log="hidden"];
-    google.protobuf.StringValue sender_name_override = 2 [(dlg).log="visible"];
-    Avatar sender_photo_override = 3 [(dlg).log="visible"];
-    ParagraphStyle style = 4 [(dlg).log="visible"];
-    repeated TextModernAttach attaches = 5 [(dlg).log="visible"];
-}
-
-// Paragraph style
-message ParagraphStyle {
-    /// Show quote-like paragraph?
-    google.protobuf.BoolValue show_paragraph = 1 [(dlg).log="visible"];
-    /// Override paragraph color
-    Color paragraph_color = 2 [(dlg).log="visible"];
-    /// Override background color
-    Color bg_color = 3 [(dlg).log="visible"];
-}
-
-// Attaches to message
-message TextModernAttach {
-    google.protobuf.StringValue title = 1 [(dlg).log="hidden"];
-    google.protobuf.StringValue title_url = 2 [(dlg).log="visible"];
-    ImageLocation title_icon = 3 [(dlg).log="visible"];
-    google.protobuf.StringValue text = 4 [(dlg).log="hidden"];
-    ParagraphStyle style = 5 [(dlg).log="visible"];
-    repeated TextModernField fields = 6;
-}
-
-// Modern message fields
-message TextModernField {
-    string title = 1 [(dlg).log="visible"];
-    string value = 2 [(dlg).log="visible"];
-    /// Is field can be shown in compact way (default is TRUE)
-    google.protobuf.BoolValue is_short = 3 [(dlg).log="visible"];
-}
-
-// Text Command Message for bots
-message TextCommand {
-    /// Slash-Command For execution
-    string command = 1 [(dlg).log="visible"];
-    string args = 2 [(dlg).log="visible"];
 }
 
 // Service message
