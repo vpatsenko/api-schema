@@ -58,12 +58,6 @@ message ObsoletePeersList {
   repeated ObsoletePeer peers = 1;
 }
 
-message ObsoleteGetDifferenceCommand {
-  google.protobuf.Int32Value seq = 1;
-  bytes state = 2;
-  int64 configHash = 3;
-}
-
 message ObsoleteSeqUpdateBox {
   int32 seq = 1;
   bytes state = 2;
@@ -171,18 +165,6 @@ message ObsoleteWeakUpdateBox {
   }
 
   UpdateSeqUpdate update_any = 13;
-}
-
-// message EventBusUpdate {
-//   oneof update {
-//     google.protobuf.BytesValue obsoleteUpdate = 1;
-//   }
-// }
-
-message ObsoleteServiceUpdate {
-  oneof update {
-    google.protobuf.BytesValue obsoleteUpdate = 1;
-  }
 }
 
 enum ObsoleteTypingType {
