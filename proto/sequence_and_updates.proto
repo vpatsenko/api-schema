@@ -128,7 +128,6 @@ message UpdateSeqUpdate {
       UpdateSpaceMemberModified updateSpaceMemberModified = 91;
       UpdateMessageRejectedByHook updateMessageRejectedByHook = 92;
       UpdateMessageEditRejectedByHook updateMessageEditRejectedByHook = 93;
-
       UpdateUser updateUser = 94;
       UpdateFeatureFlagChanged updateFeatureFlagChanged = 95;
       UpdateThreadCreated updateThreadCreated = 96;
@@ -137,58 +136,8 @@ message UpdateSeqUpdate {
     }
 }
 
-// Fat sequence update with additional data
-message UpdateFatSeqUpdate {
-    int32 seq = 1 [(dlg).log="visible"];
-    bytes state = 2 [(dlg).log="compact"];
-    int32 update_header = 3 [(dlg).log="visible"];
-    bytes update = 4 [(dlg).log="compact"];
-    /// related users
-    repeated User users = 5 [(dlg).log="compact"];
-    /// related groups
-    repeated Group groups = 6 [(dlg).log="compact"];
-}
-
-// Out of sequence update (for typing and online statuses)
-message UpdateWeakUpdate {
-    int64 date = 1 [(dlg).log="visible"];
-    int32 update_header = 2 [(dlg).log="visible"];
-    bytes update = 3 [(dlg).log="compact"];
-}
-
-// Fat Weak Update
-message UpdateWeakFatUpdate {
-    int64 date = 1 [(dlg).log="visible"];
-    int32 update_header = 2 [(dlg).log="visible"];
-    bytes update = 3 [(dlg).log="visible"];
-    repeated User users = 4 [(dlg).log="visible"];
-    repeated Group groups = 5 [(dlg).log="visible"];
-}
-
 // Notification about requiring performing manual GetDifference
 message UpdateSeqUpdateTooLong {
-}
-
-// Update container
-message UpdateContainer {
-    int32 update_header = 1 [(dlg).log="visible"];
-    bytes update = 2 [(dlg).log="compact"];
-}
-
-// Combined update
-message UpdateCombinedUpdate {
-    /// start of related sequence intervals
-    int32 seq_start = 1 [(dlg).log="visible"];
-    /// end of related sequence intervals
-    int32 seq_end = 2 [(dlg).log="visible"];
-    bytes state = 3 [(dlg).log="visible"];
-    /// related users
-    repeated User users = 4 [(dlg).log="compact"];
-    /// related groups
-    repeated Group groups = 5 [(dlg).log="compact"];
-    repeated UpdateContainer updates = 6 [(dlg).log="visible"];
-    /// related messages
-    repeated HistoryMessage messages = 7 [(dlg).log="visible"];
 }
 
 // Get main sequence state
@@ -276,30 +225,6 @@ message UpdateRawUpdate {
 message UpdateEmptyUpdate {
 }
 
-// Subscribing for users online
-message RequestSubscribeToOnline {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    repeated UserOutPeer users = 1 [(dlg).log="compact"];
-}
-
-// Removing subscription for users online
-message RequestSubscribeFromOnline {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    repeated UserOutPeer users = 1 [(dlg).log="compact"];
-}
-
-// Subscribing for groups online
-message RequestSubscribeToGroupOnline {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    repeated GroupOutPeer groups = 1 [(dlg).log="compact"];
-}
-
-// Removing subscription for groups online
-message RequestSubscribeFromGroupOnline {
-    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    repeated GroupOutPeer groups = 1 [(dlg).log="compact"];
-}
-
 /// Container which contains UpdateSeqUpdate
 message SeqUpdateBox {
   int32 seq = 1;
@@ -334,30 +259,6 @@ service SequenceAndUpdates {
     rpc GetReferencedEntitites (RequestGetReferencedEntitites) returns (ResponseGetReferencedEntitites) {
         option (google.api.http) = {
             post: "/v1/grpc/SequenceAndUpdates/GetReferencedEntitites"
-            body: "*"
-        };
-    }
-    rpc SubscribeToOnline (RequestSubscribeToOnline) returns (ResponseVoid) {
-        option (google.api.http) = {
-            post: "/v1/grpc/SequenceAndUpdates/SubscribeToOnline"
-            body: "*"
-        };
-    }
-    rpc SubscribeFromOnline (RequestSubscribeFromOnline) returns (ResponseVoid) {
-        option (google.api.http) = {
-            post: "/v1/grpc/SequenceAndUpdates/SubscribeFromOnline"
-            body: "*"
-        };
-    }
-    rpc SubscribeToGroupOnline (RequestSubscribeToGroupOnline) returns (ResponseVoid) {
-        option (google.api.http) = {
-            post: "/v1/grpc/SequenceAndUpdates/SubscribeToGroupOnline"
-            body: "*"
-        };
-    }
-    rpc SubscribeFromGroupOnline (RequestSubscribeFromGroupOnline) returns (ResponseVoid) {
-        option (google.api.http) = {
-            post: "/v1/grpc/SequenceAndUpdates/SubscribeFromGroupOnline"
             body: "*"
         };
     }
