@@ -10806,6 +10806,7 @@ Main user object
 | exts | [UserData.Ext](#dialog.UserData.Ext) | repeated |  |
 | clock | [DataClock](#dialog.DataClock) |  |  |
 | locales | [string](#string) | repeated |  |
+| about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 
 
 
