@@ -1,0 +1,212 @@
+{
+  "type": "object",
+  "properties": {
+    "isDiscoverActive": {
+      "type": "boolean",
+      "title": "Activates discover tab",
+      "default": true,
+      "description": "if true = discover tab is enable for users"
+    },
+    "isMultifactorauthActive": {
+      "type": "boolean",
+      "title": "Activates Multifactorauth",
+      "default": false,
+      "description": "if true = Multifactorauth is enable for users (factors are tuned on server's config file)"
+    },
+    "userProfile.nameMinLength": {
+      "type": "string",
+      "title": "Minimum length of user's profile name",
+      "default": 3
+    },
+    "userProfile.nameMaxLength": {
+      "type": "string",
+      "title": "Maximum length of user's profile name",
+      "default": 128
+    },
+    "userProfile.nicknameMinLength": {
+      "type": "string",
+      "title": "Minimum length of user's profile nickname",
+      "default": 3
+    },
+    "userProfile.nicknameMaxLength": {
+      "type": "string",
+      "title": "Maximum length of user's profile nickname",
+      "default": 32
+    },
+    "userProfile.aboutMaxLength": {
+      "type": "string",
+      "title": "Maximum length of user's profile about",
+      "default": 3000
+    },
+    "userProfile.avatarFileMaxSize": {
+      "type": "int32",
+      "title": "Maximum size of user's profile avatar",
+      "default": 1048576
+    },
+    "userProfile.isEnabledEditProfile": {
+      "type": "boolean",
+      "title": "User can edit his profile or not",
+      "default": true
+    },
+    "groups.titleMinLength": {
+      "type": "string",
+      "title": "Minimum length of group's title",
+      "default": 5
+    },
+    "groups.titleMaxLength": {
+      "type": "string",
+      "title": "Maximum length of group's title",
+      "default": 128
+    },
+    "groups.aboutMaxLength": {
+      "type": "string",
+      "title": "Maximum length of group's about",
+      "default": 3000
+    },
+    "groups.shortNameMinLength": {
+      "type": "string",
+      "title": "Minimum length of group's shortname",
+      "default": 1
+    },
+    "groups.shortNameMaxLength": {
+      "type": "string",
+      "title": "Maximum length of group's shortname",
+      "default": 32
+    },
+    "groups.avatarFileMaxSize": {
+      "type": "int32",
+      "title": "Maximum size of group's avatar",
+      "default": 1048576
+    },
+    "spaces.isEnabled": {
+      "type": "boolean",
+      "title": "Activates Spaces",
+      "default": true,
+      "description": "true - for product app, false - in platform"
+    },
+    "spaces.aboutMaxLength": {
+      "type": "string",
+      "title": "Maximum length of space's about",
+      "default": 280
+    },
+    "spaces.titleMaxLength": {
+      "type": "string",
+      "title": "Maximum length of space's title",
+      "default": 64
+    },
+    "spaces.shortnameMaxLength": {
+      "type": "string",
+      "title": "Maximum length of space's shortname",
+      "default": 32
+    },
+    "chat.bubbles": {
+      "type": "boolean",
+      "title": "Activates bubbles in chat",
+      "default": false,
+      "description": "if true = bubbles in chat are enable for users"
+    },
+    "chat.stickersEnabled": {
+      "type": "boolean",
+      "title": "Activates stickers in chat",
+      "default": false,
+      "description": "Show or hide sending stickers feature"
+    },
+    "badges.menu.dialogs": {
+      "type": "boolean",
+      "title": "Activates budges in chat",
+      "default": true,
+      "description": "if true = budges in chat are enable for users"
+    },
+    "messaging.swipeToReply": {
+      "type": "boolean",
+      "title": "Activates swipe to reply on message",
+      "default": true
+    },
+    "isSwipeBackEnabled": {
+      "type": "boolean",
+      "title": "Activates swipe(left to right) between fragments which means back button click",
+      "default": true,
+      "description": "if true = swipe is enable for users"
+    },
+    "fileUploading.perfectRatio": {
+      "type": "double",
+      "title": "The ratio of file download time (in ms) to size (in bytes)",
+      "default": 0.00075,
+      "description": "Required for dynamically resizing following chunks when loading. This ratio is compared with the ratio of the previous batch of chunks, therefore it is concluded whether it is necessary to increase or decrease the size of following chunks"
+    },
+    "fileUploading.maximumChunkSize": {
+      "type": "int32",
+      "title": "Maximum size of Chunk (in bytes) for sending to server",
+      "default": 5000000
+    },
+    "fileUploading.minimumChunkSize": {
+      "type": "int32",
+      "title": "Minimum size of Chunk (in bytes) for sending to server",
+      "default": 500000
+    },
+    "upload.uploadEnabled": {
+      "type": "boolean",
+      "title": "Determines whether the user can upload the file",
+      "default": true
+    },
+    "search.profileSearchEnabled": {
+      "type": "boolean",
+      "title": "Determines whether the user can perform profile search",
+      "default": true
+    },
+    "search.localSearchCount": {
+      "type": "int32",
+      "title": "Determines amount of local search results",
+      "default": 10
+    },
+    "search.localSearchUsersFirst": {
+      "type": "boolean",
+      "title": "Defines the order for local search results. (If true -  users first)",
+      "default": true
+    },
+    "search.globalSearchUsersFirst": {
+      "type": "boolean",
+      "title": "Defines the order for global search results. (If true -  users first)",
+      "default": false
+    },
+    "isCertAuthActive": {
+      "type": "boolean",
+      "title": "Activates selecting a certificate for authorization",
+      "default": true,
+      "description": "if true = button for selecting a certificate is available on the authorization screen"
+    },
+    "notifications.web.newMessageAudioUrl": {
+      "type": "string",
+      "title": "URL to an audio file for a new message notification",
+      "default": null,
+      "description": "Overrides a default app's audio"
+    },
+    "notifications.web.newMessageIconUrl": {
+      "type": "string",
+      "title": "URL to icon image for a new message notification",
+      "default": null,
+      "description": "Overrides a default app's icon"
+    },
+    "notifications.web.newMessageVibrationPattern": {
+      "type": "string",
+      "title": "Vibration pattern a new message notification",
+      "default": null,
+      "description": "Overrides a default app's vibration pattern. Values are serialized as an array of strings in JSON format"
+    },
+    "markdown.inChatsEnabled": {
+      "type": "boolean",
+      "title": "Enabling markdown in chats",
+      "default": false
+    },
+    "markdown.inLastMessagesEnabled": {
+      "type": "boolean",
+      "title": "Enabling markdown in last messages",
+      "default": false
+    },
+    "markdown.inProfileEnabled": {
+      "type": "boolean",
+      "title": "Enabling markdown in user profile",
+      "default": false
+    }
+  }
+}

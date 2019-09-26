@@ -168,7 +168,6 @@
 - [groups.proto](#groups.proto)
     - [Group](#dialog.Group)
     - [GroupData](#dialog.GroupData)
-    - [GroupFull](#dialog.GroupFull)
     - [GroupMemberPermission](#dialog.GroupMemberPermission)
     - [Member](#dialog.Member)
     - [RequestCreateGroup](#dialog.RequestCreateGroup)
@@ -176,7 +175,6 @@
     - [RequestEditGroupAvatar](#dialog.RequestEditGroupAvatar)
     - [RequestEditGroupBasePermissions](#dialog.RequestEditGroupBasePermissions)
     - [RequestEditGroupTitle](#dialog.RequestEditGroupTitle)
-    - [RequestEditGroupTopic](#dialog.RequestEditGroupTopic)
     - [RequestEditMemberPermissions](#dialog.RequestEditMemberPermissions)
     - [RequestGetGroupInviteUrl](#dialog.RequestGetGroupInviteUrl)
     - [RequestGetGroupInviteUrlBase](#dialog.RequestGetGroupInviteUrlBase)
@@ -186,10 +184,8 @@
     - [RequestJoinGroupByPeer](#dialog.RequestJoinGroupByPeer)
     - [RequestKickUser](#dialog.RequestKickUser)
     - [RequestLeaveGroup](#dialog.RequestLeaveGroup)
-    - [RequestLoadFullGroups](#dialog.RequestLoadFullGroups)
     - [RequestLoadMembers](#dialog.RequestLoadMembers)
     - [RequestMakeUserAdmin](#dialog.RequestMakeUserAdmin)
-    - [RequestMakeUserAdminObsolete](#dialog.RequestMakeUserAdminObsolete)
     - [RequestRemoveGroupAvatar](#dialog.RequestRemoveGroupAvatar)
     - [RequestRevokeInviteUrl](#dialog.RequestRevokeInviteUrl)
     - [RequestSetGroupShortname](#dialog.RequestSetGroupShortname)
@@ -200,9 +196,7 @@
     - [ResponseGetGroupMemberPermissions](#dialog.ResponseGetGroupMemberPermissions)
     - [ResponseInviteUrl](#dialog.ResponseInviteUrl)
     - [ResponseJoinGroup](#dialog.ResponseJoinGroup)
-    - [ResponseLoadFullGroups](#dialog.ResponseLoadFullGroups)
     - [ResponseLoadMembers](#dialog.ResponseLoadMembers)
-    - [ResponseMakeUserAdminObsolete](#dialog.ResponseMakeUserAdminObsolete)
     - [ResponseMember](#dialog.ResponseMember)
     - [UpdateGroup](#dialog.UpdateGroup)
     - [UpdateGroupAboutChanged](#dialog.UpdateGroupAboutChanged)
@@ -210,16 +204,9 @@
     - [UpdateGroupAvatarChanged](#dialog.UpdateGroupAvatarChanged)
     - [UpdateGroupAvatarChangedObsolete](#dialog.UpdateGroupAvatarChangedObsolete)
     - [UpdateGroupBasePermissionsChanged](#dialog.UpdateGroupBasePermissionsChanged)
-    - [UpdateGroupCanInviteMembersChanged](#dialog.UpdateGroupCanInviteMembersChanged)
-    - [UpdateGroupCanSendMessagesChanged](#dialog.UpdateGroupCanSendMessagesChanged)
-    - [UpdateGroupCanViewMembersChanged](#dialog.UpdateGroupCanViewMembersChanged)
-    - [UpdateGroupHistoryShared](#dialog.UpdateGroupHistoryShared)
     - [UpdateGroupInviteObsolete](#dialog.UpdateGroupInviteObsolete)
-    - [UpdateGroupMemberAdminChanged](#dialog.UpdateGroupMemberAdminChanged)
-    - [UpdateGroupMemberChanged](#dialog.UpdateGroupMemberChanged)
     - [UpdateGroupMemberDiff](#dialog.UpdateGroupMemberDiff)
     - [UpdateGroupMemberPermissionsChanged](#dialog.UpdateGroupMemberPermissionsChanged)
-    - [UpdateGroupMembersBecameAsync](#dialog.UpdateGroupMembersBecameAsync)
     - [UpdateGroupMembersCountChanged](#dialog.UpdateGroupMembersCountChanged)
     - [UpdateGroupMembersUpdateObsolete](#dialog.UpdateGroupMembersUpdateObsolete)
     - [UpdateGroupMembersUpdated](#dialog.UpdateGroupMembersUpdated)
@@ -227,8 +214,6 @@
     - [UpdateGroupShortnameChanged](#dialog.UpdateGroupShortnameChanged)
     - [UpdateGroupTitleChanged](#dialog.UpdateGroupTitleChanged)
     - [UpdateGroupTitleChangedObsolete](#dialog.UpdateGroupTitleChangedObsolete)
-    - [UpdateGroupTopicChanged](#dialog.UpdateGroupTopicChanged)
-    - [UpdateGroupTopicChangedObsolete](#dialog.UpdateGroupTopicChangedObsolete)
     - [UpdateGroupUserInvitedObsolete](#dialog.UpdateGroupUserInvitedObsolete)
     - [UpdateGroupUserKickObsolete](#dialog.UpdateGroupUserKickObsolete)
     - [UpdateGroupUserLeaveObsolete](#dialog.UpdateGroupUserLeaveObsolete)
@@ -327,6 +312,7 @@
     - [RequestFetchDialogIndex](#dialog.RequestFetchDialogIndex)
     - [RequestGetLastConversationMessages](#dialog.RequestGetLastConversationMessages)
     - [RequestHideDialog](#dialog.RequestHideDialog)
+    - [RequestHistoryDifference](#dialog.RequestHistoryDifference)
     - [RequestLoadArchived](#dialog.RequestLoadArchived)
     - [RequestLoadDialogs](#dialog.RequestLoadDialogs)
     - [RequestLoadGroupedDialogs](#dialog.RequestLoadGroupedDialogs)
@@ -347,6 +333,7 @@
     - [ResponseFetchDialogIndex](#dialog.ResponseFetchDialogIndex)
     - [ResponseGetLastConversationMessages](#dialog.ResponseGetLastConversationMessages)
     - [ResponseGetLastConversationMessages.Pair](#dialog.ResponseGetLastConversationMessages.Pair)
+    - [ResponseHistoryDifference](#dialog.ResponseHistoryDifference)
     - [ResponseLoadArchived](#dialog.ResponseLoadArchived)
     - [ResponseLoadDialogs](#dialog.ResponseLoadDialogs)
     - [ResponseLoadGroupedDialogs](#dialog.ResponseLoadGroupedDialogs)
@@ -525,6 +512,16 @@
   
   
     - [Push](#dialog.Push)
+  
+
+- [push_content.proto](#push_content.proto)
+    - [EncryptedPushContent](#dialog.EncryptedPushContent)
+    - [LocalizableString](#dialog.LocalizableString)
+    - [PushPeer](#dialog.PushPeer)
+  
+    - [PushPeerType](#dialog.PushPeerType)
+  
+  
   
 
 - [raw_api.proto](#raw_api.proto)
@@ -1998,7 +1995,6 @@ Searching contacts by user&#39;s query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#dialog.User) | repeated |  |
 | is_not_changed | [bool](#bool) |  |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 
@@ -2015,7 +2011,6 @@ Searching contacts by user&#39;s query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#dialog.User) | repeated | Registered contacts |
 | seq | [int32](#int32) |  | Deprecated |
 | state | [bytes](#bytes) |  | Server state related to current client, used by server only |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated | Optimizations drops some info from response to decrease traffic and latency |
@@ -2033,7 +2028,6 @@ Searching contacts by user&#39;s query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#dialog.User) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 
 
@@ -2624,23 +2618,9 @@ Group information
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [int32](#int32) |  | group id |
-| space_id | [UUIDValue](#dialog.UUIDValue) |  |  |
 | access_hash | [int64](#int64) |  | Access hash of group |
-| title | [string](#string) |  | Title of group |
-| avatar | [Avatar](#dialog.Avatar) |  | Avatar of group |
-| members_amount | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | Number of members |
-| is_member | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Is current user a member of a group. Default is true. |
-| is_hidden | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Is group hidden (not showing it in recent list). Default is false. |
-| group_type | [GroupType](#dialog.GroupType) |  | Group Type. Used only for displaying information. Default is GROUP. |
-| can_send_message | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Can user send messages. Default is equals isMember for Group and false for channels. |
-| is_admin | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Deprecated |
-| creator_uid | [int32](#int32) |  | Group creator |
-| members | [Member](#dialog.Member) | repeated | Members of group |
-| create_date | [int64](#int64) |  | Date of creation |
-| theme | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Theme of group |
-| about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | About of group |
-| shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group short name |
-| base_permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated | Base permissions for invited members |
+| data | [GroupData](#dialog.GroupData) |  |  |
+| self_member | [Member](#dialog.Member) |  |  |
 
 
 
@@ -2660,36 +2640,12 @@ Group information
 | avatar | [Avatar](#dialog.Avatar) |  | Avatar of group |
 | members_amount | [int32](#int32) |  | Number of members |
 | group_type | [GroupType](#dialog.GroupType) |  | Group Type. Used only for displaying information. Default is GROUP. |
-| creator_user_id | [int32](#int32) |  | Group creator |
+| owner_user_id | [int32](#int32) |  | Group creator |
 | created_at | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | Date of creation |
 | about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | About of group |
 | shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group short name |
 | base_permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
 | clock | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="dialog.GroupFull"></a>
-
-### GroupFull
-Group Full information - Deprecated
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [int32](#int32) |  | Group Id |
-| create_date | [int64](#int64) |  | Date created |
-| owner_uid | [int32](#int32) |  | Group owner |
-| members | [Member](#dialog.Member) | repeated | Group members. Can be empty when isAsyncMembers enabled. |
-| theme | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group Theme |
-| about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group about |
-| is_async_members | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Is Members need to be loaded asynchronous. |
-| can_view_members | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Can current user view members of the group. Default is true. |
-| can_invite_people | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Can current user invite new people. Default is true. |
-| is_shared_history | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Is history shared among all users. |
 
 
 
@@ -2722,11 +2678,11 @@ Member information
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| uid | [int32](#int32) |  | User id |
-| inviter_uid | [int32](#int32) |  | User inviter id |
-| date | [int64](#int64) |  | Adding date |
-| is_admin | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Deprecated |
+| uid | [int32](#int32) |  |  |
+| invited_at | [int64](#int64) |  |  |
 | permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated | List of member permissions |
+| clock | [int64](#int64) |  |  |
+| deleted_at | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
 
 
 
@@ -2820,24 +2776,6 @@ Changing group title
 | group_peer | [GroupOutPeer](#dialog.GroupOutPeer) |  |  |
 | rid | [int64](#int64) |  | Id for query deduplication |
 | title | [string](#string) |  |  |
-| optimizations | [UpdateOptimization](#dialog.UpdateOptimization) | repeated | Optimizations drops some info from response to decrease traffic and latency |
-
-
-
-
-
-
-<a name="dialog.RequestEditGroupTopic"></a>
-
-### RequestEditGroupTopic
-Edit group topic
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_peer | [GroupOutPeer](#dialog.GroupOutPeer) |  |  |
-| rid | [int64](#int64) |  | Id for query deduplication |
-| topic | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | optimizations | [UpdateOptimization](#dialog.UpdateOptimization) | repeated | Optimizations drops some info from response to decrease traffic and latency |
 
 
@@ -2988,21 +2926,6 @@ Leaving group
 
 
 
-<a name="dialog.RequestLoadFullGroups"></a>
-
-### RequestLoadFullGroups
-Loading Full Groups - Deprecated
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| groups | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
-
-
-
-
-
-
 <a name="dialog.RequestLoadMembers"></a>
 
 ### RequestLoadMembers
@@ -3031,22 +2954,6 @@ Make user admin
 | group_peer | [GroupOutPeer](#dialog.GroupOutPeer) |  |  |
 | user_peer | [UserOutPeer](#dialog.UserOutPeer) |  |  |
 | permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
-
-
-
-
-
-
-<a name="dialog.RequestMakeUserAdminObsolete"></a>
-
-### RequestMakeUserAdminObsolete
-[OBSOLETE] Make user admin
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_peer | [GroupOutPeer](#dialog.GroupOutPeer) |  |  |
-| user_peer | [UserOutPeer](#dialog.UserOutPeer) |  |  |
 
 
 
@@ -3128,7 +3035,6 @@ Transfer ownership of group
 | seq | [int32](#int32) |  | deprecated |
 | state | [bytes](#bytes) |  |  |
 | group | [Group](#dialog.Group) |  | created group |
-| users | [User](#dialog.User) | repeated | empty if dropped by optimizations |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated | empty if dropped by optimizations |
 
 
@@ -3209,27 +3115,11 @@ Response for invite url methods
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group | [Group](#dialog.Group) |  |  |
-| users | [User](#dialog.User) | repeated | empty if dropped by optimizations |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated | empty if dropped by optimizations |
 | mid | [UUIDValue](#dialog.UUIDValue) |  | deprecated |
 | seq | [int32](#int32) |  | deprecated |
 | state | [bytes](#bytes) |  |  |
 | date | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="dialog.ResponseLoadFullGroups"></a>
-
-### ResponseLoadFullGroups
-Deprecated
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| groups | [GroupFull](#dialog.GroupFull) | repeated |  |
 
 
 
@@ -3244,25 +3134,8 @@ Deprecated
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| members | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
-| next | [google.protobuf.BytesValue](#google.protobuf.BytesValue) |  |  |
-
-
-
-
-
-
-<a name="dialog.ResponseMakeUserAdminObsolete"></a>
-
-### ResponseMakeUserAdminObsolete
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
+| cursor | [google.protobuf.BytesValue](#google.protobuf.BytesValue) |  |  |
 | members | [Member](#dialog.Member) | repeated |  |
-| seq | [int32](#int32) |  | deprecated |
-| state | [bytes](#bytes) |  |  |
 
 
 
@@ -3383,69 +3256,6 @@ Update about base group permissions changed
 
 
 
-<a name="dialog.UpdateGroupCanInviteMembersChanged"></a>
-
-### UpdateGroupCanInviteMembersChanged
-Update about can invite members changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| can_invite_members | [bool](#bool) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupCanSendMessagesChanged"></a>
-
-### UpdateGroupCanSendMessagesChanged
-Update about can send messages changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| can_send_messages | [bool](#bool) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupCanViewMembersChanged"></a>
-
-### UpdateGroupCanViewMembersChanged
-Update about can view members changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| can_view_members | [bool](#bool) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupHistoryShared"></a>
-
-### UpdateGroupHistoryShared
-Update about history shared
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-
-
-
-
-
-
 <a name="dialog.UpdateGroupInviteObsolete"></a>
 
 ### UpdateGroupInviteObsolete
@@ -3459,39 +3269,6 @@ Update about inviting current user to group
 | mid | [UUIDValue](#dialog.UUIDValue) |  | deprecated |
 | invite_uid | [int32](#int32) |  |  |
 | date | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupMemberAdminChanged"></a>
-
-### UpdateGroupMemberAdminChanged
-Update about member admin changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| user_id | [int32](#int32) |  |  |
-| is_admin | [bool](#bool) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupMemberChanged"></a>
-
-### UpdateGroupMemberChanged
-Update about membership changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| is_member | [bool](#bool) |  |  |
 
 
 
@@ -3526,21 +3303,6 @@ Update about the user&#39;s permissions
 | group_id | [int32](#int32) |  |  |
 | user_id | [int32](#int32) |  |  |
 | permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupMembersBecameAsync"></a>
-
-### UpdateGroupMembersBecameAsync
-Update about members became async
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
 
 
 
@@ -3663,41 +3425,6 @@ Update about group title change
 
 
 
-<a name="dialog.UpdateGroupTopicChanged"></a>
-
-### UpdateGroupTopicChanged
-Update about topic changed
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| topic | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupTopicChangedObsolete"></a>
-
-### UpdateGroupTopicChangedObsolete
-Update about group topic change
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| rid | [int64](#int64) |  | deprecated |
-| uid | [int32](#int32) |  |  |
-| topic | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| date | [int64](#int64) |  |  |
-
-
-
-
-
-
 <a name="dialog.UpdateGroupUserInvitedObsolete"></a>
 
 ### UpdateGroupUserInvitedObsolete
@@ -3804,14 +3531,12 @@ Possible permissions on a group
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| LoadFullGroups | [RequestLoadFullGroups](#dialog.RequestLoadFullGroups) | [ResponseLoadFullGroups](#dialog.ResponseLoadFullGroups) | deprecated |
 | LoadMembers | [RequestLoadMembers](#dialog.RequestLoadMembers) | [ResponseLoadMembers](#dialog.ResponseLoadMembers) |  |
 | CreateGroup | [RequestCreateGroup](#dialog.RequestCreateGroup) | [ResponseCreateGroup](#dialog.ResponseCreateGroup) |  |
 | EditGroupTitle | [RequestEditGroupTitle](#dialog.RequestEditGroupTitle) | [ResponseSeqDateMid](#dialog.ResponseSeqDateMid) |  |
 | SetGroupShortname | [RequestSetGroupShortname](#dialog.RequestSetGroupShortname) | [ResponseSeq](#dialog.ResponseSeq) |  |
 | EditGroupAvatar | [RequestEditGroupAvatar](#dialog.RequestEditGroupAvatar) | [ResponseEditGroupAvatar](#dialog.ResponseEditGroupAvatar) |  |
 | RemoveGroupAvatar | [RequestRemoveGroupAvatar](#dialog.RequestRemoveGroupAvatar) | [ResponseSeqDateMid](#dialog.ResponseSeqDateMid) |  |
-| EditGroupTopic | [RequestEditGroupTopic](#dialog.RequestEditGroupTopic) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
 | EditGroupAbout | [RequestEditGroupAbout](#dialog.RequestEditGroupAbout) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
 | EditGroupBasePermissions | [RequestEditGroupBasePermissions](#dialog.RequestEditGroupBasePermissions) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
 | InviteUser | [RequestInviteUser](#dialog.RequestInviteUser) | [ResponseSeqDateMid](#dialog.ResponseSeqDateMid) |  |
@@ -3826,7 +3551,6 @@ Possible permissions on a group
 | RevokeInviteUrl | [RequestRevokeInviteUrl](#dialog.RequestRevokeInviteUrl) | [ResponseInviteUrl](#dialog.ResponseInviteUrl) |  |
 | JoinGroup | [RequestJoinGroup](#dialog.RequestJoinGroup) | [ResponseJoinGroup](#dialog.ResponseJoinGroup) |  |
 | JoinGroupByPeer | [RequestJoinGroupByPeer](#dialog.RequestJoinGroupByPeer) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| MakeUserAdminObsolete | [RequestMakeUserAdminObsolete](#dialog.RequestMakeUserAdminObsolete) | [ResponseMakeUserAdminObsolete](#dialog.ResponseMakeUserAdminObsolete) |  |
 
  
 
@@ -5124,6 +4848,21 @@ Hide Dialog from grouped list
 
 
 
+<a name="dialog.RequestHistoryDifference"></a>
+
+### RequestHistoryDifference
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| clock | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestLoadArchived"></a>
 
 ### RequestLoadArchived
@@ -5459,6 +5198,23 @@ Dialogs order response - deprecated
 
 
 
+<a name="dialog.ResponseHistoryDifference"></a>
+
+### ResponseHistoryDifference
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| history | [HistoryMessage](#dialog.HistoryMessage) | repeated |  |
+| from_clock | [int64](#int64) |  |  |
+| clock | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="dialog.ResponseLoadArchived"></a>
 
 ### ResponseLoadArchived
@@ -5467,8 +5223,6 @@ deprecated
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| groups | [Group](#dialog.Group) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
 | dialogs | [Dialog](#dialog.Dialog) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
@@ -5487,8 +5241,6 @@ Contains dialogs and related peers and entities
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| groups | [Group](#dialog.Group) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
 | dialogs | [Dialog](#dialog.Dialog) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
@@ -5507,8 +5259,6 @@ deprecated
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | dialogs | [DialogGroup](#dialog.DialogGroup) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
-| groups | [Group](#dialog.Group) | repeated |  |
 | show_archived | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  |  |
 | show_invite | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
@@ -5528,9 +5278,7 @@ deprecated
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | history | [HistoryMessage](#dialog.HistoryMessage) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
-| groups | [Group](#dialog.Group) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 | counter | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | counter of unread messages |
 | counter_date | [int64](#int64) |  | date, related to this unread counter |
@@ -6412,6 +6160,7 @@ Webpage media
 | MessageSetReaction | [RequestMessageSetReaction](#dialog.RequestMessageSetReaction) | [ResponseReactionsResponse](#dialog.ResponseReactionsResponse) | Add reaction on message (emoji) |
 | MessageRemoveReaction | [RequestMessageRemoveReaction](#dialog.RequestMessageRemoveReaction) | [ResponseReactionsResponse](#dialog.ResponseReactionsResponse) |  |
 | LoadHistory | [RequestLoadHistory](#dialog.RequestLoadHistory) | [ResponseLoadHistory](#dialog.ResponseLoadHistory) | Load conversation history |
+| HistoryDifference | [RequestHistoryDifference](#dialog.RequestHistoryDifference) | [ResponseHistoryDifference](#dialog.ResponseHistoryDifference) | Load total history difference for all user&#39;s conversations |
 | LoadDialogs | [RequestLoadDialogs](#dialog.RequestLoadDialogs) | [ResponseLoadDialogs](#dialog.ResponseLoadDialogs) | Load user&#39;s dialogs |
 | FetchDialogIndex | [RequestFetchDialogIndex](#dialog.RequestFetchDialogIndex) | [ResponseFetchDialogIndex](#dialog.ResponseFetchDialogIndex) | Load short info about all user&#39;s dialogs |
 | DialogListDifference | [RequestDialogListDifference](#dialog.RequestDialogListDifference) | [ResponseDialogListDifference](#dialog.ResponseDialogListDifference) | Load dialogs by peers |
@@ -6510,6 +6259,7 @@ servicePeers Service peers supported interpreted by the client
 | extensions | [Any](#dialog.Any) | repeated |  |
 | client_keep_alive | [int64](#int64) |  |  |
 | supported_methods | [SupportedServerMethodsType](#dialog.SupportedServerMethodsType) | repeated |  |
+| max_channel_size | [int32](#int32) |  |  |
 
 
 
@@ -6802,14 +6552,6 @@ Update about config change
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | UPDATEOPTIMIZATION_UNKNOWN | 0 |  |
-| UPDATEOPTIMIZATION_NONE | 1 |  |
-| UPDATEOPTIMIZATION_STRIP_ENTITIES | 2 |  |
-| UPDATEOPTIMIZATION_ENABLE_COMBINED | 3 |  |
-| UPDATEOPTIMIZATION_FASTER_MESSAGES | 4 |  |
-| UPDATEOPTIMIZATION_STRIP_COUNTERS | 5 |  |
-| UPDATEOPTIMIZATION_COMPACT_USERS | 6 |  |
-| UPDATEOPTIMIZATION_GROUPS_V2 | 7 |  |
-| UPDATEOPTIMIZATION_STRIP_ENTITIES_V2 | 8 |  |
 
 
  
@@ -7858,6 +7600,91 @@ Unregistering Google Push
 
 
 
+<a name="push_content.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## push_content.proto
+
+
+
+<a name="dialog.EncryptedPushContent"></a>
+
+### EncryptedPushContent
+The structure of encrypted push content
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| loc_alert_body | [LocalizableString](#dialog.LocalizableString) |  |  |
+| simple_alert_body | [string](#string) |  |  |
+| loc_alert_title | [LocalizableString](#dialog.LocalizableString) |  |  |
+| simple_alert_title | [string](#string) |  |  |
+| sound | [string](#string) |  |  |
+| unread_message_counter | [int32](#int32) |  |  |
+| peer | [PushPeer](#dialog.PushPeer) |  |  |
+| message_id | [UUIDValue](#dialog.UUIDValue) |  |  |
+| isRespondable | [bool](#bool) |  | if true, user can respond to this push |
+
+
+
+
+
+
+<a name="dialog.LocalizableString"></a>
+
+### LocalizableString
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| loc_key | [string](#string) |  |  |
+| loc_args | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.PushPeer"></a>
+
+### PushPeer
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| type | [PushPeerType](#dialog.PushPeerType) |  |  |
+| id | [int32](#int32) |  |  |
+| str_id | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="dialog.PushPeerType"></a>
+
+### PushPeerType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| PUSH_PEER_TYPE_PRIVATE | 0 |  |
+| PUSH_PEER_TYPE_GROUP | 1 |  |
+| PUSH_PEER_TYPE_SIP | 2 |  |
+
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="raw_api.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -8311,8 +8138,6 @@ Search Result with related peers and entities
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | search_results | [MessageSearchItem](#dialog.MessageSearchItem) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
-| groups | [Group](#dialog.Group) | repeated |  |
 | load_more_state | [google.protobuf.BytesValue](#google.protobuf.BytesValue) |  |  |
 | user_out_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_out_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
@@ -8331,8 +8156,6 @@ Response with related peers and entities
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | search_results | [PeerSearchResult](#dialog.PeerSearchResult) | repeated |  |
-| users | [User](#dialog.User) | repeated |  |
-| groups | [Group](#dialog.Group) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 
@@ -8839,8 +8662,6 @@ Updates happens after requested seq number &#43; related peers and entities
 | ----- | ---- | ----- | ----------- |
 | seq | [int32](#int32) |  | seq of the last loaded update |
 | state | [bytes](#bytes) |  |  |
-| users | [User](#dialog.User) | repeated |  |
-| groups | [Group](#dialog.Group) | repeated |  |
 | updates | [UpdateSeqUpdate](#dialog.UpdateSeqUpdate) | repeated |  |
 | messages | [HistoryMessage](#dialog.HistoryMessage) | repeated |  |
 | need_more | [bool](#bool) |  | false if all updates returned |
@@ -9021,19 +8842,11 @@ Sequence update
 | updatePinnedMessagesChanged | [UpdatePinnedMessagesChanged](#dialog.UpdatePinnedMessagesChanged) |  |  |
 | updateGroupTitleChanged | [UpdateGroupTitleChanged](#dialog.UpdateGroupTitleChanged) |  |  |
 | updateGroupAvatarChanged | [UpdateGroupAvatarChanged](#dialog.UpdateGroupAvatarChanged) |  |  |
-| updateGroupTopicChanged | [UpdateGroupTopicChanged](#dialog.UpdateGroupTopicChanged) |  |  |
 | updateGroupAboutChanged | [UpdateGroupAboutChanged](#dialog.UpdateGroupAboutChanged) |  |  |
 | updateGroupOwnerChanged | [UpdateGroupOwnerChanged](#dialog.UpdateGroupOwnerChanged) |  |  |
-| updateGroupHistoryShared | [UpdateGroupHistoryShared](#dialog.UpdateGroupHistoryShared) |  |  |
-| updateGroupCanSendMessagesChanged | [UpdateGroupCanSendMessagesChanged](#dialog.UpdateGroupCanSendMessagesChanged) |  |  |
-| updateGroupCanViewMembersChanged | [UpdateGroupCanViewMembersChanged](#dialog.UpdateGroupCanViewMembersChanged) |  |  |
-| updateGroupCanInviteMembersChanged | [UpdateGroupCanInviteMembersChanged](#dialog.UpdateGroupCanInviteMembersChanged) |  |  |
-| updateGroupMemberChanged | [UpdateGroupMemberChanged](#dialog.UpdateGroupMemberChanged) |  |  |
-| updateGroupMembersBecameAsync | [UpdateGroupMembersBecameAsync](#dialog.UpdateGroupMembersBecameAsync) |  |  |
 | updateGroupMembersUpdated | [UpdateGroupMembersUpdated](#dialog.UpdateGroupMembersUpdated) |  |  |
 | updateGroupMemberDiff | [UpdateGroupMemberDiff](#dialog.UpdateGroupMemberDiff) |  |  |
 | updateGroupMembersCountChanged | [UpdateGroupMembersCountChanged](#dialog.UpdateGroupMembersCountChanged) |  |  |
-| updateGroupMemberAdminChanged | [UpdateGroupMemberAdminChanged](#dialog.UpdateGroupMemberAdminChanged) |  |  |
 | updateGroupMemberPermissionsChanged | [UpdateGroupMemberPermissionsChanged](#dialog.UpdateGroupMemberPermissionsChanged) |  |  |
 | updateGroupInviteObsolete | [UpdateGroupInviteObsolete](#dialog.UpdateGroupInviteObsolete) |  |  |
 | updateGroupUserInvitedObsolete | [UpdateGroupUserInvitedObsolete](#dialog.UpdateGroupUserInvitedObsolete) |  |  |
@@ -9041,7 +8854,6 @@ Sequence update
 | updateGroupUserKickObsolete | [UpdateGroupUserKickObsolete](#dialog.UpdateGroupUserKickObsolete) |  |  |
 | updateGroupMembersUpdateObsolete | [UpdateGroupMembersUpdateObsolete](#dialog.UpdateGroupMembersUpdateObsolete) |  |  |
 | updateGroupTitleChangedObsolete | [UpdateGroupTitleChangedObsolete](#dialog.UpdateGroupTitleChangedObsolete) |  |  |
-| updateGroupTopicChangedObsolete | [UpdateGroupTopicChangedObsolete](#dialog.UpdateGroupTopicChangedObsolete) |  |  |
 | updateGroupAboutChangedObsolete | [UpdateGroupAboutChangedObsolete](#dialog.UpdateGroupAboutChangedObsolete) |  |  |
 | updateGroupAvatarChangedObsolete | [UpdateGroupAvatarChangedObsolete](#dialog.UpdateGroupAvatarChangedObsolete) |  |  |
 | updateGroupShortnameChanged | [UpdateGroupShortnameChanged](#dialog.UpdateGroupShortnameChanged) |  |  |
@@ -9974,7 +9786,6 @@ Thread creation response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | thread_group | [Group](#dialog.Group) |  | group, representing thread internally |
-| users | [User](#dialog.User) | repeated | participants of created conversation. empty if dropped by optimizations |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated | corresponding user peers. empty if dropped by optimizations |
 
 
@@ -9991,7 +9802,6 @@ Thread lift response
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | group | [Group](#dialog.Group) |  | group, representing lifted group |
-| peer | [GroupOutPeer](#dialog.GroupOutPeer) |  | group peer |
 
 
 
