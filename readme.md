@@ -206,6 +206,7 @@
     - [UpdateGroupBasePermissionsChanged](#dialog.UpdateGroupBasePermissionsChanged)
     - [UpdateGroupInviteObsolete](#dialog.UpdateGroupInviteObsolete)
     - [UpdateGroupMemberDiff](#dialog.UpdateGroupMemberDiff)
+    - [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited)
     - [UpdateGroupMemberPermissionsChanged](#dialog.UpdateGroupMemberPermissionsChanged)
     - [UpdateGroupMembersCountChanged](#dialog.UpdateGroupMembersCountChanged)
     - [UpdateGroupMembersUpdateObsolete](#dialog.UpdateGroupMembersUpdateObsolete)
@@ -3259,7 +3260,8 @@ Update about base group permissions changed
 <a name="dialog.UpdateGroupInviteObsolete"></a>
 
 ### UpdateGroupInviteObsolete
-Update about inviting current user to group
+Update notifies that current user got invited to the group
+@deprecated
 
 
 | Field | Type | Label | Description |
@@ -3286,6 +3288,22 @@ Update about members changed
 | removed_users | [int32](#int32) | repeated |  |
 | added_members | [Member](#dialog.Member) | repeated |  |
 | members_count | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateGroupMemberInvited"></a>
+
+### UpdateGroupMemberInvited
+Update notifies that some user got invited to the group
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| member | [Member](#dialog.Member) |  |  |
 
 
 
@@ -3428,7 +3446,8 @@ Update about group title change
 <a name="dialog.UpdateGroupUserInvitedObsolete"></a>
 
 ### UpdateGroupUserInvitedObsolete
-Update about inviting user to group
+Update notifies that some user got invited to the group
+@deprecated
 
 
 | Field | Type | Label | Description |
@@ -8890,6 +8909,7 @@ Sequence update
 | updateThreadCreated | [UpdateThreadCreated](#dialog.UpdateThreadCreated) |  |  |
 | updateThreadLifted | [UpdateThreadLifted](#dialog.UpdateThreadLifted) |  |  |
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
+| updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 
 
 
