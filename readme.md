@@ -8364,7 +8364,7 @@ Searching sender uid condition
 | ----- | ---- | ----- | ----------- |
 | peer | [Peer](#dialog.Peer) |  | where to search |
 | text | [string](#string) |  | search term |
-| content_type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
+| type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
 
 
 
