@@ -33,6 +33,11 @@
       "title": "Maximum length of user's profile nickname",
       "default": 32
     },
+    "userProfile.nicknameAllowedChars": {
+      "type": "string",
+      "title": "List of allowed chars in nickname",
+      "default": "abcdefghijklmnopqrstuvwxyz0123456789-_."
+    },
     "userProfile.aboutMaxLength": {
       "type": "integer",
       "title": "Maximum length of user's profile about",
@@ -185,6 +190,11 @@
       "default": true,
       "description": "if true = button for selecting a certificate is available on the authorization screen"
     },
+    "notifications.android.isEnable": {
+      "type": "boolean",
+      "title": "Toggle switch to enable / disable the display of push notifications",
+      "default": true
+    },
     "notifications.web.newMessageAudioUrl": {
       "type": "string",
       "title": "URL to an audio file for a new message notification",
@@ -217,6 +227,12 @@
       "type": "boolean",
       "title": "Enabling markdown in user profile",
       "default": false
+    },
+    "calls.isEnabled": {
+      "type": "boolean",
+      "title": "Activates Calls",
+      "default": false,
+      "description": "if true = calls are enable for users"
     }
   }
 }
