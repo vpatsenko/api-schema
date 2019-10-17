@@ -169,6 +169,7 @@
     - [Group](#dialog.Group)
     - [GroupData](#dialog.GroupData)
     - [GroupMemberPermission](#dialog.GroupMemberPermission)
+    - [GroupPartialInfo](#dialog.GroupPartialInfo)
     - [Member](#dialog.Member)
     - [RequestCreateGroup](#dialog.RequestCreateGroup)
     - [RequestEditGroupAbout](#dialog.RequestEditGroupAbout)
@@ -595,6 +596,7 @@
     - [GroupMembersSubset](#dialog.GroupMembersSubset)
     - [RequestGetDialogsDifference](#dialog.RequestGetDialogsDifference)
     - [RequestGetDifference](#dialog.RequestGetDifference)
+    - [RequestGetPartialPeerInfo](#dialog.RequestGetPartialPeerInfo)
     - [RequestGetReferencedEntitites](#dialog.RequestGetReferencedEntitites)
     - [RequestGetState](#dialog.RequestGetState)
     - [RequestSubscribeFromGroupOnline](#dialog.RequestSubscribeFromGroupOnline)
@@ -603,6 +605,7 @@
     - [RequestSubscribeToOnline](#dialog.RequestSubscribeToOnline)
     - [ResponseGetDialogsDifference](#dialog.ResponseGetDialogsDifference)
     - [ResponseGetDifference](#dialog.ResponseGetDifference)
+    - [ResponseGetPartialPeerInfo](#dialog.ResponseGetPartialPeerInfo)
     - [ResponseGetReferencedEntitites](#dialog.ResponseGetReferencedEntitites)
     - [SeqUpdateBox](#dialog.SeqUpdateBox)
     - [UpdateCombinedUpdate](#dialog.UpdateCombinedUpdate)
@@ -744,6 +747,7 @@
     - [User](#dialog.User)
     - [UserData](#dialog.UserData)
     - [UserData.Ext](#dialog.UserData.Ext)
+    - [UserPartialInfo](#dialog.UserPartialInfo)
     - [UserProfile](#dialog.UserProfile)
     - [UserStatus](#dialog.UserStatus)
   
@@ -2665,6 +2669,28 @@ permissions a list of permissions that user has
 | ----- | ---- | ----- | ----------- |
 | user_id | [int32](#int32) |  |  |
 | permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.GroupPartialInfo"></a>
+
+### GroupPartialInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int32](#int32) |  |  |
+| access_hash | [int64](#int64) |  |  |
+| clock | [int64](#int64) |  |  |
+| type | [GroupType](#dialog.GroupType) |  |  |
+| title | [string](#string) |  |  |
+| shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| avatar | [Avatar](#dialog.Avatar) |  |  |
+| self_member | [Member](#dialog.Member) |  |  |
 
 
 
@@ -8561,6 +8587,23 @@ Getting difference of sequence
 
 
 
+<a name="dialog.RequestGetPartialPeerInfo"></a>
+
+### RequestGetPartialPeerInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| users | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
+| groups | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
+| group_members | [GroupMembersSubset](#dialog.GroupMembersSubset) | repeated |  |
+
+
+
+
+
+
 <a name="dialog.RequestGetReferencedEntitites"></a>
 
 ### RequestGetReferencedEntitites
@@ -8688,6 +8731,22 @@ Updates happens after requested seq number &#43; related peers and entities
 | groups_refs | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 | config | [Config](#dialog.Config) |  | user&#39;s config |
 | config_hash | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseGetPartialPeerInfo"></a>
+
+### ResponseGetPartialPeerInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| users | [UserPartialInfo](#dialog.UserPartialInfo) | repeated |  |
+| groups | [GroupPartialInfo](#dialog.GroupPartialInfo) | repeated |  |
 
 
 
@@ -8979,6 +9038,7 @@ Out of sequence update (for typing and online statuses)
 | GetDifference | [RequestGetDifference](#dialog.RequestGetDifference) | [ResponseGetDifference](#dialog.ResponseGetDifference) | Get all update that happens after given seq number |
 | GetDialogsDifference | [RequestGetDialogsDifference](#dialog.RequestGetDialogsDifference) | [ResponseGetDialogsDifference](#dialog.ResponseGetDialogsDifference) | Load all dialogs that changed after given date |
 | GetReferencedEntitites | [RequestGetReferencedEntitites](#dialog.RequestGetReferencedEntitites) | [ResponseGetReferencedEntitites](#dialog.ResponseGetReferencedEntitites) | Load some required entities |
+| GetPartialPeerInfo | [RequestGetPartialPeerInfo](#dialog.RequestGetPartialPeerInfo) | [ResponseGetPartialPeerInfo](#dialog.ResponseGetPartialPeerInfo) |  |
 | SubscribeToOnline | [RequestSubscribeToOnline](#dialog.RequestSubscribeToOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SubscribeFromOnline | [RequestSubscribeFromOnline](#dialog.RequestSubscribeFromOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SubscribeToGroupOnline | [RequestSubscribeToGroupOnline](#dialog.RequestSubscribeToGroupOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
@@ -10658,6 +10718,26 @@ Main user object
 | key | [string](#string) |  |  |
 | s | [string](#string) |  |  |
 | b | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.UserPartialInfo"></a>
+
+### UserPartialInfo
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int32](#int32) |  |  |
+| access_hash | [int64](#int64) |  |  |
+| clock | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| nick | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| avatar | [Avatar](#dialog.Avatar) |  |  |
 
 
 
