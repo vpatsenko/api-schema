@@ -10634,9 +10634,13 @@ Main user object
 | user_status | [UserStatus](#dialog.UserStatus) |  |  |
 | time_zone | [string](#string) |  |  |
 | exts | [UserData.Ext](#dialog.UserData.Ext) | repeated |  |
-| clock | [DataClock](#dialog.DataClock) |  |  |
+| obsoleteClock | [DataClock](#dialog.DataClock) |  | deprecated |
 | locales | [string](#string) | repeated |  |
 | about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| contact_info | [ContactRecord](#dialog.ContactRecord) | repeated |  |
+| bot_commands | [BotCommand](#dialog.BotCommand) | repeated |  |
+| custom_profile | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| clock | [int64](#int64) |  |  |
 
 
 
