@@ -47,3 +47,25 @@ message GroupOutPeer {
     int32 group_id = 1 [(dlg).log="visible"];
     int64 access_hash = 2 [(dlg).log="danger"];
 }
+
+message UserOutPeerInTime {
+    int32 user_id = 1 [(dlg).log="visible"];
+    int64 access_hash = 2 [(dlg).log="danger"];
+    int64 clock = 3 [(dlg).log="visible"];
+}
+
+message GroupOutPeerInTime {
+    int32 group_id = 1 [(dlg).log="visible"];
+    int64 access_hash = 2 [(dlg).log="danger"];
+    int64 clock = 3 [(dlg).log="visible"];
+}
+
+message UserPeerInTime {
+    int32 user_id = 1 [(dlg).log="visible"];
+    int64 clock = 2 [(dlg).log="visible"];
+}
+
+message GroupMembersSubsetInTime {
+    GroupOutPeerInTime group_peer = 1 [(dlg).log="visible"];
+    repeated UserPeerInTime members = 2 [(dlg).log="visible"];
+}
