@@ -2033,6 +2033,9 @@ Searching contacts by user&#39;s query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| users | [User](#dialog.User) | repeated | Registered contacts (for old bot sdk compatibility)
+
+/ --------------------------------------------------- |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 
 
@@ -2626,6 +2629,11 @@ Group information
 | access_hash | [int64](#int64) |  | Access hash of group |
 | data | [GroupData](#dialog.GroupData) |  |  |
 | self_member | [Member](#dialog.Member) |  |  |
+| title | [string](#string) |  | For old bot sdk compatibility
+
+/ Title of group |
+| group_type | [GroupType](#dialog.GroupType) |  | Group Type. Used only for displaying information. Default is GROUP. |
+| shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group short name |
 
 
 
@@ -6597,6 +6605,7 @@ Update about config change
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | UPDATEOPTIMIZATION_UNKNOWN | 0 |  |
+| UPDATEOPTIMIZATION_STRIP_ENTITIES | 2 | For old bot sdk compatibility |
 
 
  
@@ -8200,6 +8209,8 @@ Response with related peers and entities
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| users | [User](#dialog.User) | repeated | For old bot sdk compatibility |
+| groups | [Group](#dialog.Group) | repeated | ----------------------------- |
 | search_results | [PeerSearchResult](#dialog.PeerSearchResult) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
