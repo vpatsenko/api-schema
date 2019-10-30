@@ -169,7 +169,6 @@
     - [Group](#dialog.Group)
     - [GroupData](#dialog.GroupData)
     - [GroupMemberPermission](#dialog.GroupMemberPermission)
-    - [GroupPartialInfo](#dialog.GroupPartialInfo)
     - [Member](#dialog.Member)
     - [RequestCreateGroup](#dialog.RequestCreateGroup)
     - [RequestEditGroupAbout](#dialog.RequestEditGroupAbout)
@@ -207,7 +206,6 @@
     - [UpdateGroupBasePermissionsChanged](#dialog.UpdateGroupBasePermissionsChanged)
     - [UpdateGroupInviteObsolete](#dialog.UpdateGroupInviteObsolete)
     - [UpdateGroupMemberDiff](#dialog.UpdateGroupMemberDiff)
-    - [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited)
     - [UpdateGroupMemberPermissionsChanged](#dialog.UpdateGroupMemberPermissionsChanged)
     - [UpdateGroupMembersCountChanged](#dialog.UpdateGroupMembersCountChanged)
     - [UpdateGroupMembersUpdateObsolete](#dialog.UpdateGroupMembersUpdateObsolete)
@@ -596,7 +594,6 @@
     - [GroupMembersSubset](#dialog.GroupMembersSubset)
     - [RequestGetDialogsDifference](#dialog.RequestGetDialogsDifference)
     - [RequestGetDifference](#dialog.RequestGetDifference)
-    - [RequestGetPartialPeerInfo](#dialog.RequestGetPartialPeerInfo)
     - [RequestGetReferencedEntitites](#dialog.RequestGetReferencedEntitites)
     - [RequestGetState](#dialog.RequestGetState)
     - [RequestSubscribeFromGroupOnline](#dialog.RequestSubscribeFromGroupOnline)
@@ -605,7 +602,6 @@
     - [RequestSubscribeToOnline](#dialog.RequestSubscribeToOnline)
     - [ResponseGetDialogsDifference](#dialog.ResponseGetDialogsDifference)
     - [ResponseGetDifference](#dialog.ResponseGetDifference)
-    - [ResponseGetPartialPeerInfo](#dialog.ResponseGetPartialPeerInfo)
     - [ResponseGetReferencedEntitites](#dialog.ResponseGetReferencedEntitites)
     - [SeqUpdateBox](#dialog.SeqUpdateBox)
     - [UpdateCombinedUpdate](#dialog.UpdateCombinedUpdate)
@@ -747,7 +743,6 @@
     - [User](#dialog.User)
     - [UserData](#dialog.UserData)
     - [UserData.Ext](#dialog.UserData.Ext)
-    - [UserPartialInfo](#dialog.UserPartialInfo)
     - [UserProfile](#dialog.UserProfile)
     - [UserStatus](#dialog.UserStatus)
   
@@ -2033,9 +2028,6 @@ Searching contacts by user&#39;s query
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#dialog.User) | repeated | Registered contacts (for old bot sdk compatibility)
-
-/ --------------------------------------------------- |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 
 
@@ -2629,11 +2621,6 @@ Group information
 | access_hash | [int64](#int64) |  | Access hash of group |
 | data | [GroupData](#dialog.GroupData) |  |  |
 | self_member | [Member](#dialog.Member) |  |  |
-| title | [string](#string) |  | For old bot sdk compatibility
-
-/ Title of group |
-| group_type | [GroupType](#dialog.GroupType) |  | Group Type. Used only for displaying information. Default is GROUP. |
-| shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group short name |
 
 
 
@@ -2677,28 +2664,6 @@ permissions a list of permissions that user has
 | ----- | ---- | ----- | ----------- |
 | user_id | [int32](#int32) |  |  |
 | permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
-
-
-
-
-
-
-<a name="dialog.GroupPartialInfo"></a>
-
-### GroupPartialInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [int32](#int32) |  |  |
-| access_hash | [int64](#int64) |  |  |
-| clock | [int64](#int64) |  |  |
-| type | [GroupType](#dialog.GroupType) |  |  |
-| title | [string](#string) |  |  |
-| shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| avatar | [Avatar](#dialog.Avatar) |  |  |
-| self_member | [Member](#dialog.Member) |  |  |
 
 
 
@@ -3294,8 +3259,7 @@ Update about base group permissions changed
 <a name="dialog.UpdateGroupInviteObsolete"></a>
 
 ### UpdateGroupInviteObsolete
-Update notifies that current user got invited to the group
-@deprecated
+Update about inviting current user to group
 
 
 | Field | Type | Label | Description |
@@ -3322,22 +3286,6 @@ Update about members changed
 | removed_users | [int32](#int32) | repeated |  |
 | added_members | [Member](#dialog.Member) | repeated |  |
 | members_count | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateGroupMemberInvited"></a>
-
-### UpdateGroupMemberInvited
-Update notifies that some user got invited to the group
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| member | [Member](#dialog.Member) |  |  |
 
 
 
@@ -3480,8 +3428,7 @@ Update about group title change
 <a name="dialog.UpdateGroupUserInvitedObsolete"></a>
 
 ### UpdateGroupUserInvitedObsolete
-Update notifies that some user got invited to the group
-@deprecated
+Update about inviting user to group
 
 
 | Field | Type | Label | Description |
@@ -6605,7 +6552,6 @@ Update about config change
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | UPDATEOPTIMIZATION_UNKNOWN | 0 |  |
-| UPDATEOPTIMIZATION_STRIP_ENTITIES | 2 | For old bot sdk compatibility |
 
 
  
@@ -8209,8 +8155,6 @@ Response with related peers and entities
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| users | [User](#dialog.User) | repeated | For old bot sdk compatibility |
-| groups | [Group](#dialog.Group) | repeated | ----------------------------- |
 | search_results | [PeerSearchResult](#dialog.PeerSearchResult) | repeated |  |
 | user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
@@ -8401,7 +8345,7 @@ Searching sender uid condition
 | ----- | ---- | ----- | ----------- |
 | peer | [Peer](#dialog.Peer) |  | where to search |
 | text | [string](#string) |  | search term |
-| type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
+| content_type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
 
 
 
@@ -8598,23 +8542,6 @@ Getting difference of sequence
 
 
 
-<a name="dialog.RequestGetPartialPeerInfo"></a>
-
-### RequestGetPartialPeerInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| users | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
-| groups | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
-| group_members | [GroupMembersSubset](#dialog.GroupMembersSubset) | repeated |  |
-
-
-
-
-
-
 <a name="dialog.RequestGetReferencedEntitites"></a>
 
 ### RequestGetReferencedEntitites
@@ -8742,22 +8669,6 @@ Updates happens after requested seq number &#43; related peers and entities
 | groups_refs | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 | config | [Config](#dialog.Config) |  | user&#39;s config |
 | config_hash | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
-
-
-
-
-
-
-<a name="dialog.ResponseGetPartialPeerInfo"></a>
-
-### ResponseGetPartialPeerInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| users | [UserPartialInfo](#dialog.UserPartialInfo) | repeated |  |
-| groups | [GroupPartialInfo](#dialog.GroupPartialInfo) | repeated |  |
 
 
 
@@ -8979,7 +8890,6 @@ Sequence update
 | updateThreadCreated | [UpdateThreadCreated](#dialog.UpdateThreadCreated) |  |  |
 | updateThreadLifted | [UpdateThreadLifted](#dialog.UpdateThreadLifted) |  |  |
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
-| updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 
 
 
@@ -9049,7 +8959,6 @@ Out of sequence update (for typing and online statuses)
 | GetDifference | [RequestGetDifference](#dialog.RequestGetDifference) | [ResponseGetDifference](#dialog.ResponseGetDifference) | Get all update that happens after given seq number |
 | GetDialogsDifference | [RequestGetDialogsDifference](#dialog.RequestGetDialogsDifference) | [ResponseGetDialogsDifference](#dialog.ResponseGetDialogsDifference) | Load all dialogs that changed after given date |
 | GetReferencedEntitites | [RequestGetReferencedEntitites](#dialog.RequestGetReferencedEntitites) | [ResponseGetReferencedEntitites](#dialog.ResponseGetReferencedEntitites) | Load some required entities |
-| GetPartialPeerInfo | [RequestGetPartialPeerInfo](#dialog.RequestGetPartialPeerInfo) | [ResponseGetPartialPeerInfo](#dialog.ResponseGetPartialPeerInfo) |  |
 | SubscribeToOnline | [RequestSubscribeToOnline](#dialog.RequestSubscribeToOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SubscribeFromOnline | [RequestSubscribeFromOnline](#dialog.RequestSubscribeFromOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SubscribeToGroupOnline | [RequestSubscribeToGroupOnline](#dialog.RequestSubscribeToGroupOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
@@ -10705,13 +10614,9 @@ Main user object
 | user_status | [UserStatus](#dialog.UserStatus) |  |  |
 | time_zone | [string](#string) |  |  |
 | exts | [UserData.Ext](#dialog.UserData.Ext) | repeated |  |
-| obsoleteClock | [DataClock](#dialog.DataClock) |  | deprecated |
+| clock | [DataClock](#dialog.DataClock) |  |  |
 | locales | [string](#string) | repeated |  |
 | about | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| contact_info | [ContactRecord](#dialog.ContactRecord) | repeated |  |
-| bot_commands | [BotCommand](#dialog.BotCommand) | repeated |  |
-| custom_profile | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| clock | [int64](#int64) |  |  |
 
 
 
@@ -10729,26 +10634,6 @@ Main user object
 | key | [string](#string) |  |  |
 | s | [string](#string) |  |  |
 | b | [bool](#bool) |  |  |
-
-
-
-
-
-
-<a name="dialog.UserPartialInfo"></a>
-
-### UserPartialInfo
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [int32](#int32) |  |  |
-| access_hash | [int64](#int64) |  |  |
-| clock | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-| nick | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| avatar | [Avatar](#dialog.Avatar) |  |  |
 
 
 
