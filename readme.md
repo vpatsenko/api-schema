@@ -6044,6 +6044,8 @@ Update about message sent
 | prev_mid | [UUIDValue](#dialog.UUIDValue) |  | Previous message id in current conversation |
 | unread_counter | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | counter of unread messages |
 | myReadDate | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
+| forward | [ReferencedMessages](#dialog.ReferencedMessages) |  |  |
+| reply | [ReferencedMessages](#dialog.ReferencedMessages) |  |  |
 
 
 
