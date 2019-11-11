@@ -1706,6 +1706,7 @@ Syncing Parameter
 | ----- | ---- | ----- | ----------- |
 | key | [string](#string) |  | Key of parameter |
 | value | [string](#string) |  | Value of parameter |
+| clock | [int64](#int64) |  | last modification date |
 
 
 
@@ -1722,6 +1723,7 @@ Change parameter value
 | ----- | ---- | ----- | ----------- |
 | key | [string](#string) |  |  |
 | value | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| clock | [int64](#int64) |  | current known clock |
 
 
 
@@ -1736,7 +1738,7 @@ Change parameter value
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| clock | [int64](#int64) |  |  |
+| from_clock | [int64](#int64) |  |  |
 
 
 
@@ -1747,6 +1749,11 @@ Change parameter value
 
 ### RequestGetParameters
 Getting Parameters
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from_clock | [int64](#int64) |  |  |
 
 
 
@@ -1806,8 +1813,9 @@ Update about parameter change
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| key | [string](#string) |  |  |
-| value | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| key | [string](#string) |  | deprecated use this field from parameter |
+| value | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | deprecated use this field from parameter |
+| parameter | [Parameter](#dialog.Parameter) |  | changed parameter |
 
 
 
@@ -7680,7 +7688,7 @@ The structure of encrypted push content
 | peer | [PushPeer](#dialog.PushPeer) |  |  |
 | message_id | [UUIDValue](#dialog.UUIDValue) |  |  |
 | isRespondable | [bool](#bool) |  | if true, user can respond to this push |
-| sender_user_id | [int32](#int32) |  | if sender is group or channel so value eq 0 |
+| sender_user_id | [int32](#int32) |  | if sender is channel so value eq 0 |
 
 
 
