@@ -7689,6 +7689,7 @@ The structure of encrypted push content
 | message_id | [UUIDValue](#dialog.UUIDValue) |  |  |
 | isRespondable | [bool](#bool) |  | if true, user can respond to this push |
 | sender_user_id | [int32](#int32) |  | if sender is channel so value eq 0 |
+| date | [int64](#int64) |  | date of the event (usually message) |
 
 
 
