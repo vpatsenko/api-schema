@@ -7,6 +7,12 @@
       "default": true,
       "description": "if true = discover tab is enable for users"
     },
+    "discover.tvUrl": {
+      "type": "string",
+      "title": "Url of discover tab iframe content",
+      "default": "https://sberbanktv.ru/",
+      "description": "If url is presented, will render sberbankTV page with videos in discovery tab"
+    },
     "tabs.isContactsActive": {
       "type": "boolean",
       "title": "Contacts tab",
@@ -276,12 +282,12 @@
     "global.confidentialPolicy.URL": {
       "type": "string",
       "title": "URL of confidential policy webpage",
-      "default": null,
+      "default": null
     },
     "global.confidentialPolicy.version": {
       "type": "string",
       "title": "Version of confidential policy",
-      "default": null,
+      "default": null
     }
   }
 }
