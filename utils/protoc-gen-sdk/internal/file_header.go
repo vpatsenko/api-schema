@@ -12,7 +12,7 @@ type FileHeader struct {
 	FileName   string
 	FilePath   string
 	PkgName    string
-	Imports    []Import
+	Imports    map[Import]struct{}
 }
 
 func NewFileHeader(file *descriptor.FileDescriptorProto) *FileHeader {
@@ -22,6 +22,7 @@ func NewFileHeader(file *descriptor.FileDescriptorProto) *FileHeader {
 		FileName:   NewFileName(file.GetName()),
 		FilePath:   NewPath(file),
 		PkgName:    NewPackageName(file),
+		Imports:    make(map[Import]struct{}),
 	}
 }
 
@@ -40,8 +41,8 @@ func (h *FileHeader) Merge(val *FileHeader) error {
 		return errors.New("invalid package name")
 	}
 
-	if len(val.Imports) > 0 {
-		h.Imports = append(h.Imports, val.Imports...)
+	for k := range val.Imports {
+		h.AddCustomImport(k)
 	}
 
 	return nil
@@ -56,10 +57,22 @@ func (h *FileHeader) FullPath() string {
 	return h.FileName
 }
 
-func (h *FileHeader) AddCustomImports(imports ...string) {
+func (h *FileHeader) AddCustomImport(val Import) {
 
-	for _, item := range imports {
-		_, alias := splitByLast(item, "/")
-		h.Imports = append(h.Imports, *NewImport(false, alias, item))
+	if h.Imports == nil {
+		h.Imports = make(map[Import]struct{})
 	}
+
+	if len(val) > 0 {
+		h.Imports[val] = struct{}{}
+	}
+}
+
+func (h *FileHeader) GetImports() (list []string) {
+
+	for k := range h.Imports {
+		list = append(list, k.String())
+	}
+
+	return
 }

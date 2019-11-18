@@ -2,23 +2,17 @@ package internal
 
 import "fmt"
 
-type Import struct {
-	Standard bool
-	Alias    string
-	Path     string
-}
-
-func NewImport(standard bool, alias, path string) *Import {
-	return &Import{
-		Standard: standard,
-		Alias:    alias,
-		Path:     path,
-	}
-}
+type Import string
 
 func (i Import) String() string {
-	if i.Alias == "" {
-		return fmt.Sprintf("%q", i.Path)
+
+	tmp := string(i)
+
+	_, alias := splitByLast(tmp, "/")
+
+	if alias == "" {
+		return fmt.Sprintf("%q", tmp)
 	}
-	return fmt.Sprintf("%s %q", i.Alias, i.Path)
+
+	return fmt.Sprintf("%s %q", alias, tmp)
 }

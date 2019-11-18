@@ -4,10 +4,9 @@ package dialog
 
 import (
 	"context"
+	types "github.com/gogo/protobuf/types"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
-
-	types "github.com/gogo/protobuf/types"
 )
 
 type DialogSDK struct {

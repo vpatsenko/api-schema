@@ -34,7 +34,7 @@ func Generate(req *plugin.CodeGeneratorRequest) *plugin.CodeGeneratorResponse {
 	}
 
 	clientsImpl := NewImplementation()
-	clientsImpl.Header.AddCustomImports("github.com/gogo/protobuf/types")
+	clientsImpl.Header.AddCustomImport("github.com/gogo/protobuf/types")
 
 	for _, file := range filesForProcess(g) {
 		genClient(g, file, clientsImpl)
@@ -43,7 +43,7 @@ func Generate(req *plugin.CodeGeneratorRequest) *plugin.CodeGeneratorResponse {
 	source := getClientFileData(clientsImpl)
 	formatted, err := format.Source(source)
 	if err != nil {
-		log.Fatal("failed to format output file", err, "\n", source)
+		log.Fatal("failed to format output file", err, "\n", string(source))
 	}
 
 	clientsImpl.Header.FileName = NewFileName("sdk.pb.go")
@@ -104,8 +104,7 @@ func genClient(g *generator.Generator, file *descriptor.FileDescriptorProto, cli
 	}
 
 	imports, importRules := getImportsInfo(g, file)
-
-	customImports := make([]string, 0)
+	header := NewFileHeader(file)
 
 	for _, svc := range file.Service {
 		svcInfo := NewService(file, svc)
@@ -124,8 +123,8 @@ func genClient(g *generator.Generator, file *descriptor.FileDescriptorProto, cli
 				outputTypeName = outputPkg + "." + outputName
 			}
 
-			AddCustomImport(&customImports, inputImport)
-			AddCustomImport(&customImports, outputImport)
+			header.AddCustomImport(inputImport)
+			header.AddCustomImport(outputImport)
 
 			svcInfo.Methods = append(svcInfo.Methods, Method{
 				Name:            method.GetName(),
@@ -140,9 +139,6 @@ func genClient(g *generator.Generator, file *descriptor.FileDescriptorProto, cli
 			log.Fatal(err, "\n", svcInfo.ServiceName)
 		}
 	}
-
-	header := NewFileHeader(file)
-	header.AddCustomImports(customImports...)
 
 	if err := clientsImpl.Header.Merge(header); err != nil {
 		log.Fatal(err, "\n", file.GetName())
@@ -177,7 +173,7 @@ func getImportsInfo(g *generator.Generator, file *descriptor.FileDescriptorProto
 	return
 }
 
-func getType(filePackage, protoType string, imports, importRules map[string]string) (newImport, typePkg, typeName string) {
+func getType(filePackage, protoType string, imports, importRules map[string]string) (newImport Import, typePkg, typeName string) {
 
 	typePkg, typeName = SplitTypeName(generator.CamelCase(protoType))
 
@@ -187,7 +183,7 @@ func getType(filePackage, protoType string, imports, importRules map[string]stri
 			pkg = val
 		}
 
-		newImport = pkg
+		newImport = Import(pkg)
 		_, typePkg = splitByLast(pkg, "/")
 	} else {
 		typePkg = ""
@@ -228,8 +224,7 @@ import (
 	"context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"
-	{{range $i := .Header.Imports}}{{if $i.Standard}}{{$i | printf "%s\n"}}{{end}}{{end}}
-	{{range $i := .Header.Imports}}{{if not $i.Standard}}{{$i | printf "%s\n"}}{{end}}{{end}}
+	{{ range $key := .Header.GetImports }}{{ $key | printf "%s\n" }}{{end}}
 )
 `))
 
