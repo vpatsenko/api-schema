@@ -14,3 +14,11 @@ build/
 node_modules/
 local.properties
 *.iml
+.DS_Store
+.classpath
+.project
+.settings
+
+# golang
+*.out
+*.test
