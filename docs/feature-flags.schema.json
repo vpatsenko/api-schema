@@ -10,8 +10,7 @@
     "discover.tvUrl": {
       "type": "string",
       "title": "Url of discover tab iframe content",
-      "default": "https://sberbanktv.ru/",
-      "description": "If url is presented, will render sberbankTV page with videos in discovery tab"
+      "description": "If url is presented, will render resource in discovery tab"
     },
     "tabs.isContactsActive": {
       "type": "boolean",
