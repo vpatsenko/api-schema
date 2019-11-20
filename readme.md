@@ -2667,6 +2667,7 @@ Group information
 | shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Group short name |
 | base_permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
 | clock | [int64](#int64) |  |  |
+| pinned_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
 
 
 
@@ -2707,6 +2708,7 @@ permissions a list of permissions that user has
 | shortname | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | avatar | [Avatar](#dialog.Avatar) |  |  |
 | self_member | [Member](#dialog.Member) |  |  |
+| pinned_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
 
 
 
@@ -3564,6 +3566,8 @@ Possible permissions on a group
 | GROUPADMINPERMISSION_SENDMESSAGE | 9 |  |
 | GROUPADMINPERMISSION_PINMESSAGE | 10 |  |
 | GROUPADMINPERMISSION_VIEWMEMBERS | 11 |  |
+| GROUPADMINPERMISSION_LEAVE | 12 | read only permission |
+| GROUPADMINPERMISSION_TARGETING | 13 |  |
 
 
 
