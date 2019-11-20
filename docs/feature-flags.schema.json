@@ -7,7 +7,7 @@
       "default": true,
       "description": "if true = discover tab is enable for users"
     },
-    "discover.tvUrl": {
+    "discover.iframeURL": {
       "type": "string",
       "title": "Url of discover tab iframe content",
       "description": "If url is presented, will render resource in discovery tab"
