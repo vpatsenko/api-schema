@@ -200,7 +200,7 @@ enum AuthExtraInfoType {
 message ResponseAuth {
     option (scalapb.message).extends = "im.dlg.grpc.GrpcResponse";
     User user = 2 [(dlg).log="compact"]; /// Объект типа User с информацией о пользователе
-    Config config = 3 [(dlg).log="visible"]; /// Объект типа Config с информацией о конфиге пользователя
+    Config config = 3 [(dlg).log="visible"]; /// Объект типа Config с информацией о конфиге пользователя, deprecated для SDK 2.0 (в качестве замены используются feature flags)
     google.protobuf.Int64Value config_hash = 4 [(dlg).log="visible"]; /// Хэш конфига
     repeated AuthExtraInfoType extra_info = 5 [(dlg).log = "visible"]; /// Флаги дополнительной информации, нужной после аутентификации
 }

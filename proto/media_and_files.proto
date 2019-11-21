@@ -37,15 +37,15 @@ message AudioLocation {
 // Avatar Image
 message AvatarImage {
     FileLocation file_location = 1 [(dlg).log="visible"]; /// Расположение файла
-    int32 width = 2 [(dlg).log="visible"]; /// Ширина аватара
-    int32 height = 3 [(dlg).log="visible"]; /// Высота аватара
-    int32 file_size = 4 [(dlg).log="visible"]; /// Размер файла
+    int32 width = 2 [(dlg).log="visible"]; /// Ширина аватара в пикселях
+    int32 height = 3 [(dlg).log="visible"]; /// Высота аватара в пикселях
+    int32 file_size = 4 [(dlg).log="visible"]; /// Размер файла в пикселях
 }
 
 // Avatar of User or Group
 message Avatar {
-    AvatarImage small_image = 1 [(dlg).log="compact"]; /// Аватар 100х100
-    AvatarImage large_image = 2 [(dlg).log="compact"]; /// Аватар 200х200
+    AvatarImage small_image = 1 [(dlg).log="compact"]; /// Аватар 100х100px
+    AvatarImage large_image = 2 [(dlg).log="compact"]; /// Аватар 200х200px
     AvatarImage full_image = 3 [(dlg).log="compact"]; /// Полноразмерный аватар
 }
 

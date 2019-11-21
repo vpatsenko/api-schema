@@ -59,13 +59,13 @@ enum SupportedServerMethodsType {
 message Config {
     int32 max_group_size = 1 [(dlg).log="visible"]; /// Максимальный размер группы
     Discover discover = 2 [(dlg).log="visible"];
-    google.protobuf.StringValue share_endpoint = 4 [(dlg).log="visible"]; /// Эндпоинт для шэринга групп
+    google.protobuf.StringValue share_endpoint = 4 [(dlg).log="visible"]; /// Эндпоинт для шаринга файлов по HTTP
     CallsConfig calls_config = 5 [(dlg).log="visible"]; /// Настройки звонков
     InvitesConfig group_invite_config = 6 [(dlg).log="visible"]; /// Настройки инвайта в группы
     ServerMetaInfo server_meta_info = 7 [(dlg).log="visible"]; /// Мета-информация о сервере
-    string custom_profile_schema = 8 [(dlg).log="visible"]; /// Кастомная схема профиля пользователя
+    string custom_profile_schema = 8 [(dlg).log="visible"]; /// Кастомный профиль пользователя в JSON
     ServicePeers service_peers = 9 [(dlg).log="visible"]; /// Сервисные пиры
-    repeated Any extensions = 3; /// Расширения
+    repeated Any extensions = 3; /// Расширения для информации из приложений, которые используют SDK, не рекомендуется к использованию
     int64 client_keep_alive = 10 [(dlg).log = "visible"]; /// ClientKeepAlive
     repeated SupportedServerMethodsType supported_methods = 11 [(dlg).log = "visible"]; /// Доступные серверные методы
     int32 max_channel_size = 12 [(dlg).log="visible"]; /// Максимальный размер канала

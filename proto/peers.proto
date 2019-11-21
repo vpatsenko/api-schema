@@ -15,10 +15,10 @@ option (scalapb.options) = {
 
 enum PeerType {
     PEERTYPE_UNKNOWN = 0; /// Неизвестный
-    PEERTYPE_PRIVATE = 1; /// Приватный
-    PEERTYPE_GROUP = 2; /// Групповой
-    PEERTYPE_ENCRYPTEDPRIVATE = 3; /// Зашифрованный приватный
-    PEERTYPE_SIP = 4; /// SIP
+    PEERTYPE_PRIVATE = 1; /// Приватный (Deprecated)
+    PEERTYPE_GROUP = 2; /// Групповой (Deprecated)
+    PEERTYPE_ENCRYPTEDPRIVATE = 3; /// Зашифрованный приватный (Deprecated)
+    PEERTYPE_SIP = 4; /// SIP (Deprecated)
 }
 
 // Peer

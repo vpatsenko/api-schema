@@ -24,7 +24,7 @@ option (scalapb.options) = {
 };
 
 enum Sex {
-    SEX_UNKNOWN = 0;
+    SEX_UNKNOWN = 0; /// Пол не указан
     SEX_MALE = 2; /// Мужской пол
     SEX_FEMALE = 3; /// Женский пол
 }
@@ -80,8 +80,8 @@ message UserData {
     string name = 1 [(dlg).log="hidden"]; /// Имя пользователя
     google.protobuf.StringValue nick = 2 [(dlg).log="visible"]; /// Юзернейм пользователя
     Sex sex = 3 [(dlg).log="hidden"]; /// Пол пользователя
-    Avatar avatar = 4 [(dlg).log="compact"]; /// Объект типа Avatar с информацией о пользователе
-    google.protobuf.BoolValue is_bot = 5 [(dlg).log="visible"]; /// Флаг о том, является ли пользователь ботов
+    Avatar avatar = 4 [(dlg).log="compact"]; /// Объект типа Avatar с информацией о аватаре пользователя
+    google.protobuf.BoolValue is_bot = 5 [(dlg).log="visible"]; /// Флаг о том, является ли пользователь ботом
     enum Lifecycle {
         MISSED = 0; /// Пользователь не найден
         ACTIVE = 1; /// Пользователь активен
@@ -91,15 +91,15 @@ message UserData {
     }
     Lifecycle status = 6 [(dlg).log="visible"]; /// Статус пользователя
     UserStatus user_status = 7 [(dlg).log="visible"]; /// Объект типа UserStatus с информацией о кастомном статусе пользователя
-    string time_zone = 8 [(dlg).log="visible"]; /// Таймзона пользователя
-    repeated Ext exts = 9 [(dlg).log="hidden"]; /// Объект типа Ext
+    string time_zone = 8 [(dlg).log="visible"]; /// Таймзона пользователя в формате ISO 8601
+    repeated Ext exts = 9 [(dlg).log="hidden"]; /// Объект типа Ext с произвольной информацией из Extensions, не рекомендуется к использованию
     DataClock obsoleteClock = 10 [(dlg).log="visible"]; /// Deprecated
     repeated string locales = 11; /// Набор предпочитаемых языков пользователя
     google.protobuf.StringValue about = 12 [(dlg).log="compact"]; /// Описание профиля пользователя
     repeated ContactRecord contact_info = 13 [(dlg).log="compact"]; /// Контакты пользователя
     repeated BotCommand bot_commands = 14 [(dlg).log="visible"]; /// Доступные команды (для ботов)
-    google.protobuf.StringValue custom_profile = 15; /// Кастомная схема профиля пользователя
-    int64 clock = 16; /// Время пользователя
+    google.protobuf.StringValue custom_profile = 15; /// Кастомный профиль пользователя в json
+    int64 clock = 16; /// Время последнего изменения сущности пользователя
 }
 message User {
     int32 id = 1 [(dlg).log = "visible"]; /// Уникальный идентификатор пользователя
