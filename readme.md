@@ -346,6 +346,7 @@
     - [ServiceEx](#dialog.ServiceEx)
     - [ServiceExChangedAbout](#dialog.ServiceExChangedAbout)
     - [ServiceExChangedAvatar](#dialog.ServiceExChangedAvatar)
+    - [ServiceExChangedShortname](#dialog.ServiceExChangedShortname)
     - [ServiceExChangedTitle](#dialog.ServiceExChangedTitle)
     - [ServiceExChangedTopic](#dialog.ServiceExChangedTopic)
     - [ServiceExChatArchived](#dialog.ServiceExChatArchived)
@@ -5418,6 +5419,7 @@ Predicate for searching in custom profile
 | userKicked | [ServiceExUserKicked](#dialog.ServiceExUserKicked) |  |  |
 | userLeft | [ServiceExUserLeft](#dialog.ServiceExUserLeft) |  |  |
 | groupCreated | [ServiceExGroupCreated](#dialog.ServiceExGroupCreated) |  |  |
+| changedShortname | [ServiceExChangedShortname](#dialog.ServiceExChangedShortname) |  |  |
 | changedTitle | [ServiceExChangedTitle](#dialog.ServiceExChangedTitle) |  |  |
 | changedTopic | [ServiceExChangedTopic](#dialog.ServiceExChangedTopic) |  |  |
 | changedAbout | [ServiceExChangedAbout](#dialog.ServiceExChangedAbout) |  |  |
@@ -5458,6 +5460,21 @@ Service message about avatar change
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | avatar | [Avatar](#dialog.Avatar) |  | Updated avatar |
+
+
+
+
+
+
+<a name="dialog.ServiceExChangedShortname"></a>
+
+### ServiceExChangedShortname
+Service message about group shortname change
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| shortname | [string](#string) |  | New group shortname |
 
 
 
@@ -9732,6 +9749,7 @@ Descriptor of a Sticker
 | image_128 | [ImageLocation](#dialog.ImageLocation) |  | Image of sticker 128x128 in WebP format |
 | image_512 | [ImageLocation](#dialog.ImageLocation) |  | Image of sticker 512x512 in WebP format |
 | image_256 | [ImageLocation](#dialog.ImageLocation) |  | Image of sticker 256x256 in WebP format |
+| animatedStickerJson | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Animated sticker json payload |
 
 
 

@@ -1407,6 +1407,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.ServiceExChangedShortname"><span class="badge">M</span>ServiceExChangedShortname</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.ServiceExChangedTitle"><span class="badge">M</span>ServiceExChangedTitle</a>
                 </li>
               
@@ -13010,6 +13014,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 </tr>
               
                 <tr>
+                  <td>changedShortname</td>
+                  <td><a href="#dialog.ServiceExChangedShortname">ServiceExChangedShortname</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
                   <td>changedTitle</td>
                   <td><a href="#dialog.ServiceExChangedTitle">ServiceExChangedTitle</a></td>
                   <td></td>
@@ -13123,6 +13134,29 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#dialog.Avatar">Avatar</a></td>
                   <td></td>
                   <td><p>Updated avatar </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ServiceExChangedShortname">ServiceExChangedShortname</h3>
+        <p>Service message about group shortname change</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>shortname</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>New group shortname </p></td>
                 </tr>
               
             </tbody>
@@ -22307,6 +22341,13 @@ For loading members of big groups by chunks. </p></td>
                   <td><a href="#dialog.ImageLocation">ImageLocation</a></td>
                   <td></td>
                   <td><p>Image of sticker 256x256 in WebP format </p></td>
+                </tr>
+              
+                <tr>
+                  <td>animatedStickerJson</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>Animated sticker json payload </p></td>
                 </tr>
               
             </tbody>
