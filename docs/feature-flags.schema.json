@@ -1,9 +1,9 @@
 {
   "type": "object",
   "properties": {
-    "isDiscoverActive": {
+    "discover.isEnabled": {
       "type": "boolean",
-      "title": "Activates discover tab",
+      "title": "Activates discover",
       "default": true,
       "description": "if true = discover tab is enable for users"
     },
@@ -12,11 +12,11 @@
       "title": "Discover web-view URL",
       "default": null
     },
-    "tabs.isContactsActive": {
+    "contacts.isEnabled": {
       "type": "boolean",
-      "title": "Contacts tab",
+      "title": "Enable contacts",
       "default": true,
-      "description": "if true = contacts tab is enable for users"
+      "description": "if true = contacts will be available for users"
     },
     "isHidingContentInTaskManagerEnabled": {
       "type": "boolean",
@@ -80,6 +80,11 @@
       "title": "User can edit his profile or not",
       "default": true
     },
+    "groups.publicUrlPrefix": {
+      "type": "string",
+      "title": "Prefix for generate public's url",
+      "default": null
+    },
     "groups.titleMinLength": {
       "type": "integer",
       "title": "Minimum length of group's title",
@@ -136,6 +141,12 @@
       "title": "Activates bubbles in chat",
       "default": true,
       "description": "if true = bubbles in chat are enable for users"
+    },
+    "chat.documentPhotoEnabled": {
+      "type": "boolean",
+      "title": "Activates document photo extension support",
+      "default": true,
+      "description": "Show photo content instead of the document if possible"
     },
     "chat.stickersEnabled": {
       "type": "boolean",
@@ -266,33 +277,33 @@
       "title": "Enabling markdown in user profile",
       "default": false
     },
-    "calls.isEnabled": {
+    "calls.isAudioCallsEnabled": {
       "type": "boolean",
-      "title": "Activates Calls",
-      "default": false,
-      "description": "if true = calls are enable for users"
+      "title": "Enable audio calls",
+      "description": "if true = audio calls are enable for users",
+      "default": false
     },
-    "calls.video.isEnabled": {
+    "calls.isVideoCallsEnabled": {
       "type": "boolean",
-      "title": "Activates Video Calls",
-      "default": false,
-      "description": "if true = video calls are enable for users"
+      "title": "Enable video calls",
+      "description": "if true = video calls are enable for users",
+      "default": false
     },
-    "calls.isExtPhoneCallEnabled": {
+    "calls.isExternalCallsEnabled": {
       "type": "boolean",
-      "title": "Activates external phone calls",
-      "default": false,
-      "description": "Enables external phone calls feature"
+      "title": "Enable external phone calls",
+      "description": "if true = external phone calls are enable for users",
+      "default": false
     },
     "global.confidentialPolicy.URL": {
       "type": "string",
       "title": "URL of confidential policy webpage",
-      "default": null,
+      "default": null
     },
     "global.confidentialPolicy.version": {
       "type": "string",
       "title": "Version of confidential policy",
-      "default": null,
+      "default": null
     }
   }
 }
