@@ -39,7 +39,7 @@ message AvatarImage {
     FileLocation file_location = 1 [(dlg).log="visible"]; /// Расположение файла
     int32 width = 2 [(dlg).log="visible"]; /// Ширина аватара в пикселях
     int32 height = 3 [(dlg).log="visible"]; /// Высота аватара в пикселях
-    int32 file_size = 4 [(dlg).log="visible"]; /// Размер файла в пикселях
+    int32 file_size = 4 [(dlg).log="visible"]; /// Размер файла в байтах
 }
 
 // Avatar of User or Group
