@@ -536,6 +536,20 @@
     - [RawAPI](#dialog.RawAPI)
   
 
+- [reactions.proto](#reactions.proto)
+    - [GetReactionsRequest](#dialog.reactions.GetReactionsRequest)
+    - [GetReactionsRequest.GetReactionsPeer](#dialog.reactions.GetReactionsRequest.GetReactionsPeer)
+    - [GetReactionsResponse](#dialog.reactions.GetReactionsResponse)
+    - [MessageReaction](#dialog.reactions.MessageReaction)
+    - [MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate)
+    - [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction)
+    - [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction)
+  
+  
+  
+    - [Reactions](#dialog.reactions.Reactions)
+  
+
 - [registration.proto](#registration.proto)
     - [RegisterDeprecatedDeviceRequest](#dialog.RegisterDeprecatedDeviceRequest)
     - [RequestExchangeAuthIdForToken](#dialog.RequestExchangeAuthIdForToken)
@@ -5672,6 +5686,7 @@ Sticker message
 | sticker_collection_id | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | Optional Collection ID |
 | sticker_collection_access_hash | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | Optional Collection Access Hash |
 | emoji | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Sticker emoji |
+| animatedStickerJson | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Animated sticker json payload |
 
 
 
@@ -7824,6 +7839,151 @@ The structure of encrypted push content
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | RawRequest | [RequestRawRequest](#dialog.RequestRawRequest) | [ResponseRawRequest](#dialog.ResponseRawRequest) |  |
+
+ 
+
+
+
+<a name="reactions.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## reactions.proto
+
+
+
+<a name="dialog.reactions.GetReactionsRequest"></a>
+
+### GetReactionsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peers | [GetReactionsRequest.GetReactionsPeer](#dialog.reactions.GetReactionsRequest.GetReactionsPeer) | repeated | limited by &#39;reactions.maxPeersPerRequest&#39; feature-flag value |
+
+
+
+
+
+
+<a name="dialog.reactions.GetReactionsRequest.GetReactionsPeer"></a>
+
+### GetReactionsRequest.GetReactionsPeer
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from_clock | [int64](#int64) |  |  |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.GetReactionsResponse"></a>
+
+### GetReactionsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| reactions | [MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) | repeated |  |
+| next_available | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.MessageReaction"></a>
+
+### MessageReaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [string](#string) |  |  |
+| users | [int32](#int32) | repeated |  |
+| users_amount | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.MessageReactionsUpdate"></a>
+
+### MessageReactionsUpdate
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| reactions | [MessageReaction](#dialog.reactions.MessageReaction) | repeated |  |
+| peer_clock | [int64](#int64) |  |  |
+| prev_peer_clock | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.RequestRemoveMessageReaction"></a>
+
+### RequestRemoveMessageReaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| code | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.RequestSetMessageReaction"></a>
+
+### RequestSetMessageReaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| code | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+
+<a name="dialog.reactions.Reactions"></a>
+
+### Reactions
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetReactions | [GetReactionsRequest](#dialog.reactions.GetReactionsRequest) | [GetReactionsResponse](#dialog.reactions.GetReactionsResponse) |  |
+| MessageSetReaction | [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction) | [MessageReaction](#dialog.reactions.MessageReaction) |  |
+| MessageRemoveReaction | [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction) | [MessageReaction](#dialog.reactions.MessageReaction) |  |
 
  
 

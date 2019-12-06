@@ -2045,6 +2045,49 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
           
           <li>
+            <a href="#reactions.proto">reactions.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#dialog.reactions.Reactions"><span class="badge">S</span>Reactions</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.reactions.GetReactionsRequest"><span class="badge">M</span>GetReactionsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.GetReactionsRequest.GetReactionsPeer"><span class="badge">M</span>GetReactionsRequest.GetReactionsPeer</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.GetReactionsResponse"><span class="badge">M</span>GetReactionsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.MessageReaction"><span class="badge">M</span>MessageReaction</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.MessageReactionsUpdate"><span class="badge">M</span>MessageReactionsUpdate</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.RequestRemoveMessageReaction"><span class="badge">M</span>RequestRemoveMessageReaction</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.RequestSetMessageReaction"><span class="badge">M</span>RequestSetMessageReaction</a>
+                </li>
+              
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#registration.proto">registration.proto</a>
             <ul>
               
@@ -13441,6 +13484,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><p>Sticker emoji </p></td>
                 </tr>
               
+                <tr>
+                  <td>animatedStickerJson</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>Animated sticker json payload </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -17849,6 +17899,298 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>body</td>
                   <td><a href="#google.protobuf.BytesValue">google.protobuf.BytesValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+
+  
+    
+      
+      <div class="file-heading">
+        <h2 id="reactions.proto">reactions.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+    
+
+      
+        <h3 id="dialog.reactions.Reactions">Reactions</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetReactions</td>
+                <td><a href="#dialog.reactions.GetReactionsRequest">GetReactionsRequest</a></td>
+                <td><a href="#dialog.reactions.GetReactionsResponse">GetReactionsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>MessageSetReaction</td>
+                <td><a href="#dialog.reactions.RequestSetMessageReaction">RequestSetMessageReaction</a></td>
+                <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>MessageRemoveReaction</td>
+                <td><a href="#dialog.reactions.RequestRemoveMessageReaction">RequestRemoveMessageReaction</a></td>
+                <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+        <h3 id="dialog.reactions.GetReactionsRequest">GetReactionsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peers</td>
+                  <td><a href="#dialog.reactions.GetReactionsRequest.GetReactionsPeer">GetReactionsRequest.GetReactionsPeer</a></td>
+                  <td>repeated</td>
+                  <td><p>limited by 'reactions.maxPeersPerRequest' feature-flag value </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.GetReactionsRequest.GetReactionsPeer">GetReactionsRequest.GetReactionsPeer</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>from_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.GetReactionsResponse">GetReactionsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>reactions</td>
+                  <td><a href="#dialog.reactions.MessageReactionsUpdate">MessageReactionsUpdate</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_available</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.MessageReaction">MessageReaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>users</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>users_amount</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.MessageReactionsUpdate">MessageReactionsUpdate</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reactions</td>
+                  <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>peer_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>prev_peer_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.RequestRemoveMessageReaction">RequestRemoveMessageReaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.RequestSetMessageReaction">RequestSetMessageReaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
