@@ -9173,6 +9173,7 @@ Sequence update
 | updateThreadLifted | [UpdateThreadLifted](#dialog.UpdateThreadLifted) |  |  |
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
 | updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
+| messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
 
 
 
