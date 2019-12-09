@@ -136,7 +136,8 @@ message UpdateSeqUpdate {
       UpdateThreadLifted updateThreadLifted = 97;
       UpdateGroup updateGroup = 98;
       UpdateGroupMemberInvited updateGroupMemberInvited = 99;
-      reactions.MessageReactionsUpdate messageReactionsUpdate = 100;
+      reactions.MessageReactionsUpdate updateMessageReactions = 100;
+      UpdateGroupBasePermissionsChanged updateGroupBasePermissionsChanged = 101;
     }
 }
 
