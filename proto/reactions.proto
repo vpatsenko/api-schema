@@ -15,6 +15,7 @@ message MessageReaction {
     string code = 1;
     repeated int32 users = 2;
     int32 users_amount = 3;
+    int64 clock = 4;
 }
 
 message MessageReactionsUpdate {
@@ -26,17 +27,15 @@ message MessageReactionsUpdate {
 }
 
 message GetReactionsRequest {
-    message GetReactionsPeer {
-        int64 from_clock = 1;
-        Peer peer = 2;
-    }
-
-    repeated GetReactionsPeer peers = 1; // limited by 'reactions.maxPeersPerRequest' feature-flag value
+    int64 from_clock = 1;
+    Peer peer = 2;
 }
 
 message GetReactionsResponse {
-    repeated MessageReactionsUpdate reactions = 1;
-    bool next_available = 2;
+    /// batch of reactions, last could be not equal last known on the moment of response
+    repeated MessageReaction reactions = 1;
+    /// clock of the last reaction on the moment of response
+    int64 clock = 2;
 }
 
 message RequestSetMessageReaction {
