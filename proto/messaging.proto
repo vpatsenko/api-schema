@@ -503,6 +503,11 @@ message RequestUpdateMessage {
     int64 last_edited_at = 4 [(dlg).log="visible"];
 }
 
+message ResponseUpdateMessage {
+    option (scalapb.message).extends = "im.dlg.grpc.GrpcResponse";
+    HistoryMessage actual_message = 1 [(dlg).log="visible"];
+}
+
 // Confirmation of plain message receive by device
 message RequestMessageReceived {
     option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
@@ -1066,7 +1071,7 @@ service Messaging {
             body: "*"
         };
     }
-    rpc UpdateMessage (RequestUpdateMessage) returns (ResponseSeqDate) {
+    rpc UpdateMessage (RequestUpdateMessage) returns (ResponseUpdateMessage) {
         option (google.api.http) = {
             post: "/v1/grpc/Messaging/UpdateMessage"
             body: "*"
