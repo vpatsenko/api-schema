@@ -320,7 +320,7 @@ enum GroupAdminPermission {
     GROUPADMINPERMISSION_VIEWMEMBERS = 11;
     GROUPADMINPERMISSION_LEAVE = 12; // deprecated
     GROUPADMINPERMISSION_TARGETING = 13;
-    GROUPADMINPERMISSION_CAN_NOT_LEAVE = 13; /// read only permission
+    GROUPADMINPERMISSION_CAN_NOT_LEAVE = 14; /// read only permission
 }
 
 // Make user admin
