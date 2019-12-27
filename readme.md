@@ -538,10 +538,10 @@
 
 - [reactions.proto](#reactions.proto)
     - [GetReactionsRequest](#dialog.reactions.GetReactionsRequest)
-    - [GetReactionsRequest.GetReactionsPeer](#dialog.reactions.GetReactionsRequest.GetReactionsPeer)
     - [GetReactionsResponse](#dialog.reactions.GetReactionsResponse)
-    - [MessageReaction](#dialog.reactions.MessageReaction)
+    - [MessageReactions](#dialog.reactions.MessageReactions)
     - [MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate)
+    - [Reaction](#dialog.reactions.Reaction)
     - [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction)
     - [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction)
   
@@ -7859,21 +7859,6 @@ The structure of encrypted push content
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peers | [GetReactionsRequest.GetReactionsPeer](#dialog.reactions.GetReactionsRequest.GetReactionsPeer) | repeated | limited by &#39;reactions.maxPeersPerRequest&#39; feature-flag value |
-
-
-
-
-
-
-<a name="dialog.reactions.GetReactionsRequest.GetReactionsPeer"></a>
-
-### GetReactionsRequest.GetReactionsPeer
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
 | from_clock | [int64](#int64) |  |  |
 | peer | [dialog.Peer](#dialog.Peer) |  |  |
 
@@ -7890,7 +7875,8 @@ The structure of encrypted push content
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| reactions | [MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) | repeated |  |
+| messageReactions | [MessageReactions](#dialog.reactions.MessageReactions) | repeated |  |
+| peer_clock | [int64](#int64) |  |  |
 | next_available | [bool](#bool) |  |  |
 
 
@@ -7898,17 +7884,16 @@ The structure of encrypted push content
 
 
 
-<a name="dialog.reactions.MessageReaction"></a>
+<a name="dialog.reactions.MessageReactions"></a>
 
-### MessageReaction
+### MessageReactions
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [string](#string) |  |  |
-| users | [int32](#int32) | repeated |  |
-| users_amount | [int32](#int32) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| reactions | [Reaction](#dialog.reactions.Reaction) | repeated |  |
 
 
 
@@ -7924,10 +7909,26 @@ The structure of encrypted push content
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | peer | [dialog.Peer](#dialog.Peer) |  |  |
-| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
-| reactions | [MessageReaction](#dialog.reactions.MessageReaction) | repeated |  |
+| messageReaction | [MessageReactions](#dialog.reactions.MessageReactions) |  |  |
 | peer_clock | [int64](#int64) |  |  |
 | prev_peer_clock | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.reactions.Reaction"></a>
+
+### Reaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [string](#string) |  |  |
+| users | [int32](#int32) | repeated |  |
+| users_amount | [int32](#int32) |  |  |
 
 
 
@@ -7982,8 +7983,8 @@ The structure of encrypted push content
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
 | GetReactions | [GetReactionsRequest](#dialog.reactions.GetReactionsRequest) | [GetReactionsResponse](#dialog.reactions.GetReactionsResponse) |  |
-| MessageSetReaction | [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction) | [MessageReaction](#dialog.reactions.MessageReaction) |  |
-| MessageRemoveReaction | [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction) | [MessageReaction](#dialog.reactions.MessageReaction) |  |
+| MessageSetReaction | [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| MessageRemoveReaction | [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
 
  
 

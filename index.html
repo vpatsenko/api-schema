@@ -2058,19 +2058,19 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
-                  <a href="#dialog.reactions.GetReactionsRequest.GetReactionsPeer"><span class="badge">M</span>GetReactionsRequest.GetReactionsPeer</a>
-                </li>
-              
-                <li>
                   <a href="#dialog.reactions.GetReactionsResponse"><span class="badge">M</span>GetReactionsResponse</a>
                 </li>
               
                 <li>
-                  <a href="#dialog.reactions.MessageReaction"><span class="badge">M</span>MessageReaction</a>
+                  <a href="#dialog.reactions.MessageReactions"><span class="badge">M</span>MessageReactions</a>
                 </li>
               
                 <li>
                   <a href="#dialog.reactions.MessageReactionsUpdate"><span class="badge">M</span>MessageReactionsUpdate</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.reactions.Reaction"><span class="badge">M</span>Reaction</a>
                 </li>
               
                 <li>
@@ -17940,14 +17940,14 @@ Can be empty if messageId is present and message is in current peer. </p></td>
               <tr>
                 <td>MessageSetReaction</td>
                 <td><a href="#dialog.reactions.RequestSetMessageReaction">RequestSetMessageReaction</a></td>
-                <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
               </tr>
             
               <tr>
                 <td>MessageRemoveReaction</td>
                 <td><a href="#dialog.reactions.RequestRemoveMessageReaction">RequestRemoveMessageReaction</a></td>
-                <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
                 <td><p></p></td>
               </tr>
             
@@ -17957,29 +17957,6 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
       
         <h3 id="dialog.reactions.GetReactionsRequest">GetReactionsRequest</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>peers</td>
-                  <td><a href="#dialog.reactions.GetReactionsRequest.GetReactionsPeer">GetReactionsRequest.GetReactionsPeer</a></td>
-                  <td>repeated</td>
-                  <td><p>limited by 'reactions.maxPeersPerRequest' feature-flag value </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-        
-
-        
-      
-        <h3 id="dialog.reactions.GetReactionsRequest.GetReactionsPeer">GetReactionsRequest.GetReactionsPeer</h3>
         <p></p>
 
         
@@ -18020,9 +17997,16 @@ Can be empty if messageId is present and message is in current peer. </p></td>
             <tbody>
               
                 <tr>
-                  <td>reactions</td>
-                  <td><a href="#dialog.reactions.MessageReactionsUpdate">MessageReactionsUpdate</a></td>
+                  <td>messageReactions</td>
+                  <td><a href="#dialog.reactions.MessageReactions">MessageReactions</a></td>
                   <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>peer_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -18039,7 +18023,7 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
-        <h3 id="dialog.reactions.MessageReaction">MessageReaction</h3>
+        <h3 id="dialog.reactions.MessageReactions">MessageReactions</h3>
         <p></p>
 
         
@@ -18050,23 +18034,16 @@ Can be empty if messageId is present and message is in current peer. </p></td>
             <tbody>
               
                 <tr>
-                  <td>code</td>
-                  <td><a href="#string">string</a></td>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
               
                 <tr>
-                  <td>users</td>
-                  <td><a href="#int32">int32</a></td>
+                  <td>reactions</td>
+                  <td><a href="#dialog.reactions.Reaction">Reaction</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>users_amount</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -18094,16 +18071,9 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 </tr>
               
                 <tr>
-                  <td>mid</td>
-                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td>messageReaction</td>
+                  <td><a href="#dialog.reactions.MessageReactions">MessageReactions</a></td>
                   <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>reactions</td>
-                  <td><a href="#dialog.reactions.MessageReaction">MessageReaction</a></td>
-                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -18117,6 +18087,43 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>prev_peer_clock</td>
                   <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.reactions.Reaction">Reaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>users</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>users_amount</td>
+                  <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
