@@ -768,6 +768,7 @@
   
     - [ContactType](#dialog.ContactType)
     - [Sex](#dialog.Sex)
+    - [UserData.Hint](#dialog.UserData.Hint)
     - [UserData.Lifecycle](#dialog.UserData.Lifecycle)
     - [UserStatusType](#dialog.UserStatusType)
   
@@ -10908,7 +10909,7 @@ Main user object
 | contact_info | [ContactRecord](#dialog.ContactRecord) | repeated |  |
 | bot_commands | [BotCommand](#dialog.BotCommand) | repeated |  |
 | custom_profile | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-| is_guest | [bool](#bool) |  | This parameter intended just to show in UI (client shouldn&#39;t base any logic on that) |
+| hint | [UserData.Hint](#dialog.UserData.Hint) |  | This parameter intended just to show in UI (client shouldn&#39;t base any logic on that) |
 | clock | [int64](#int64) |  |  |
 
 
@@ -11019,6 +11020,18 @@ User&#39;s status
 | SEX_UNKNOWN | 0 |  |
 | SEX_MALE | 2 |  |
 | SEX_FEMALE | 3 |  |
+
+
+
+<a name="dialog.UserData.Hint"></a>
+
+### UserData.Hint
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| user_hint_regular | 0 |  |
+| user_hint_guest | 1 |  |
 
 
 
