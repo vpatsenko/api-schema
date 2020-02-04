@@ -1846,6 +1846,37 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
           
           <li>
+            <a href="#permissions.proto">permissions.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#dialog.Permissions"><span class="badge">S</span>Permissions</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.RequestGetPermissions"><span class="badge">M</span>RequestGetPermissions</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseGetPermissions"><span class="badge">M</span>ResponseGetPermissions</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.UpdatePermissionsChange"><span class="badge">M</span>UpdatePermissionsChange</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.Permission"><span class="badge">E</span>Permission</a>
+                </li>
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#privacy.proto">privacy.proto</a>
             <ul>
               
@@ -16776,6 +16807,158 @@ Can be empty if messageId is present and message is in current peer. </p></td>
     
       
       <div class="file-heading">
+        <h2 id="permissions.proto">permissions.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+    
+
+      
+        <h3 id="dialog.Permissions">Permissions</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>GetPermissions</td>
+                <td><a href="#dialog.RequestGetPermissions">RequestGetPermissions</a></td>
+                <td><a href="#dialog.ResponseGetPermissions">ResponseGetPermissions</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+        <h3 id="dialog.RequestGetPermissions">RequestGetPermissions</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseGetPermissions">ResponseGetPermissions</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>permissions</td>
+                  <td><a href="#dialog.Permission">Permission</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>all_known_permissions</td>
+                  <td><a href="#dialog.Permission">Permission</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.UpdatePermissionsChange">UpdatePermissionsChange</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>permissions</td>
+                  <td><a href="#dialog.Permission">Permission</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="dialog.Permission">Permission</h3>
+        <p>Permissions definition</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>PERMISSION_UNKNOWN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PERMISSION_SEARCH</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>PERMISSION_CREATE_GROUPS</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+  
+    
+      
+      <div class="file-heading">
         <h2 id="privacy.proto">privacy.proto</h2><a href="#title">Top</a>
       </div>
       <p></p>
@@ -21177,6 +21360,13 @@ For loading members of big groups by chunks. </p></td>
                 <tr>
                   <td>messageReactionsUpdate</td>
                   <td><a href="#dialog.reactions.MessageReactionsUpdate">reactions.MessageReactionsUpdate</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updatePermissionsChange</td>
+                  <td><a href="#dialog.UpdatePermissionsChange">UpdatePermissionsChange</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

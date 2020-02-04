@@ -470,6 +470,17 @@
   
   
 
+- [permissions.proto](#permissions.proto)
+    - [RequestGetPermissions](#dialog.RequestGetPermissions)
+    - [ResponseGetPermissions](#dialog.ResponseGetPermissions)
+    - [UpdatePermissionsChange](#dialog.UpdatePermissionsChange)
+  
+    - [Permission](#dialog.Permission)
+  
+  
+    - [Permissions](#dialog.Permissions)
+  
+
 - [privacy.proto](#privacy.proto)
     - [RequestBlockUser](#dialog.RequestBlockUser)
     - [RequestLoadBlockedUsers](#dialog.RequestLoadBlockedUsers)
@@ -7216,6 +7227,93 @@ User&#39;s out peer
 
 
 
+<a name="permissions.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## permissions.proto
+
+
+
+<a name="dialog.RequestGetPermissions"></a>
+
+### RequestGetPermissions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| clock | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseGetPermissions"></a>
+
+### ResponseGetPermissions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| permissions | [Permission](#dialog.Permission) | repeated |  |
+| all_known_permissions | [Permission](#dialog.Permission) | repeated |  |
+| clock | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdatePermissionsChange"></a>
+
+### UpdatePermissionsChange
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| permissions | [Permission](#dialog.Permission) | repeated |  |
+| clock | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="dialog.Permission"></a>
+
+### Permission
+Permissions definition
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| PERMISSION_UNKNOWN | 0 |  |
+| PERMISSION_SEARCH | 1 |  |
+| PERMISSION_CREATE_GROUPS | 2 |  |
+
+
+ 
+
+ 
+
+
+<a name="dialog.Permissions"></a>
+
+### Permissions
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetPermissions | [RequestGetPermissions](#dialog.RequestGetPermissions) | [ResponseGetPermissions](#dialog.ResponseGetPermissions) |  |
+
+ 
+
+
+
 <a name="privacy.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -9177,6 +9275,7 @@ Sequence update
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
 | updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 | messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
+| updatePermissionsChange | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
 
 
 
