@@ -245,6 +245,7 @@
     - [FastThumb](#dialog.FastThumb)
     - [FileLocation](#dialog.FileLocation)
     - [FileUrlDescription](#dialog.FileUrlDescription)
+    - [FileUrlError](#dialog.FileUrlError)
     - [HTTPHeader](#dialog.HTTPHeader)
     - [ImageLocation](#dialog.ImageLocation)
     - [PredefinedColor](#dialog.PredefinedColor)
@@ -263,6 +264,7 @@
     - [RgbColor](#dialog.RgbColor)
   
     - [Colors](#dialog.Colors)
+    - [FileUrlError.ErrorTag](#dialog.FileUrlError.ErrorTag)
   
   
     - [MediaAndFiles](#dialog.MediaAndFiles)
@@ -3849,6 +3851,24 @@ File url description
 
 
 
+<a name="dialog.FileUrlError"></a>
+
+### FileUrlError
+Error, that describes failure of specific file
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| file_id | [int64](#int64) |  | the id of file |
+| tag | [FileUrlError.ErrorTag](#dialog.FileUrlError.ErrorTag) |  | error to handle on client |
+| reason | [string](#string) |  | text fallback |
+| retryable | [bool](#bool) |  | client should retry or not |
+
+
+
+
+
+
 <a name="dialog.HTTPHeader"></a>
 
 ### HTTPHeader
@@ -4083,6 +4103,7 @@ Requesting multiple fle URL for downloading
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | file_urls | [FileUrlDescription](#dialog.FileUrlDescription) | repeated |  |
+| errors | [FileUrlError](#dialog.FileUrlError) | repeated |  |
 
 
 
@@ -4117,6 +4138,19 @@ RGB Color
 | COLORS_RED | 1 |  |
 | COLORS_YELLOW | 2 |  |
 | COLORS_GREEN | 3 |  |
+
+
+
+<a name="dialog.FileUrlError.ErrorTag"></a>
+
+### FileUrlError.ErrorTag
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| FILEURLERROR_UNKNOWN | 0 |  |
+| FILEURLERROR_STORAGE_ERROR | 1 |  |
+| FILEURLERROR_STORAGE_FORBIDDEN_ERROR | 2 |  |
 
 
  

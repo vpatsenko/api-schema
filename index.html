@@ -1016,6 +1016,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.FileUrlError"><span class="badge">M</span>FileUrlError</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.HTTPHeader"><span class="badge">M</span>HTTPHeader</a>
                 </li>
               
@@ -1082,6 +1086,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.Colors"><span class="badge">E</span>Colors</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.FileUrlError.ErrorTag"><span class="badge">E</span>FileUrlError.ErrorTag</a>
                 </li>
               
               
@@ -9593,6 +9601,50 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
 
         
       
+        <h3 id="dialog.FileUrlError">FileUrlError</h3>
+        <p>Error, that describes failure of specific file</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>file_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>the id of file </p></td>
+                </tr>
+              
+                <tr>
+                  <td>tag</td>
+                  <td><a href="#dialog.FileUrlError.ErrorTag">FileUrlError.ErrorTag</a></td>
+                  <td></td>
+                  <td><p>error to handle on client </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reason</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>text fallback </p></td>
+                </tr>
+              
+                <tr>
+                  <td>retryable</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>client should retry or not </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.HTTPHeader">HTTPHeader</h3>
         <p>HTTP Header record</p>
 
@@ -10037,6 +10089,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>errors</td>
+                  <td><a href="#dialog.FileUrlError">FileUrlError</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -10097,6 +10156,35 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               <tr>
                 <td>COLORS_GREEN</td>
                 <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="dialog.FileUrlError.ErrorTag">FileUrlError.ErrorTag</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>FILEURLERROR_UNKNOWN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FILEURLERROR_STORAGE_ERROR</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FILEURLERROR_STORAGE_FORBIDDEN_ERROR</td>
+                <td>2</td>
                 <td><p></p></td>
               </tr>
             
