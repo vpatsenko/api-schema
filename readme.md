@@ -7274,11 +7274,6 @@ User&#39;s out peer
 
 
 
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| clock | [int64](#int64) |  |  |
-
-
 
 
 
