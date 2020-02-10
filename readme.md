@@ -8258,6 +8258,7 @@ Message container
 | date | [int64](#int64) |  |  |
 | sender_id | [int32](#int32) |  |  |
 | content | [MessageContent](#dialog.MessageContent) |  |  |
+| mid | [UUIDValue](#dialog.UUIDValue) |  |  |
 
 
 
