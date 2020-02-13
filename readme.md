@@ -5408,6 +5408,8 @@ deprecated
 | group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 | counter | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | counter of unread messages |
 | counter_date | [int64](#int64) |  | date, related to this unread counter |
+| last_conversation_message_date | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | last conversation message date |
+| count_foreign_after_last_returned | [int32](#int32) |  | counter of the messages between last conversation message (including it) and last returned in this response |
 
 
 
