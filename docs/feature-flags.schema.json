@@ -395,16 +395,21 @@
       "title": "Version of confidential policy",
       "default": null
     },
-    "targeting.enabled" : {
+    "targeting.enabled": {
       "type": "boolean",
       "title": "Enable ability of target messages",
       "default": false
     },
-    "targeting.schema" : {
+    "targeting.schema": {
       "type": "string",
       "title": "Schema of targeting form",
       "description": "JSON with description of UI schema for targeting form",
       "default": null
+    },
+    "file.is_load_from_circuits_enabled": {
+      "type": "boolean",
+      "title": "Enable ability handle errors if file is not in current network circuit",
+      "default": true
     }
   }
 }
