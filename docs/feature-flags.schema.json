@@ -406,7 +406,7 @@
       "description": "JSON with description of UI schema for targeting form",
       "default": null
     },
-    "file.is_load_from_circuits_enabled": {
+    "file.handleWrongCircuitError": {
       "type": "boolean",
       "title": "Enable ability handle errors if file is not in current network circuit",
       "default": true
