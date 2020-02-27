@@ -24,9 +24,10 @@ message PushPeer {
 }
 
 enum ChatType {
-    GROUP_TYPE = 0;
-    CHANNEL_TYPE = 1;
-    PRIVATE_TYPE = 2;
+    PUSH_CHAT_TYPE_UNKNOWN = 0;
+    PUSH_CHAT_TYPE_GROUP = 1;
+    PUSH_CHAT_TYPE_CHANNEL = 2;
+    PUSH_CHAT_TYPE_PRIVATE = 3;
 }
 
 // The structure of encrypted push content
