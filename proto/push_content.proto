@@ -24,7 +24,7 @@ message PushPeer {
     string str_id = 3;
 }
 
-enum ChatType {
+enum PeerChatType {
     PUSH_CHAT_TYPE_UNKNOWN = 0;
     PUSH_CHAT_TYPE_GROUP = 1;
     PUSH_CHAT_TYPE_CHANNEL = 2;
