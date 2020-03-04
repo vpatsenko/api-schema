@@ -285,6 +285,16 @@
       "title": "Minimum size of Chunk (in bytes) for sending to server",
       "default": 500000
     },
+    "fileUploading.image.resolution": {
+      "type": "integer",
+      "title": "Maximum image resolution",
+      "default": 1280
+    },
+    "fileUploading.image.qualityPercents": {
+      "type": "integer",
+      "title": "Image quality in percents",
+      "default": 87
+    },
     "upload.uploadEnabled": {
       "type": "boolean",
       "title": "Determines whether the user can upload the file",
@@ -400,16 +410,41 @@
       "title": "Version of confidential policy",
       "default": null
     },
-    "targeting.enabled" : {
+    "targeting.enabled": {
       "type": "boolean",
       "title": "Enable ability of target messages",
       "default": false
     },
-    "targeting.schema" : {
+    "targeting.schema": {
       "type": "string",
       "title": "Schema of targeting form",
       "description": "JSON with description of UI schema for targeting form",
       "default": null
+    },
+    "chat.media.interactiveElements.maxWidgetCount": {
+      "type": "integer",
+      "title": "Maximum count of interactive widgets in one group",
+      "default": 10
+    },
+    "chat.media.interactiveElements.maxGroupCount": {
+      "type": "integer",
+      "title": "Maximum count of interactive media groups in one message",
+      "default": 10
+    },
+    "chat.media.interactiveElements.maxWidgetCharCount": {
+      "type": "integer",
+      "title": "Maximum count of characters in one interactive widget",
+      "default": 32
+    },
+    "chat.media.interactiveElements.maxGroupTitleCharCount": {
+      "type": "integer",
+      "title": "Maximum count of characters in title of interactive media group",
+      "default": 128
+    },
+    "chat.media.interactiveElements.maxGroupDescCharCount": {
+      "type": "integer",
+      "title": "Maximum count of characters in description of interactive media group",
+      "default": 256
     }
   }
 }

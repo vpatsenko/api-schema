@@ -1283,6 +1283,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestGetUpdatedMessages"><span class="badge">M</span>RequestGetUpdatedMessages</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestHideDialog"><span class="badge">M</span>RequestHideDialog</a>
                 </li>
               
@@ -1368,6 +1372,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.ResponseGetLastConversationMessages.Pair"><span class="badge">M</span>ResponseGetLastConversationMessages.Pair</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseGetUpdatedMessages"><span class="badge">M</span>ResponseGetUpdatedMessages</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseGetUpdatedMessages.UpdatedMessage"><span class="badge">M</span>ResponseGetUpdatedMessages.UpdatedMessage</a>
                 </li>
               
                 <li>
@@ -10392,6 +10404,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>GetUpdatedMessages</td>
+                <td><a href="#dialog.RequestGetUpdatedMessages">RequestGetUpdatedMessages</a></td>
+                <td><a href="#dialog.ResponseGetUpdatedMessages">ResponseGetUpdatedMessages</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -10759,6 +10778,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <tr>
                   <td>entry_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>last_update_of_message_date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -12045,6 +12071,36 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.RequestGetUpdatedMessages">RequestGetUpdatedMessages</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.RequestHideDialog">RequestHideDialog</h3>
         <p>Hide Dialog from grouped list</p>
 
@@ -12786,6 +12842,80 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>message</td>
                   <td><a href="#dialog.HistoryMessage">HistoryMessage</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseGetUpdatedMessages">ResponseGetUpdatedMessages</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#dialog.ResponseGetUpdatedMessages.UpdatedMessage">ResponseGetUpdatedMessages.UpdatedMessage</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>peer_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_available</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseGetUpdatedMessages.UpdatedMessage">ResponseGetUpdatedMessages.UpdatedMessage</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#dialog.MessageContent">MessageContent</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>modified_at</td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -14241,6 +14371,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
               
                 <tr>
                   <td>edited_at</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>prev_edit_in_peer_at</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>

@@ -315,6 +315,7 @@
     - [RequestFavouriteDialog](#dialog.RequestFavouriteDialog)
     - [RequestFetchDialogIndex](#dialog.RequestFetchDialogIndex)
     - [RequestGetLastConversationMessages](#dialog.RequestGetLastConversationMessages)
+    - [RequestGetUpdatedMessages](#dialog.RequestGetUpdatedMessages)
     - [RequestHideDialog](#dialog.RequestHideDialog)
     - [RequestHistoryDifference](#dialog.RequestHistoryDifference)
     - [RequestLoadArchived](#dialog.RequestLoadArchived)
@@ -337,6 +338,8 @@
     - [ResponseFetchDialogIndex](#dialog.ResponseFetchDialogIndex)
     - [ResponseGetLastConversationMessages](#dialog.ResponseGetLastConversationMessages)
     - [ResponseGetLastConversationMessages.Pair](#dialog.ResponseGetLastConversationMessages.Pair)
+    - [ResponseGetUpdatedMessages](#dialog.ResponseGetUpdatedMessages)
+    - [ResponseGetUpdatedMessages.UpdatedMessage](#dialog.ResponseGetUpdatedMessages.UpdatedMessage)
     - [ResponseHistoryDifference](#dialog.ResponseHistoryDifference)
     - [ResponseLoadArchived](#dialog.ResponseLoadArchived)
     - [ResponseLoadDialogs](#dialog.ResponseLoadDialogs)
@@ -4346,6 +4349,7 @@ data data related to dialog itself
 | receive_date | [int64](#int64) |  |  |
 | read_date | [int64](#int64) |  |  |
 | entry_clock | [int64](#int64) |  |  |
+| last_update_of_message_date | [int64](#int64) |  |  |
 | data | [DialogData](#dialog.DialogData) |  |  |
 
 
@@ -4959,6 +4963,22 @@ Use it to receive messages for visible dialogs after FetchDialogsIndex
 
 
 
+<a name="dialog.RequestGetUpdatedMessages"></a>
+
+### RequestGetUpdatedMessages
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| from_clock | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestHideDialog"></a>
 
 ### RequestHideDialog
@@ -5318,6 +5338,40 @@ Dialogs order response - deprecated
 | ----- | ---- | ----- | ----------- |
 | peer | [Peer](#dialog.Peer) |  |  |
 | message | [HistoryMessage](#dialog.HistoryMessage) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseGetUpdatedMessages"></a>
+
+### ResponseGetUpdatedMessages
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| messages | [ResponseGetUpdatedMessages.UpdatedMessage](#dialog.ResponseGetUpdatedMessages.UpdatedMessage) | repeated |  |
+| peer_clock | [int64](#int64) |  |  |
+| next_available | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseGetUpdatedMessages.UpdatedMessage"></a>
+
+### ResponseGetUpdatedMessages.UpdatedMessage
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mid | [UUIDValue](#dialog.UUIDValue) |  |  |
+| message | [MessageContent](#dialog.MessageContent) |  |  |
+| modified_at | [int64](#int64) |  |  |
 
 
 
@@ -6008,6 +6062,7 @@ Update about message change
 | mid | [UUIDValue](#dialog.UUIDValue) |  | Message id |
 | message | [MessageContent](#dialog.MessageContent) |  |  |
 | edited_at | [int64](#int64) |  |  |
+| prev_edit_in_peer_at | [int64](#int64) |  |  |
 
 
 
@@ -6321,6 +6376,7 @@ Webpage media
 | NotifyDialogOpened | [RequestNotifyDialogOpened](#dialog.RequestNotifyDialogOpened) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | PinMessage | [RequestPinMessage](#dialog.RequestPinMessage) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
 | UnpinMessage | [RequestUnpinMessage](#dialog.RequestUnpinMessage) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
+| GetUpdatedMessages | [RequestGetUpdatedMessages](#dialog.RequestGetUpdatedMessages) | [ResponseGetUpdatedMessages](#dialog.ResponseGetUpdatedMessages) |  |
 
  
 
@@ -12010,21 +12066,21 @@ Update about incoming call (Sent every 10 seconds)
 
 ## Scalar Value Types
 
-| .proto Type | Notes | C++ Type | Java Type | Python Type |
-| ----------- | ----- | -------- | --------- | ----------- |
-| <a name="double" /> double |  | double | double | float |
-| <a name="float" /> float |  | float | float | float |
-| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int |
-| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long |
-| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long |
-| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long |
-| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int |
-| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long |
-| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int |
-| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long |
-| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int |
-| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long |
-| <a name="bool" /> bool |  | bool | boolean | boolean |
-| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode |
-| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str |
+| .proto Type | Notes | C++ | Java | Python | Go | C# | PHP | Ruby |
+| ----------- | ----- | --- | ---- | ------ | -- | -- | --- | ---- |
+| <a name="double" /> double |  | double | double | float | float64 | double | float | Float |
+| <a name="float" /> float |  | float | float | float | float32 | float | float | Float |
+| <a name="int32" /> int32 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="int64" /> int64 | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="uint32" /> uint32 | Uses variable-length encoding. | uint32 | int | int/long | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="uint64" /> uint64 | Uses variable-length encoding. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum or Fixnum (as required) |
+| <a name="sint32" /> sint32 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sint64" /> sint64 | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="fixed32" /> fixed32 | Always four bytes. More efficient than uint32 if values are often greater than 2^28. | uint32 | int | int | uint32 | uint | integer | Bignum or Fixnum (as required) |
+| <a name="fixed64" /> fixed64 | Always eight bytes. More efficient than uint64 if values are often greater than 2^56. | uint64 | long | int/long | uint64 | ulong | integer/string | Bignum |
+| <a name="sfixed32" /> sfixed32 | Always four bytes. | int32 | int | int | int32 | int | integer | Bignum or Fixnum (as required) |
+| <a name="sfixed64" /> sfixed64 | Always eight bytes. | int64 | long | int/long | int64 | long | integer/string | Bignum |
+| <a name="bool" /> bool |  | bool | boolean | boolean | bool | bool | boolean | TrueClass/FalseClass |
+| <a name="string" /> string | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string | String | str/unicode | string | string | string | String (UTF-8) |
+| <a name="bytes" /> bytes | May contain any arbitrary sequence of bytes. | string | ByteString | str | []byte | ByteString | string | String (ASCII-8BIT) |
 
