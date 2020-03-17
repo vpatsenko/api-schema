@@ -2354,6 +2354,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.PeersList"><span class="badge">M</span>PeersList</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestGetDialogsDifference"><span class="badge">M</span>RequestGetDialogsDifference</a>
                 </li>
               
@@ -2443,6 +2447,30 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.UpdateWeakUpdate"><span class="badge">M</span>UpdateWeakUpdate</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateBox"><span class="badge">M</span>WeakUpdateBox</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateBox.UpdateForceReloadState"><span class="badge">M</span>WeakUpdateBox.UpdateForceReloadState</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField"><span class="badge">M</span>WeakUpdateBox.UpdateForceReloadState.ForceReloadField</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateCommand"><span class="badge">M</span>WeakUpdateCommand</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateCommand.ChangeMyOnline"><span class="badge">M</span>WeakUpdateCommand.ChangeMyOnline</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.WeakUpdateCommand.ChangeMyTyping"><span class="badge">M</span>WeakUpdateCommand.ChangeMyTyping</a>
                 </li>
               
               
@@ -20231,6 +20259,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td><p>Get stream of the user's updates</p></td>
               </tr>
             
+              <tr>
+                <td>WeakUpdates</td>
+                <td><a href="#dialog.WeakUpdateCommand">WeakUpdateCommand</a></td>
+                <td><a href="#dialog.WeakUpdateBox">WeakUpdateBox</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -20256,6 +20291,29 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>member_ids</td>
                   <td><a href="#int32">int32</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.PeersList">PeersList</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peers</td>
+                  <td><a href="#dialog.Peer">Peer</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
@@ -21594,13 +21652,6 @@ For loading members of big groups by chunks. </p></td>
                   <td><p> </p></td>
                 </tr>
               
-                <tr>
-                  <td>updatePermissionsChange</td>
-                  <td><a href="#dialog.UpdatePermissionsChange">UpdatePermissionsChange</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
             </tbody>
           </table>
         
@@ -21692,6 +21743,256 @@ For loading members of big groups by chunks. </p></td>
                 <tr>
                   <td>update</td>
                   <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateBox">WeakUpdateBox</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>typing_start</td>
+                  <td><a href="#dialog.UpdateTyping">UpdateTyping</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>typing_stop</td>
+                  <td><a href="#dialog.UpdateTypingStop">UpdateTypingStop</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_last_seen</td>
+                  <td><a href="#dialog.UpdateUserLastSeen">UpdateUserLastSeen</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_online</td>
+                  <td><a href="#dialog.UpdateGroupOnline">UpdateGroupOnline</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>force_reload</td>
+                  <td><a href="#dialog.WeakUpdateBox.UpdateForceReloadState">WeakUpdateBox.UpdateForceReloadState</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>update_permissions_change</td>
+                  <td><a href="#dialog.UpdatePermissionsChange">UpdatePermissionsChange</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateBox.UpdateForceReloadState">WeakUpdateBox.UpdateForceReloadState</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>fields</td>
+                  <td><a href="#dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField">WeakUpdateBox.UpdateForceReloadState.ForceReloadField</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField">WeakUpdateBox.UpdateForceReloadState.ForceReloadField</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>reload_dialogs</td>
+                  <td><a href="#google.protobuf.Empty">google.protobuf.Empty</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reload_contacts</td>
+                  <td><a href="#google.protobuf.Empty">google.protobuf.Empty</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reload_history</td>
+                  <td><a href="#dialog.PeersList">PeersList</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateCommand">WeakUpdateCommand</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>change_my_online</td>
+                  <td><a href="#dialog.WeakUpdateCommand.ChangeMyOnline">WeakUpdateCommand.ChangeMyOnline</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subscribe_to_onlines</td>
+                  <td><a href="#dialog.PeersList">PeersList</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>unsubscribe_from_onlines</td>
+                  <td><a href="#dialog.PeersList">PeersList</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>unsubscribe_from_all_onlines</td>
+                  <td><a href="#google.protobuf.Empty">google.protobuf.Empty</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>change_my_typing</td>
+                  <td><a href="#dialog.WeakUpdateCommand.ChangeMyTyping">WeakUpdateCommand.ChangeMyTyping</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subscribe_to_typings</td>
+                  <td><a href="#dialog.PeersList">PeersList</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>unsubscribe_from_typings</td>
+                  <td><a href="#dialog.PeersList">PeersList</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>unsubscribe_from_all_typings</td>
+                  <td><a href="#google.protobuf.Empty">google.protobuf.Empty</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateCommand.ChangeMyOnline">WeakUpdateCommand.ChangeMyOnline</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>online</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.WeakUpdateCommand.ChangeMyTyping">WeakUpdateCommand.ChangeMyTyping</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>type</td>
+                  <td><a href="#dialog.TypingType">TypingType</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>start</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

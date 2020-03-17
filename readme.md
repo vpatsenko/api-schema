@@ -625,6 +625,7 @@
 
 - [sequence_and_updates.proto](#sequence_and_updates.proto)
     - [GroupMembersSubset](#dialog.GroupMembersSubset)
+    - [PeersList](#dialog.PeersList)
     - [RequestGetDialogsDifference](#dialog.RequestGetDialogsDifference)
     - [RequestGetDifference](#dialog.RequestGetDifference)
     - [RequestGetPartialPeerInfo](#dialog.RequestGetPartialPeerInfo)
@@ -648,6 +649,12 @@
     - [UpdateSeqUpdateTooLong](#dialog.UpdateSeqUpdateTooLong)
     - [UpdateWeakFatUpdate](#dialog.UpdateWeakFatUpdate)
     - [UpdateWeakUpdate](#dialog.UpdateWeakUpdate)
+    - [WeakUpdateBox](#dialog.WeakUpdateBox)
+    - [WeakUpdateBox.UpdateForceReloadState](#dialog.WeakUpdateBox.UpdateForceReloadState)
+    - [WeakUpdateBox.UpdateForceReloadState.ForceReloadField](#dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField)
+    - [WeakUpdateCommand](#dialog.WeakUpdateCommand)
+    - [WeakUpdateCommand.ChangeMyOnline](#dialog.WeakUpdateCommand.ChangeMyOnline)
+    - [WeakUpdateCommand.ChangeMyTyping](#dialog.WeakUpdateCommand.ChangeMyTyping)
   
   
   
@@ -8947,6 +8954,21 @@ Represents subset of group members
 
 
 
+<a name="dialog.PeersList"></a>
+
+### PeersList
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peers | [Peer](#dialog.Peer) | repeated |  |
+
+
+
+
+
+
 <a name="dialog.RequestGetDialogsDifference"></a>
 
 ### RequestGetDialogsDifference
@@ -9363,7 +9385,6 @@ Sequence update
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
 | updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 | messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
-| updatePermissionsChange | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
 
 
 
@@ -9415,6 +9436,112 @@ Out of sequence update (for typing and online statuses)
 
 
 
+
+<a name="dialog.WeakUpdateBox"></a>
+
+### WeakUpdateBox
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| typing_start | [UpdateTyping](#dialog.UpdateTyping) |  |  |
+| typing_stop | [UpdateTypingStop](#dialog.UpdateTypingStop) |  |  |
+| user_last_seen | [UpdateUserLastSeen](#dialog.UpdateUserLastSeen) |  |  |
+| group_online | [UpdateGroupOnline](#dialog.UpdateGroupOnline) |  |  |
+| force_reload | [WeakUpdateBox.UpdateForceReloadState](#dialog.WeakUpdateBox.UpdateForceReloadState) |  |  |
+| update_permissions_change | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateBox.UpdateForceReloadState"></a>
+
+### WeakUpdateBox.UpdateForceReloadState
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| fields | [WeakUpdateBox.UpdateForceReloadState.ForceReloadField](#dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateBox.UpdateForceReloadState.ForceReloadField"></a>
+
+### WeakUpdateBox.UpdateForceReloadState.ForceReloadField
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| reload_dialogs | [google.protobuf.Empty](#google.protobuf.Empty) |  |  |
+| reload_contacts | [google.protobuf.Empty](#google.protobuf.Empty) |  |  |
+| reload_history | [PeersList](#dialog.PeersList) |  |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateCommand"></a>
+
+### WeakUpdateCommand
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| change_my_online | [WeakUpdateCommand.ChangeMyOnline](#dialog.WeakUpdateCommand.ChangeMyOnline) |  |  |
+| subscribe_to_onlines | [PeersList](#dialog.PeersList) |  |  |
+| unsubscribe_from_onlines | [PeersList](#dialog.PeersList) |  |  |
+| unsubscribe_from_all_onlines | [google.protobuf.Empty](#google.protobuf.Empty) |  |  |
+| change_my_typing | [WeakUpdateCommand.ChangeMyTyping](#dialog.WeakUpdateCommand.ChangeMyTyping) |  |  |
+| subscribe_to_typings | [PeersList](#dialog.PeersList) |  |  |
+| unsubscribe_from_typings | [PeersList](#dialog.PeersList) |  |  |
+| unsubscribe_from_all_typings | [google.protobuf.Empty](#google.protobuf.Empty) |  |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateCommand.ChangeMyOnline"></a>
+
+### WeakUpdateCommand.ChangeMyOnline
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| online | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateCommand.ChangeMyTyping"></a>
+
+### WeakUpdateCommand.ChangeMyTyping
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| type | [TypingType](#dialog.TypingType) |  |  |
+| start | [bool](#bool) |  |  |
+
+
+
+
+
  
 
  
@@ -9439,6 +9566,7 @@ Out of sequence update (for typing and online statuses)
 | SubscribeToGroupOnline | [RequestSubscribeToGroupOnline](#dialog.RequestSubscribeToGroupOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SubscribeFromGroupOnline | [RequestSubscribeFromGroupOnline](#dialog.RequestSubscribeFromGroupOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | SeqUpdates | [.google.protobuf.Empty](#google.protobuf.Empty) | [SeqUpdateBox](#dialog.SeqUpdateBox) stream | Get stream of the user&#39;s updates |
+| WeakUpdates | [WeakUpdateCommand](#dialog.WeakUpdateCommand) stream | [WeakUpdateBox](#dialog.WeakUpdateBox) stream |  |
 
  
 
