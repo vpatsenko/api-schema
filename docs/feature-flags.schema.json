@@ -470,6 +470,12 @@
       "type": "boolean",
       "title": "Enable transcribing",
       "default": false
+    },
+    "enricher.isEnabled": {
+      "type": "boolean",
+      "title": "Activate enricher",
+      "default": false,
+      "description": "if setting is true, user receives enriched information about links in text messages"
     }
   }
 }
