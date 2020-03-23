@@ -9450,7 +9450,13 @@ Out of sequence update (for typing and online statuses)
 | user_last_seen | [UpdateUserLastSeen](#dialog.UpdateUserLastSeen) |  |  |
 | group_online | [UpdateGroupOnline](#dialog.UpdateGroupOnline) |  |  |
 | force_reload | [WeakUpdateBox.UpdateForceReloadState](#dialog.WeakUpdateBox.UpdateForceReloadState) |  |  |
-| update_permissions_change | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
+| permissions_change | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
+| user_status_change | [UpdateUserStatusChanged](#dialog.UpdateUserStatusChanged) |  |  |
+| message_reaction_update | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
+| message | [UpdateMessage](#dialog.UpdateMessage) |  |  |
+| message_content_change | [UpdateMessageContentChanged](#dialog.UpdateMessageContentChanged) |  |  |
+| message_read | [UpdateMessageRead](#dialog.UpdateMessageRead) |  |  |
+| message_received | [UpdateMessageReceived](#dialog.UpdateMessageReceived) |  |  |
 
 
 
