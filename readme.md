@@ -172,6 +172,7 @@
     - [GroupPartialInfo](#dialog.GroupPartialInfo)
     - [Member](#dialog.Member)
     - [RequestCreateGroup](#dialog.RequestCreateGroup)
+    - [RequestDeleteGroup](#dialog.RequestDeleteGroup)
     - [RequestEditGroupAbout](#dialog.RequestEditGroupAbout)
     - [RequestEditGroupAvatar](#dialog.RequestEditGroupAvatar)
     - [RequestEditGroupBasePermissions](#dialog.RequestEditGroupBasePermissions)
@@ -2795,6 +2796,21 @@ Creating group chat
 
 
 
+<a name="dialog.RequestDeleteGroup"></a>
+
+### RequestDeleteGroup
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestEditGroupAbout"></a>
 
 ### RequestEditGroupAbout
@@ -3607,6 +3623,7 @@ Possible permissions on a group
 | GROUPADMINPERMISSION_VIEWMEMBERS | 11 |  |
 | GROUPADMINPERMISSION_LEAVE | 12 | read only permission |
 | GROUPADMINPERMISSION_TARGETING | 13 |  |
+| GROUPADMINPERMISSION_DELETE | 14 |  |
 
 
 
@@ -3655,6 +3672,7 @@ Possible permissions on a group
 | RevokeInviteUrl | [RequestRevokeInviteUrl](#dialog.RequestRevokeInviteUrl) | [ResponseInviteUrl](#dialog.ResponseInviteUrl) |  |
 | JoinGroup | [RequestJoinGroup](#dialog.RequestJoinGroup) | [ResponseJoinGroup](#dialog.ResponseJoinGroup) |  |
 | JoinGroupByPeer | [RequestJoinGroupByPeer](#dialog.RequestJoinGroupByPeer) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| DeleteGroup | [RequestDeleteGroup](#dialog.RequestDeleteGroup) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
 
  
 
