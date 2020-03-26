@@ -1235,6 +1235,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.MessageStatus"><span class="badge">M</span>MessageStatus</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.ParagraphStyle"><span class="badge">M</span>ParagraphStyle</a>
                 </li>
               
@@ -1319,7 +1323,15 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestMessageReads"><span class="badge">M</span>RequestMessageReads</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestMessageReceived"><span class="badge">M</span>RequestMessageReceived</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.RequestMessageReceives"><span class="badge">M</span>RequestMessageReceives</a>
                 </li>
               
                 <li>
@@ -1404,6 +1416,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.ResponseLoadHistory"><span class="badge">M</span>ResponseLoadHistory</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseMessageReads"><span class="badge">M</span>ResponseMessageReads</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseMessageReceives"><span class="badge">M</span>ResponseMessageReceives</a>
                 </li>
               
                 <li>
@@ -10479,6 +10499,20 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>GetMessageReads</td>
+                <td><a href="#dialog.RequestMessageReads">RequestMessageReads</a></td>
+                <td><a href="#dialog.ResponseMessageReads">ResponseMessageReads</a></td>
+                <td><p>Returns read status of the message per user</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMessageReceives</td>
+                <td><a href="#dialog.RequestMessageReceives">RequestMessageReceives</a></td>
+                <td><a href="#dialog.ResponseMessageReceives">ResponseMessageReceives</a></td>
+                <td><p>Returns receive status of the message per user</p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -11784,6 +11818,36 @@ when they perform the media action </p></td>
 
         
       
+        <h3 id="dialog.MessageStatus">MessageStatus</h3>
+        <p>The model describing when a user received or read a message</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>time when message was read or received </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.ParagraphStyle">ParagraphStyle</h3>
         <p>Paragraph style</p>
 
@@ -12407,6 +12471,43 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.RequestMessageReads">RequestMessageReads</h3>
+        <p>Load message statuses for every user in conversation reads</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
+                  <td></td>
+                  <td><p>Message id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>limit of selection </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamp_from</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>time selection starts from </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.RequestMessageReceived">RequestMessageReceived</h3>
         <p>Confirmation of plain message receive by device</p>
 
@@ -12429,6 +12530,43 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.RequestMessageReceives">RequestMessageReceives</h3>
+        <p>Load message statuses for every user in conversation receives</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
+                  <td></td>
+                  <td><p>Message id </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>limit of selection </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamp_from</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>time selection starts from </p></td>
                 </tr>
               
             </tbody>
@@ -13220,6 +13358,66 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
                   <td><p>counter of the messages between last conversation message (including it) and last returned in this response </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseMessageReads">ResponseMessageReads</h3>
+        <p>Response with the list of message statuses reads</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#dialog.MessageStatus">MessageStatus</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamp_till</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>max time of returned entries, or requested time if empty </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseMessageReceives">ResponseMessageReceives</h3>
+        <p>Response with the list of message statuses receives</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>status</td>
+                  <td><a href="#dialog.MessageStatus">MessageStatus</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>timestamp_till</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>max time of returned entries, or requested time if empty </p></td>
                 </tr>
               
             </tbody>

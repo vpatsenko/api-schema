@@ -303,6 +303,7 @@
     - [MessageContent](#dialog.MessageContent)
     - [MessageMedia](#dialog.MessageMedia)
     - [MessageReaction](#dialog.MessageReaction)
+    - [MessageStatus](#dialog.MessageStatus)
     - [ParagraphStyle](#dialog.ParagraphStyle)
     - [PinnedMessages](#dialog.PinnedMessages)
     - [QuotedMessage](#dialog.QuotedMessage)
@@ -324,7 +325,9 @@
     - [RequestLoadGroupedDialogs](#dialog.RequestLoadGroupedDialogs)
     - [RequestLoadHistory](#dialog.RequestLoadHistory)
     - [RequestMessageRead](#dialog.RequestMessageRead)
+    - [RequestMessageReads](#dialog.RequestMessageReads)
     - [RequestMessageReceived](#dialog.RequestMessageReceived)
+    - [RequestMessageReceives](#dialog.RequestMessageReceives)
     - [RequestMessageRemoveReaction](#dialog.RequestMessageRemoveReaction)
     - [RequestMessageSetReaction](#dialog.RequestMessageSetReaction)
     - [RequestNotifyDialogOpened](#dialog.RequestNotifyDialogOpened)
@@ -346,6 +349,8 @@
     - [ResponseLoadDialogs](#dialog.ResponseLoadDialogs)
     - [ResponseLoadGroupedDialogs](#dialog.ResponseLoadGroupedDialogs)
     - [ResponseLoadHistory](#dialog.ResponseLoadHistory)
+    - [ResponseMessageReads](#dialog.ResponseMessageReads)
+    - [ResponseMessageReceives](#dialog.ResponseMessageReceives)
     - [ResponseReactionsResponse](#dialog.ResponseReactionsResponse)
     - [ResponseSendMessage](#dialog.ResponseSendMessage)
     - [SearchPredicate](#dialog.SearchPredicate)
@@ -4781,6 +4786,22 @@ Reaction to message
 
 
 
+<a name="dialog.MessageStatus"></a>
+
+### MessageStatus
+The model describing when a user received or read a message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| clock | [int64](#int64) |  | time when message was read or received |
+| user_id | [int32](#int32) |  |  |
+
+
+
+
+
+
 <a name="dialog.ParagraphStyle"></a>
 
 ### ParagraphStyle
@@ -5120,6 +5141,23 @@ Marking plain messages as read
 
 
 
+<a name="dialog.RequestMessageReads"></a>
+
+### RequestMessageReads
+Load message statuses for every user in conversation reads
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mid | [UUIDValue](#dialog.UUIDValue) |  | Message id |
+| limit | [int32](#int32) |  | limit of selection |
+| timestamp_from | [int64](#int64) |  | time selection starts from |
+
+
+
+
+
+
 <a name="dialog.RequestMessageReceived"></a>
 
 ### RequestMessageReceived
@@ -5130,6 +5168,23 @@ Confirmation of plain message receive by device
 | ----- | ---- | ----- | ----------- |
 | peer | [OutPeer](#dialog.OutPeer) |  |  |
 | date | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.RequestMessageReceives"></a>
+
+### RequestMessageReceives
+Load message statuses for every user in conversation receives
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| mid | [UUIDValue](#dialog.UUIDValue) |  | Message id |
+| limit | [int32](#int32) |  | limit of selection |
+| timestamp_from | [int64](#int64) |  | time selection starts from |
 
 
 
@@ -5489,6 +5544,38 @@ deprecated
 | counter_date | [int64](#int64) |  | date, related to this unread counter |
 | last_conversation_message_date | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | last conversation message date |
 | count_foreign_after_last_returned | [int32](#int32) |  | counter of the messages between last conversation message (including it) and last returned in this response |
+
+
+
+
+
+
+<a name="dialog.ResponseMessageReads"></a>
+
+### ResponseMessageReads
+Response with the list of message statuses reads
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [MessageStatus](#dialog.MessageStatus) | repeated |  |
+| timestamp_till | [int64](#int64) |  | max time of returned entries, or requested time if empty |
+
+
+
+
+
+
+<a name="dialog.ResponseMessageReceives"></a>
+
+### ResponseMessageReceives
+Response with the list of message statuses receives
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [MessageStatus](#dialog.MessageStatus) | repeated |  |
+| timestamp_till | [int64](#int64) |  | max time of returned entries, or requested time if empty |
 
 
 
@@ -6402,6 +6489,8 @@ Webpage media
 | PinMessage | [RequestPinMessage](#dialog.RequestPinMessage) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
 | UnpinMessage | [RequestUnpinMessage](#dialog.RequestUnpinMessage) | [ResponseSeqDate](#dialog.ResponseSeqDate) |  |
 | GetUpdatedMessages | [RequestGetUpdatedMessages](#dialog.RequestGetUpdatedMessages) | [ResponseGetUpdatedMessages](#dialog.ResponseGetUpdatedMessages) |  |
+| GetMessageReads | [RequestMessageReads](#dialog.RequestMessageReads) | [ResponseMessageReads](#dialog.ResponseMessageReads) | Returns read status of the message per user |
+| GetMessageReceives | [RequestMessageReceives](#dialog.RequestMessageReceives) | [ResponseMessageReceives](#dialog.ResponseMessageReceives) | Returns receive status of the message per user |
 
  
 
