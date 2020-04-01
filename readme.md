@@ -4298,6 +4298,7 @@ historyMessage Optional last messages
 | history_message | [HistoryMessage](#dialog.HistoryMessage) |  | last message in this dialog |
 | last_receive | [int64](#int64) |  |  |
 | last_read | [int64](#int64) |  |  |
+| last_reaction_at | [int64](#int64) |  |  |
 
 
 
