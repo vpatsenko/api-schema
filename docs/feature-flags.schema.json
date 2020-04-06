@@ -117,7 +117,7 @@
     },
     "userProfile.isSecuritySettingsEnabled": {
       "type": "boolean",
-      "title": "User can or cann`t work with security settings in his profile",
+      "title": "User can or can`t work with security settings in his profile",
       "default": true
     },
     "userProfile.customProfile.isEnabled": {
@@ -430,6 +430,12 @@
       "title": "Enable calls history screen",
       "description": "if true = the call history screen is enabled for users, otherwise the placeholder will be shown",
       "default": true
+    },
+    "calls.retryCallTimeoutMs": {
+      "type": "integer",
+      "title": "Call retry timeout",
+      "description": "Stop call retrying when the specified timeout is reached",
+      "default": 60000
     },
     "global.confidentialPolicy.URL": {
       "type": "string",
