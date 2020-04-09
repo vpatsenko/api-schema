@@ -5841,6 +5841,11 @@ Service message about adding user to group
 Service message about user join to group
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| joined_user_id | [int32](#int32) |  |  |
+
+
 
 
 
@@ -5864,6 +5869,11 @@ Service message about kicking user from group
 
 ### ServiceExUserLeft
 Service message about user left group
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| left_user_id | [int32](#int32) |  |  |
 
 
 
