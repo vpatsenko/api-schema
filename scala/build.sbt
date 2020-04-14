@@ -2,6 +2,8 @@ organization := "im.dlg"
 
 name := "dialog-api-schema"
 
+version := "1.29.0-r2.2"
+
 scalaVersion := "2.12.10"
 
 crossScalaVersions := List("2.12.10", "2.13.1")

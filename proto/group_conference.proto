@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package im.dlg.server;
+
+import "groups.proto";
+import "definitions.proto";
+import "google/protobuf/wrappers.proto";
+
+message RequestCreateGroupConference {
+    int32 group_id = 1;
+    string link = 2;
+}
+
+message RequestDismissGroupConference {
+    int32 group_id = 1;
+    string link = 2;
+}
+
+message RequestGroupMemberPermissions {
+    int32 group_id = 1;
+    int32 user_id = 2;
+}
+
+message ResponseManageConference {
+    google.protobuf.StringValue actual_link = 1;
+}
+
+message ResponseGroupMemberPermissions {
+    repeated dialog.GroupAdminPermission permissions = 1 [(dialog.dlg).log="hidden"];
+}
+
+service GroupConference {
+    rpc CreateGroupConference (RequestCreateGroupConference) returns (ResponseManageConference) {}
+    rpc DismissGroupConference (RequestDismissGroupConference) returns (ResponseManageConference) {}
+    rpc GroupMemberPermissions (RequestGroupMemberPermissions) returns (ResponseGroupMemberPermissions) {}
+}
