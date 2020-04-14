@@ -2713,6 +2713,7 @@ Group information
 | base_permissions | [GroupAdminPermission](#dialog.GroupAdminPermission) | repeated |  |
 | clock | [int64](#int64) |  |  |
 | pinned_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
+| conference_link | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 
 
 
@@ -3629,6 +3630,7 @@ Possible permissions on a group
 | GROUPADMINPERMISSION_LEAVE | 12 | read only permission |
 | GROUPADMINPERMISSION_TARGETING | 13 |  |
 | GROUPADMINPERMISSION_DELETE | 14 |  |
+| GROUPADMINPERMISSION_MANAGE_CONFERENCE | 15 |  |
 
 
 
