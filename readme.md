@@ -9593,6 +9593,7 @@ Out of sequence update (for typing and online statuses)
 | message_content_change | [UpdateMessageContentChanged](#dialog.UpdateMessageContentChanged) |  |  |
 | message_read | [UpdateMessageRead](#dialog.UpdateMessageRead) |  |  |
 | message_received | [UpdateMessageReceived](#dialog.UpdateMessageReceived) |  |  |
+| message_read_by_me | [UpdateMessageReadByMe](#dialog.UpdateMessageReadByMe) |  |  |
 
 
 
