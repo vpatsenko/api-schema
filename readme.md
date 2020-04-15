@@ -623,6 +623,7 @@
     - [criterion](#dialog.criterion)
   
     - [SearchContentType](#dialog.SearchContentType)
+    - [SearchDirection](#dialog.SearchDirection)
     - [SearchPeerType](#dialog.SearchPeerType)
   
   
@@ -8910,6 +8911,8 @@ Searching sender uid condition
 | peer | [Peer](#dialog.Peer) |  | where to search |
 | text | [string](#string) |  | search term |
 | type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
+| search_direction | [SearchDirection](#dialog.SearchDirection) |  | search direction gt/lt |
+| date_from | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | search message from |
 
 
 
@@ -9008,6 +9011,19 @@ Search among contacts/groups/users
 | SEARCHCONTENTTYPE_DOCUMENTS | 4 |  |
 | SEARCHCONTENTTYPE_MEDIA | 5 | photo and video |
 | SEARCHCONTENTTYPE_AUDIO | 6 | voice |
+
+
+
+<a name="dialog.SearchDirection"></a>
+
+### SearchDirection
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| SEARCHDIRECTION_UNKNOWN | 0 |  |
+| SEARCHDIRECTION_FORWARD | 1 | gt |
+| SEARCHDIRECTION_BACKWARD | 2 | lt |
 
 
 

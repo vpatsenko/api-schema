@@ -2356,6 +2356,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.SearchDirection"><span class="badge">E</span>SearchDirection</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.SearchPeerType"><span class="badge">E</span>SearchPeerType</a>
                 </li>
               
@@ -20223,6 +20227,20 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><p>content message type to search </p></td>
                 </tr>
               
+                <tr>
+                  <td>search_direction</td>
+                  <td><a href="#dialog.SearchDirection">SearchDirection</a></td>
+                  <td></td>
+                  <td><p>search direction gt/lt </p></td>
+                </tr>
+              
+                <tr>
+                  <td>date_from</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>search message from </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -20420,6 +20438,35 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td>SEARCHCONTENTTYPE_AUDIO</td>
                 <td>6</td>
                 <td><p>voice</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="dialog.SearchDirection">SearchDirection</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>SEARCHDIRECTION_UNKNOWN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SEARCHDIRECTION_FORWARD</td>
+                <td>1</td>
+                <td><p>gt</p></td>
+              </tr>
+            
+              <tr>
+                <td>SEARCHDIRECTION_BACKWARD</td>
+                <td>2</td>
+                <td><p>lt</p></td>
               </tr>
             
           </tbody>
