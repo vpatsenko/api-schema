@@ -544,6 +544,7 @@
     - [LocalizableString](#dialog.LocalizableString)
     - [PushPeer](#dialog.PushPeer)
   
+    - [PushEventType](#dialog.PushEventType)
     - [PushPeerType](#dialog.PushPeerType)
   
   
@@ -8040,6 +8041,7 @@ The structure of encrypted push content
 | isRespondable | [bool](#bool) |  | if true, user can respond to this push |
 | sender_user_id | [int32](#int32) |  | if sender is channel so value eq 0 |
 | date | [int64](#int64) |  | date of the event (usually message) |
+| event_type | [PushEventType](#dialog.PushEventType) |  | type of the event |
 
 
 
@@ -8079,6 +8081,19 @@ The structure of encrypted push content
 
 
  
+
+
+<a name="dialog.PushEventType"></a>
+
+### PushEventType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| CREATE | 0 |  |
+| UPDATE | 1 |  |
+| DELETE | 2 |  |
+
 
 
 <a name="dialog.PushPeerType"></a>

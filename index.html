@@ -2088,6 +2088,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
               
                 <li>
+                  <a href="#dialog.PushEventType"><span class="badge">E</span>PushEventType</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.PushPeerType"><span class="badge">E</span>PushPeerType</a>
                 </li>
               
@@ -18453,6 +18457,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><p>date of the event (usually message) </p></td>
                 </tr>
               
+                <tr>
+                  <td>event_type</td>
+                  <td><a href="#dialog.PushEventType">PushEventType</a></td>
+                  <td></td>
+                  <td><p>type of the event </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -18527,6 +18538,35 @@ Can be empty if messageId is present and message is in current peer. </p></td>
         
       
 
+      
+        <h3 id="dialog.PushEventType">PushEventType</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>CREATE</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UPDATE</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>DELETE</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
         <h3 id="dialog.PushPeerType">PushPeerType</h3>
         <p></p>
