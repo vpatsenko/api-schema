@@ -2338,6 +2338,7 @@ server timestamp when state was created or modified
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | log | [string](#string) |  |  |
+| required | [bool](#bool) |  |  |
 
 
 
