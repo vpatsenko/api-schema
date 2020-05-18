@@ -6,6 +6,7 @@ package dialog;
 
 import "google/protobuf/wrappers.proto";
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
 import "definitions.proto";
 import "groups.proto";
 import "peers.proto";
@@ -15,9 +16,7 @@ import "miscellaneous.proto";
 import "scalapb/scalapb.proto";
 
 option go_package = "dialog";
-option (scalapb.options) = {
-    package_name: "im.dlg.grpc.services"
-};
+option java_package = "im.dlg.grpc.services";
 
 enum SearchPeerType {
     SEARCHPEERTYPE_UNKNOWN = 0;
@@ -36,16 +35,22 @@ enum SearchContentType {
     SEARCHCONTENTTYPE_AUDIO = 6; // voice
 }
 
+enum SearchDirection {
+    SEARCHDIRECTION_UNKNOWN = 0;
+    SEARCHDIRECTION_FORWARD = 1; // gt
+    SEARCHDIRECTION_BACKWARD = 2; // lt
+}
+
 message SimpleContactSearchCondition {
     string text = 1;
 }
 
 message SimpleMessageSearchCondition {
-    Peer peer = 1; /// where to search
-    string text = 2; /// search term
-    oneof content_type {
-        SearchContentType type = 3; /// content message type to search
-    }
+    Peer peer = 1; // where to search
+    string text = 2; // search term
+    SearchContentType type = 3; // content message type to search
+    SearchDirection search_direction = 4; // search direction gt/lt
+    google.protobuf.Timestamp date_from = 5; // search message from
 }
 
 /// Search among contacts/groups/users
@@ -195,6 +200,7 @@ message ResponseMessageSearchResponse {
     google.protobuf.BytesValue load_more_state = 4 [(dlg).log="hidden"];
     repeated UserOutPeer user_out_peers = 5 [(dlg).log="visible"];
     repeated GroupOutPeer group_out_peers = 6 [(dlg).log="visible"];
+    int64 total_count = 7 [(dlg).log="visible"];
 }
 
 // Performing message search

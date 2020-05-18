@@ -11,9 +11,7 @@ import "media_and_files.proto";
 import "scalapb/scalapb.proto";
 
 option go_package = "dialog";
-option (scalapb.options) = {
-    package_name: "im.dlg.grpc.services"
-};
+option java_package = "im.dlg.grpc.services";
 
 // Message Attributes
 message MessageAttributes {
@@ -299,6 +297,7 @@ message ServiceExUserInvited {
 
 // Service message about user join to group
 message ServiceExUserJoined {
+    int32 joined_user_id = 1;
 }
 
 // Service message about kicking user from group
@@ -308,6 +307,7 @@ message ServiceExUserKicked {
 
 // Service message about user left group
 message ServiceExUserLeft {
+    int32 left_user_id = 1;
 }
 
 // Service message about group creating
@@ -760,7 +760,7 @@ enum ListLoadMode {
 // Loading history of chat
 message RequestLoadHistory {
     option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
-    OutPeer peer = 1 [(dlg).log="visible"];
+    OutPeer peer = 1 [(dlg).log="visible", (dlg).required=true];
     int64 date = 3 [(dlg).log="visible"];
     /// forward, backward or both
     ListLoadMode load_mode = 5 [(dlg).log="visible"];
@@ -814,8 +814,7 @@ message ResponseHistoryDifference {
 // historyMessage Optional last messages
 message Dialog {
     Peer peer = 1 [(dlg).log="visible"]; /// Peer of conversation
-    /// counter of unread messages
-    int32 unread_count = 3 [(dlg).log="visible"];
+    int32 unread_count = 3 [(dlg).log="visible"]; /// counter of unread messages
     int64 sort_date = 4 [(dlg).log="visible"]; /// deprecated
     int32 sender_uid = 5 [(dlg).log="visible"];
     google.protobuf.BoolValue is_favourite = 13 [(dlg).log="visible"];
@@ -833,6 +832,7 @@ message Dialog {
     HistoryMessage history_message = 15 [(dlg).log="visible"];
     int64 last_receive = 16 [(dlg).log="visible"];
     int64 last_read = 17 [(dlg).log="visible"];
+    int64 last_reaction_at = 18;
 }
 
 enum DialogsFilter {

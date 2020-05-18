@@ -24,6 +24,12 @@ message PushPeer {
     string str_id = 3;
 }
 
+enum PushEventType {
+    CREATE = 0;
+    UPDATE = 1;
+    DELETE = 2;
+}
+
 // The structure of encrypted push content
 message EncryptedPushContent {
     // message
@@ -44,6 +50,7 @@ message EncryptedPushContent {
     bool isRespondable = 11; // if true, user can respond to this push
     int32 sender_user_id = 12; // if sender is channel so value eq 0
     int64 date = 13; // date of the event (usually message)
-    google.protobuf.StringValue sender_title = 14; // name of person who wrote in group chat (optional)
-    bool isChannel = 15;
+    PushEventType event_type = 14; // type of the event    
+    google.protobuf.StringValue sender_title = 15; // name of person who wrote in group chat (optional)
+    bool isChannel = 16; 
 }
