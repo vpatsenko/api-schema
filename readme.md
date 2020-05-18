@@ -44,10 +44,8 @@
     - [EmailActivationType](#dialog.EmailActivationType)
     - [PhoneActivationType](#dialog.PhoneActivationType)
   
-  
     - [Authentication](#dialog.Authentication)
   
-
 - [clickroad.proto](#clickroad.proto)
     - [RequestTrackEvent](#clickroad.RequestTrackEvent)
     - [ResponseTrackEvent](#clickroad.ResponseTrackEvent)
@@ -60,11 +58,8 @@
     - [TrackSocial](#clickroad.TrackSocial)
     - [TrackTiming](#clickroad.TrackTiming)
   
-  
-  
     - [ClickRoad](#clickroad.ClickRoad)
   
-
 - [config_sync.proto](#config_sync.proto)
     - [FeatureFlag](#dialog.FeatureFlag)
     - [Parameter](#dialog.Parameter)
@@ -76,11 +71,8 @@
     - [UpdateFeatureFlagChanged](#dialog.UpdateFeatureFlagChanged)
     - [UpdateParameterChanged](#dialog.UpdateParameterChanged)
   
-  
-  
     - [ConfigSync](#dialog.ConfigSync)
   
-
 - [contacts.proto](#contacts.proto)
     - [EmailToImport](#dialog.EmailToImport)
     - [PhoneToImport](#dialog.PhoneToImport)
@@ -99,49 +91,34 @@
     - [UpdateContactsAdded](#dialog.UpdateContactsAdded)
     - [UpdateContactsRemoved](#dialog.UpdateContactsRemoved)
   
-  
-  
     - [Contacts](#dialog.Contacts)
   
-
 - [counters.proto](#counters.proto)
     - [AppCounters](#dialog.AppCounters)
     - [UnreadDialog](#dialog.UnreadDialog)
     - [UpdateCountersChanged](#dialog.UpdateCountersChanged)
   
-  
-  
-  
-
 - [crypto.proto](#crypto.proto)
     - [RequestKeyExchange](#dialog.RequestKeyExchange)
     - [ResponseKeyExchange](#dialog.ResponseKeyExchange)
   
-  
-  
     - [Crypto](#dialog.Crypto)
   
-
 - [definitions.proto](#definitions.proto)
     - [DataClock](#dialog.DataClock)
     - [DialogOptions](#dialog.DialogOptions)
     - [UUIDValue](#dialog.UUIDValue)
   
-  
     - [File-level Extensions](#definitions.proto-extensions)
   
-  
-
 - [device_info.proto](#device_info.proto)
     - [ClientInfo](#dialog.ClientInfo)
     - [RequestNotifyAboutDeviceInfo](#dialog.RequestNotifyAboutDeviceInfo)
   
     - [PlatformType](#dialog.PlatformType)
   
-  
     - [DeviceInfo](#dialog.DeviceInfo)
   
-
 - [event_bus.proto](#event_bus.proto)
     - [RequestJoinEventBus](#dialog.RequestJoinEventBus)
     - [RequestKeepAliveEventBus](#dialog.RequestKeepAliveEventBus)
@@ -152,19 +129,12 @@
     - [UpdateEventBusDisposed](#dialog.UpdateEventBusDisposed)
     - [UpdateEventBusMessage](#dialog.UpdateEventBusMessage)
   
-  
-  
     - [EventBus](#dialog.EventBus)
   
-
 - [gateway_service.proto](#gateway_service.proto)
     - [GetDifferenceCommand](#dialog.GetDifferenceCommand)
     - [ServiceUpdate](#dialog.ServiceUpdate)
   
-  
-  
-  
-
 - [groups.proto](#groups.proto)
     - [Group](#dialog.Group)
     - [GroupData](#dialog.GroupData)
@@ -224,20 +194,15 @@
     - [GroupAdminPermission](#dialog.GroupAdminPermission)
     - [GroupType](#dialog.GroupType)
   
-  
     - [Groups](#dialog.Groups)
   
-
 - [integrations.proto](#integrations.proto)
     - [RequestGetIntegrationToken](#dialog.RequestGetIntegrationToken)
     - [RequestRevokeIntegrationToken](#dialog.RequestRevokeIntegrationToken)
     - [ResponseIntegrationToken](#dialog.ResponseIntegrationToken)
   
-  
-  
     - [Integrations](#dialog.Integrations)
   
-
 - [media_and_files.proto](#media_and_files.proto)
     - [AudioLocation](#dialog.AudioLocation)
     - [Avatar](#dialog.Avatar)
@@ -267,10 +232,8 @@
     - [Colors](#dialog.Colors)
     - [FileUrlError.ErrorTag](#dialog.FileUrlError.ErrorTag)
   
-  
     - [MediaAndFiles](#dialog.MediaAndFiles)
   
-
 - [messaging.proto](#messaging.proto)
     - [AudioMedia](#dialog.AudioMedia)
     - [BinaryMessage](#dialog.BinaryMessage)
@@ -407,10 +370,8 @@
     - [ListLoadMode](#dialog.ListLoadMode)
     - [MessageState](#dialog.MessageState)
   
-  
     - [Messaging](#dialog.Messaging)
   
-
 - [miscellaneous.proto](#miscellaneous.proto)
     - [Any](#dialog.Any)
     - [CallsConfig](#dialog.CallsConfig)
@@ -435,9 +396,6 @@
     - [SupportedServerMethodsType](#dialog.SupportedServerMethodsType)
     - [UpdateOptimization](#dialog.UpdateOptimization)
   
-  
-  
-
 - [obsolete.proto](#obsolete.proto)
     - [ObsoleteGetDifferenceCommand](#dialog.ObsoleteGetDifferenceCommand)
     - [ObsoleteOutPeer](#dialog.ObsoleteOutPeer)
@@ -466,10 +424,8 @@
     - [ObsoleteTypingType](#dialog.ObsoleteTypingType)
     - [ObsoleteWeakUpdateBox.ObsoleteUpdateCallDisposed.ObsoleteDisposalReason](#dialog.ObsoleteWeakUpdateBox.ObsoleteUpdateCallDisposed.ObsoleteDisposalReason)
   
-  
     - [Obsolete](#dialog.Obsolete)
   
-
 - [peers.proto](#peers.proto)
     - [GroupOutPeer](#dialog.GroupOutPeer)
     - [OutPeer](#dialog.OutPeer)
@@ -478,9 +434,6 @@
   
     - [PeerType](#dialog.PeerType)
   
-  
-  
-
 - [permissions.proto](#permissions.proto)
     - [RequestGetPermissions](#dialog.RequestGetPermissions)
     - [ResponseGetPermissions](#dialog.ResponseGetPermissions)
@@ -488,10 +441,8 @@
   
     - [Permission](#dialog.Permission)
   
-  
     - [Permissions](#dialog.Permissions)
   
-
 - [privacy.proto](#privacy.proto)
     - [RequestBlockUser](#dialog.RequestBlockUser)
     - [RequestLoadBlockedUsers](#dialog.RequestLoadBlockedUsers)
@@ -500,11 +451,8 @@
     - [UpdateUserBlocked](#dialog.UpdateUserBlocked)
     - [UpdateUserUnblocked](#dialog.UpdateUserUnblocked)
   
-  
-  
     - [Privacy](#dialog.Privacy)
   
-
 - [profile.proto](#profile.proto)
     - [RequestChangeUserStatus](#dialog.RequestChangeUserStatus)
     - [RequestCheckNickName](#dialog.RequestCheckNickName)
@@ -519,11 +467,8 @@
     - [RequestRemoveAvatar](#dialog.RequestRemoveAvatar)
     - [ResponseEditAvatar](#dialog.ResponseEditAvatar)
   
-  
-  
     - [Profile](#dialog.Profile)
   
-
 - [push.proto](#push.proto)
     - [RequestRegisterApplePush](#dialog.RequestRegisterApplePush)
     - [RequestRegisterApplePushKit](#dialog.RequestRegisterApplePushKit)
@@ -534,11 +479,8 @@
     - [RequestUnregisterApplePushToken](#dialog.RequestUnregisterApplePushToken)
     - [RequestUnregisterGooglePush](#dialog.RequestUnregisterGooglePush)
   
-  
-  
     - [Push](#dialog.Push)
   
-
 - [push_content.proto](#push_content.proto)
     - [EncryptedPushContent](#dialog.EncryptedPushContent)
     - [LocalizableString](#dialog.LocalizableString)
@@ -547,18 +489,12 @@
     - [PushEventType](#dialog.PushEventType)
     - [PushPeerType](#dialog.PushPeerType)
   
-  
-  
-
 - [raw_api.proto](#raw_api.proto)
     - [RequestRawRequest](#dialog.RequestRawRequest)
     - [ResponseRawRequest](#dialog.ResponseRawRequest)
   
-  
-  
     - [RawAPI](#dialog.RawAPI)
   
-
 - [reactions.proto](#reactions.proto)
     - [GetReactionsRequest](#dialog.reactions.GetReactionsRequest)
     - [GetReactionsResponse](#dialog.reactions.GetReactionsResponse)
@@ -568,11 +504,8 @@
     - [RequestRemoveMessageReaction](#dialog.reactions.RequestRemoveMessageReaction)
     - [RequestSetMessageReaction](#dialog.reactions.RequestSetMessageReaction)
   
-  
-  
     - [Reactions](#dialog.reactions.Reactions)
   
-
 - [registration.proto](#registration.proto)
     - [RegisterDeprecatedDeviceRequest](#dialog.RegisterDeprecatedDeviceRequest)
     - [RequestExchangeAuthIdForToken](#dialog.RequestExchangeAuthIdForToken)
@@ -581,10 +514,8 @@
   
     - [AuthorizationMethod](#dialog.AuthorizationMethod)
   
-  
     - [Registration](#dialog.Registration)
   
-
 - [search.proto](#search.proto)
     - [MessageSearchItem](#dialog.MessageSearchItem)
     - [MessageSearchResult](#dialog.MessageSearchResult)
@@ -627,10 +558,8 @@
     - [SearchDirection](#dialog.SearchDirection)
     - [SearchPeerType](#dialog.SearchPeerType)
   
-  
     - [Search](#dialog.Search)
   
-
 - [sequence_and_updates.proto](#sequence_and_updates.proto)
     - [GroupMembersSubset](#dialog.GroupMembersSubset)
     - [PeersList](#dialog.PeersList)
@@ -664,11 +593,8 @@
     - [WeakUpdateCommand.ChangeMyOnline](#dialog.WeakUpdateCommand.ChangeMyOnline)
     - [WeakUpdateCommand.ChangeMyTyping](#dialog.WeakUpdateCommand.ChangeMyTyping)
   
-  
-  
     - [SequenceAndUpdates](#dialog.SequenceAndUpdates)
   
-
 - [spaces.proto](#spaces.proto)
     - [RequestCreateSpace](#dialog.RequestCreateSpace)
     - [RequestDeleteSpace](#dialog.RequestDeleteSpace)
@@ -696,11 +622,8 @@
     - [UpdateSpaceMemberModified](#dialog.UpdateSpaceMemberModified)
     - [UpdateSpaceModified](#dialog.UpdateSpaceModified)
   
-  
-  
     - [Spaces](#dialog.Spaces)
   
-
 - [stickers.proto](#stickers.proto)
     - [RequestAddStickerCollection](#dialog.RequestAddStickerCollection)
     - [RequestAddStickerPackReference](#dialog.RequestAddStickerPackReference)
@@ -719,11 +642,8 @@
     - [UpdateStickerPackAdded](#dialog.UpdateStickerPackAdded)
     - [UpdateStickerPackRemoved](#dialog.UpdateStickerPackRemoved)
   
-  
-  
     - [Stickers](#dialog.Stickers)
   
-
 - [threads.proto](#threads.proto)
     - [RequestCreateThread](#dialog.RequestCreateThread)
     - [RequestJoinThread](#dialog.RequestJoinThread)
@@ -736,10 +656,8 @@
   
     - [RequestCreateThread.JoinPolicy](#dialog.RequestCreateThread.JoinPolicy)
   
-  
     - [Threads](#dialog.Threads)
   
-
 - [typing_and_online.proto](#typing_and_online.proto)
     - [RequestGetUserLastPresence](#dialog.RequestGetUserLastPresence)
     - [RequestPauseNotifications](#dialog.RequestPauseNotifications)
@@ -761,10 +679,8 @@
     - [DeviceType](#dialog.DeviceType)
     - [TypingType](#dialog.TypingType)
   
-  
     - [TypingAndOnline](#dialog.TypingAndOnline)
   
-
 - [users.proto](#users.proto)
     - [BotCommand](#dialog.BotCommand)
     - [ContactRecord](#dialog.ContactRecord)
@@ -803,10 +719,8 @@
     - [UserData.Lifecycle](#dialog.UserData.Lifecycle)
     - [UserStatusType](#dialog.UserStatusType)
   
-  
     - [Users](#dialog.Users)
   
-
 - [web_rtc.proto](#web_rtc.proto)
     - [ActiveCall](#dialog.ActiveCall)
     - [AdvertiseMaster](#dialog.AdvertiseMaster)
@@ -854,10 +768,8 @@
     - [DTMFCode](#dialog.DTMFCode)
     - [RejectCallReason](#dialog.RejectCallReason)
   
-  
     - [WebRTC](#dialog.WebRTC)
   
-
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -8720,6 +8632,7 @@ Search Result with related peers and entities
 | load_more_state | [google.protobuf.BytesValue](#google.protobuf.BytesValue) |  |  |
 | user_out_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
 | group_out_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
+| total_count | [int64](#int64) |  |  |
 
 
 
