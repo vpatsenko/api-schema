@@ -1649,6 +1649,45 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
           
           <li>
+            <a href="#miniappsregistry.proto">miniappsregistry.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#dialog.ClientsMiniAppsRegistry"><span class="badge">S</span>ClientsMiniAppsRegistry</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.FindAppRequest"><span class="badge">M</span>FindAppRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.FindAppResponse"><span class="badge">M</span>FindAppResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.GetAppsRequest"><span class="badge">M</span>GetAppsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.GetAppsResponse"><span class="badge">M</span>GetAppsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.MiniApp"><span class="badge">M</span>MiniApp</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.AppType"><span class="badge">E</span>AppType</a>
+                </li>
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#miscellaneous.proto">miscellaneous.proto</a>
             <ul>
               
@@ -15360,6 +15399,238 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td>MESSAGESTATE_READ</td>
                 <td>3</td>
                 <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+  
+    
+      
+      <div class="file-heading">
+        <h2 id="miniappsregistry.proto">miniappsregistry.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+    
+
+      
+        <h3 id="dialog.ClientsMiniAppsRegistry">ClientsMiniAppsRegistry</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>FindApp</td>
+                <td><a href="#dialog.FindAppRequest">FindAppRequest</a></td>
+                <td><a href="#dialog.FindAppResponse">FindAppResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetApps</td>
+                <td><a href="#dialog.GetAppsRequest">GetAppsRequest</a></td>
+                <td><a href="#dialog.GetAppsResponse">GetAppsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+        <h3 id="dialog.FindAppRequest">FindAppRequest</h3>
+        <p>Findig mini-app by id</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>app_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.FindAppResponse">FindAppResponse</h3>
+        <p>App found by id (or empty)</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>app</td>
+                  <td><a href="#dialog.MiniApp">MiniApp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.GetAppsRequest">GetAppsRequest</h3>
+        <p>Request to get list of mini-apps</p>
+
+        
+
+        
+      
+        <h3 id="dialog.GetAppsResponse">GetAppsResponse</h3>
+        <p>List of the mini-app</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>apps</td>
+                  <td><a href="#dialog.MiniApp">MiniApp</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.MiniApp">MiniApp</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
+                  <td></td>
+                  <td><p>unique identifier of the app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>app_type</td>
+                  <td><a href="#dialog.AppType">AppType</a></td>
+                  <td></td>
+                  <td><p>type of the app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name of the app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>description</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>additional info, describing this app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>version</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>version of app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>icon</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>icon name for this app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>link</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>link to this app </p></td>
+                </tr>
+              
+                <tr>
+                  <td>json_content</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>additional data stored in json format </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at_ts</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>creation date/time in millis </p></td>
+                </tr>
+              
+                <tr>
+                  <td>modified_at_ts</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>update date/time in millis </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_enabled</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>specifies if this app enabled and user can use it, ot not </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="dialog.AppType">AppType</h3>
+        <p>Defines the type of the app. Currently only WebView supported, but more types can be added in future.</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>UNKNOWN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>WEB_VIEW</td>
+                <td>1</td>
+                <td><p>Url which can be opened inside WebView in dialog app</p></td>
               </tr>
             
           </tbody>

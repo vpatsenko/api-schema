@@ -372,6 +372,17 @@
   
     - [Messaging](#dialog.Messaging)
   
+- [miniappsregistry.proto](#miniappsregistry.proto)
+    - [FindAppRequest](#dialog.FindAppRequest)
+    - [FindAppResponse](#dialog.FindAppResponse)
+    - [GetAppsRequest](#dialog.GetAppsRequest)
+    - [GetAppsResponse](#dialog.GetAppsResponse)
+    - [MiniApp](#dialog.MiniApp)
+  
+    - [AppType](#dialog.AppType)
+  
+    - [ClientsMiniAppsRegistry](#dialog.ClientsMiniAppsRegistry)
+  
 - [miscellaneous.proto](#miscellaneous.proto)
     - [Any](#dialog.Any)
     - [CallsConfig](#dialog.CallsConfig)
@@ -6419,6 +6430,125 @@ Webpage media
 | GetUpdatedMessages | [RequestGetUpdatedMessages](#dialog.RequestGetUpdatedMessages) | [ResponseGetUpdatedMessages](#dialog.ResponseGetUpdatedMessages) |  |
 | GetMessageReads | [RequestMessageReads](#dialog.RequestMessageReads) | [ResponseMessageReads](#dialog.ResponseMessageReads) | Returns read status of the message per user |
 | GetMessageReceives | [RequestMessageReceives](#dialog.RequestMessageReceives) | [ResponseMessageReceives](#dialog.ResponseMessageReceives) | Returns receive status of the message per user |
+
+ 
+
+
+
+<a name="miniappsregistry.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## miniappsregistry.proto
+
+
+
+<a name="dialog.FindAppRequest"></a>
+
+### FindAppRequest
+Findig mini-app by id
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="dialog.FindAppResponse"></a>
+
+### FindAppResponse
+App found by id (or empty)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app | [MiniApp](#dialog.MiniApp) |  |  |
+
+
+
+
+
+
+<a name="dialog.GetAppsRequest"></a>
+
+### GetAppsRequest
+Request to get list of mini-apps
+
+
+
+
+
+
+<a name="dialog.GetAppsResponse"></a>
+
+### GetAppsResponse
+List of the mini-app
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| apps | [MiniApp](#dialog.MiniApp) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.MiniApp"></a>
+
+### MiniApp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [UUIDValue](#dialog.UUIDValue) |  | unique identifier of the app |
+| app_type | [AppType](#dialog.AppType) |  | type of the app |
+| name | [string](#string) |  | name of the app |
+| description | [string](#string) |  | additional info, describing this app |
+| version | [string](#string) |  | version of app |
+| icon | [string](#string) |  | icon name for this app |
+| link | [string](#string) |  | link to this app |
+| json_content | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | additional data stored in json format |
+| created_at_ts | [int64](#int64) |  | creation date/time in millis |
+| modified_at_ts | [int64](#int64) |  | update date/time in millis |
+| is_enabled | [bool](#bool) |  | specifies if this app enabled and user can use it, ot not |
+
+
+
+
+
+ 
+
+
+<a name="dialog.AppType"></a>
+
+### AppType
+Defines the type of the app. Currently only WebView supported, but more types can be added in future.
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNKNOWN | 0 |  |
+| WEB_VIEW | 1 | Url which can be opened inside WebView in dialog app |
+
+
+ 
+
+ 
+
+
+<a name="dialog.ClientsMiniAppsRegistry"></a>
+
+### ClientsMiniAppsRegistry
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| FindApp | [FindAppRequest](#dialog.FindAppRequest) | [FindAppResponse](#dialog.FindAppResponse) |  |
+| GetApps | [GetAppsRequest](#dialog.GetAppsRequest) | [GetAppsResponse](#dialog.GetAppsResponse) |  |
 
  
 
