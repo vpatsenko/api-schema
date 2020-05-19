@@ -8971,7 +8971,7 @@ Searching sender uid condition
 | text | [string](#string) |  | search term |
 | type | [SearchContentType](#dialog.SearchContentType) |  | content message type to search |
 | search_direction | [SearchDirection](#dialog.SearchDirection) |  | search direction gt/lt |
-| date_from | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  | search message from |
+| date_from | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | search message from |
 
 
 
