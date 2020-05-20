@@ -4309,6 +4309,7 @@ data data related to dialog itself
 | read_date | [int64](#int64) |  |  |
 | entry_clock | [int64](#int64) |  |  |
 | last_update_of_message_date | [int64](#int64) |  |  |
+| last_reaction_date | [int64](#int64) |  |  |
 | data | [DialogData](#dialog.DialogData) |  |  |
 
 
