@@ -11111,6 +11111,7 @@ Loading Full User information
 | user_peer | [Peer](#dialog.Peer) |  |  |
 | p2p | [bool](#bool) |  |  |
 | group_member | [Peer](#dialog.Peer) |  |  |
+| contact | [bool](#bool) |  |  |
 
 
 
