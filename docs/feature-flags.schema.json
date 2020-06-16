@@ -427,8 +427,8 @@
     },
     "calls.presentCallWithoutVoipEnabled": {
       "type": "boolean",
-      "title": "Enable presenting call without VoIP",
-      "description": "if true = incoming call interface will be presented as soon as new call'ss gRPC model reaches device (without waiting for voice push)",
+      "title": "Enable presenting call without VoIP-push",
+      "description": "if true = incoming call interface will be presented as soon as new call's gRPC model reaches device (without waiting for VoIP-push)",
       "default": false
     },
     "calls.history.isFeatureEnabled": {
