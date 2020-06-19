@@ -2640,6 +2640,7 @@ Group information
 | clock | [int64](#int64) |  |  |
 | pinned_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
 | conference_link | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
+| members_count_limit | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  |  |
 
 
 
@@ -3806,6 +3807,7 @@ File url description
 | timeout | [int32](#int32) |  | Timeout of url |
 | unsigned_url | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Unsigned URL (used to honor web caches) |
 | unsigned_url_headers | [HTTPHeader](#dialog.HTTPHeader) | repeated | Headers that is required to download files with unsigned url |
+| md5_hash | [bytes](#bytes) |  |  |
 
 
 
@@ -3889,6 +3891,7 @@ Comminting uploaded file to storage
 | ----- | ---- | ----- | ----------- |
 | upload_key | [bytes](#bytes) |  |  |
 | file_name | [string](#string) |  |  |
+| md5_hash | [bytes](#bytes) |  |  |
 
 
 
@@ -4030,6 +4033,7 @@ Requesting multiple fle URL for downloading
 | timeout | [int32](#int32) |  |  |
 | unsigned_url | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | unsigned_url_headers | [HTTPHeader](#dialog.HTTPHeader) | repeated |  |
+| md5_hash | [bytes](#bytes) |  |  |
 
 
 
