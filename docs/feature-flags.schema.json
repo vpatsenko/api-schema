@@ -533,6 +533,16 @@
       "type": "boolean",
       "title": "Enable release notes",
       "default": false
+    },
+    "max-members-count.default.group": {
+      "type": "integer",
+      "title": "Group members count limit",
+      "default": 9007199254740991
+    },
+    "max-members-count.default.channel": {
+      "type": "integer",
+      "title": "Channel members count limit",
+      "default": 9007199254740991
     }
   }
 }
