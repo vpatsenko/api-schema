@@ -322,6 +322,8 @@ enum GroupAdminPermission {
     GROUPADMINPERMISSION_TARGETING = 13;
     GROUPADMINPERMISSION_DELETE = 14;
     GROUPADMINPERMISSION_MANAGE_CONFERENCE = 15;
+    /// Permission to allow mention all users with `@all`.
+    GROUPADMINPERMISSION_MENTION_ALL_USERS = 16;
 }
 
 // Make user admin
