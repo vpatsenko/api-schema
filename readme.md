@@ -262,6 +262,7 @@
     - [InteractiveMediaTranslationGroup](#dialog.InteractiveMediaTranslationGroup)
     - [InteractiveMediaWidget](#dialog.InteractiveMediaWidget)
     - [JsonMessage](#dialog.JsonMessage)
+    - [Mention](#dialog.Mention)
     - [MessageAttributes](#dialog.MessageAttributes)
     - [MessageContent](#dialog.MessageContent)
     - [MessageMedia](#dialog.MessageMedia)
@@ -4645,6 +4646,22 @@ Custom-data JsonMessage
 
 
 
+<a name="dialog.Mention"></a>
+
+### Mention
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| all | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="dialog.MessageAttributes"></a>
 
 ### MessageAttributes
@@ -5891,10 +5908,10 @@ Text message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  |  |
-| mentions | [int32](#int32) | repeated | User mentions in message |
 | ext | [TextMessageEx](#dialog.TextMessageEx) |  | Optional bytes of extension |
 | media | [MessageMedia](#dialog.MessageMedia) | repeated |  |
 | extensions | [Any](#dialog.Any) | repeated |  |
+| mentions | [Mention](#dialog.Mention) | repeated | Mentions in message |
 
 
 

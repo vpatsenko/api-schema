@@ -1219,6 +1219,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.Mention"><span class="badge">M</span>Mention</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.MessageAttributes"><span class="badge">M</span>MessageAttributes</a>
                 </li>
               
@@ -11730,6 +11734,36 @@ when they perform the media action </p></td>
 
         
       
+        <h3 id="dialog.Mention">Mention</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>all</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.MessageAttributes">MessageAttributes</h3>
         <p>Message Attributes</p>
 
@@ -14242,13 +14276,6 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 </tr>
               
                 <tr>
-                  <td>mentions</td>
-                  <td><a href="#int32">int32</a></td>
-                  <td>repeated</td>
-                  <td><p>User mentions in message </p></td>
-                </tr>
-              
-                <tr>
                   <td>ext</td>
                   <td><a href="#dialog.TextMessageEx">TextMessageEx</a></td>
                   <td></td>
@@ -14267,6 +14294,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#dialog.Any">Any</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mentions</td>
+                  <td><a href="#dialog.Mention">Mention</a></td>
+                  <td>repeated</td>
+                  <td><p>Mentions in message </p></td>
                 </tr>
               
             </tbody>
