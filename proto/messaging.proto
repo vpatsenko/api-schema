@@ -293,6 +293,7 @@ message ServiceEx {
         ServiceExPhoneRejected phoneRejected = 13;
         ServiceExChatArchived chatArchived = 14;
         ServiceExChatRestored chatRestored = 15;
+        ServiceExUnableToShow unableToShow = 17;
     }
 }
 
@@ -371,6 +372,10 @@ message ServiceExChatArchived {
 
 // Message about chat restored
 message ServiceExChatRestored {
+}
+
+// Unable to show message due to server issues
+message ServiceExUnableToShow {
 }
 
 // File message
