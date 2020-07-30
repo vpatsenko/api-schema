@@ -7,6 +7,7 @@ import "google/protobuf/wrappers.proto";
 import "google/api/annotations.proto";
 import "definitions.proto";
 import "scalapb/scalapb.proto";
+import "google/protobuf/empty.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";
@@ -193,6 +194,13 @@ message ResponseGetFileUploadPartUrl {
     string url = 1;
 }
 
+message RequestReplicateFileDCInfoToMaster {
+    option (scalapb.message).extends = "im.dlg.grpc.GrpcRequest";
+    int64 file_id = 1;
+    int64 access_hash = 2;
+    string dc_id = 3;
+}
+
 service MediaAndFiles {
     /// Get link to file for downloading
     rpc GetFileUrl (RequestGetFileUrl) returns (ResponseGetFileUrl) {
@@ -233,6 +241,14 @@ service MediaAndFiles {
     rpc GetFileUploadPartUrl (RequestGetFileUploadPartUrl) returns (ResponseGetFileUploadPartUrl) {
         option (google.api.http) = {
             post: "/v1/grpc/MediaAndFiles/GetFileUploadPartUrl"
+            body: "*"
+        };
+    }
+
+    /// Get url for uploading chunk of file
+    rpc ReplicateFileDCInfoToMaster (RequestReplicateFileDCInfoToMaster) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            post: "/v1/grpc/MediaAndFiles/ReplicateFileDCInfoToMaster"
             body: "*"
         };
     }
