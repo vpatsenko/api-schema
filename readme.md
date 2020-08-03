@@ -275,6 +275,7 @@
     - [RequestArchiveChat](#dialog.RequestArchiveChat)
     - [RequestClearChat](#dialog.RequestClearChat)
     - [RequestDeleteChat](#dialog.RequestDeleteChat)
+    - [RequestDeleteMessage](#dialog.RequestDeleteMessage)
     - [RequestDeleteMessageObsolete](#dialog.RequestDeleteMessageObsolete)
     - [RequestDialogListDifference](#dialog.RequestDialogListDifference)
     - [RequestDoInteractiveMediaAction](#dialog.RequestDoInteractiveMediaAction)
@@ -1075,10 +1076,6 @@ Starting Anonymous login - deprecated
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | name | [string](#string) |  |  |
-| app_id | [int32](#int32) |  |  |
-| api_key | [string](#string) |  |  |
-| device_hash | [bytes](#bytes) |  |  |
-| device_title | [string](#string) |  |  |
 | time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | preferred_languages | [string](#string) | repeated |  |
 
@@ -1096,10 +1093,6 @@ Start EMail Activation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | email | [string](#string) |  |  |
-| app_id | [int32](#int32) |  | Application id, choose it by yourself and hold during authorization process * |
-| api_key | [string](#string) |  | Deprecated field - keep it empty * |
-| device_hash | [bytes](#bytes) |  | Deprecated field - keep it empty * |
-| device_title | [string](#string) |  | Some title, choose it by yourself and hold during authorization process * |
 | time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Your timezone * |
 | preferred_languages | [string](#string) | repeated | First language from this array will be used for some notifications from server * |
 
@@ -1117,10 +1110,6 @@ Start Phone Activation
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | phone_number | [int64](#int64) |  |  |
-| app_id | [int32](#int32) |  | Application id, choose it by yourself and hold during authorization process * |
-| api_key | [string](#string) |  | Deprecated field - keep it empty * |
-| device_hash | [bytes](#bytes) |  | Deprecated field - keep it empty * |
-| device_title | [string](#string) |  | Some title, choose it by yourself and hold during authorization process * |
 | time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Your timezone * |
 | preferred_languages | [string](#string) | repeated | First language from this array will be used for some notifications from server * |
 
@@ -1138,10 +1127,6 @@ Starting token-based login - to authorize bot
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | token | [string](#string) |  | Token received from BotFather * |
-| app_id | [int32](#int32) |  | Application id, choose it by yourself and hold during authorization process * |
-| api_key | [string](#string) |  | Deprecated field - keep it empty * |
-| device_hash | [bytes](#bytes) |  | Deprecated field - keep it empty * |
-| device_title | [string](#string) |  | Some title, choose it by yourself and hold during authorization process * |
 | time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Your timezone * |
 | preferred_languages | [string](#string) | repeated | First language from this array will be used for some notifications from server * |
 
@@ -1159,10 +1144,6 @@ Starting Login Authentication
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | username | [string](#string) |  |  |
-| app_id | [int32](#int32) |  | Application id, choose it by yourself and hold during authorization process * |
-| api_key | [string](#string) |  | Deprecated field - keep it empty * |
-| device_hash | [bytes](#bytes) |  | Deprecated field - keep it empty * |
-| device_title | [string](#string) |  | Some title, choose it by yourself and hold during authorization process * |
 | time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | preferred_languages | [string](#string) | repeated | First language from this array will be used for some notifications from server * |
 
@@ -2642,6 +2623,7 @@ Group information
 | pinned_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
 | conference_link | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | members_count_limit | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  |  |
+| deleted_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  |  |
 
 
 
@@ -4871,6 +4853,23 @@ Deleting of conversation (also leave group for group conversations)
 
 
 
+<a name="dialog.RequestDeleteMessage"></a>
+
+### RequestDeleteMessage
+Deleting message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| message_id | [UUIDValue](#dialog.UUIDValue) |  | Message id |
+| delete_for_user_only | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestDeleteMessageObsolete"></a>
 
 ### RequestDeleteMessageObsolete
@@ -6429,6 +6428,7 @@ Webpage media
 | MessageReceived | [RequestMessageReceived](#dialog.RequestMessageReceived) | [ResponseVoid](#dialog.ResponseVoid) | Mark message as received by self |
 | MessageRead | [RequestMessageRead](#dialog.RequestMessageRead) | [ResponseVoid](#dialog.ResponseVoid) | Mark message as read by self |
 | DeleteMessageObsolete | [RequestDeleteMessageObsolete](#dialog.RequestDeleteMessageObsolete) | [ResponseSeq](#dialog.ResponseSeq) | deprecated |
+| DeleteMessage | [RequestDeleteMessage](#dialog.RequestDeleteMessage) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | ClearChat | [RequestClearChat](#dialog.RequestClearChat) | [ResponseSeq](#dialog.ResponseSeq) | Clear chat history |
 | DeleteChat | [RequestDeleteChat](#dialog.RequestDeleteChat) | [ResponseSeq](#dialog.ResponseSeq) |  |
 | ArchiveChat | [RequestArchiveChat](#dialog.RequestArchiveChat) | [ResponseSeq](#dialog.ResponseSeq) | deprecated |
@@ -9602,6 +9602,7 @@ Sequence update
 | updateGroup | [UpdateGroup](#dialog.UpdateGroup) |  |  |
 | updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 | messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
+| updatePermissionsChange | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
 
 
 
