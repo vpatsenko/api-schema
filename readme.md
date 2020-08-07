@@ -7575,6 +7575,7 @@ Permissions definition
 | PERMISSION_UNKNOWN | 0 |  |
 | PERMISSION_SEARCH | 1 |  |
 | PERMISSION_CREATE_GROUPS | 2 |  |
+| PERMISSION_LEAVE_GROUPS | 3 |  |
 
 
  
