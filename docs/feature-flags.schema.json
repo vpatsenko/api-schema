@@ -546,7 +546,7 @@
     },
     "messaging.localDrafts.isEnabled": {
       "type": "boolean",
-      "title": "Enable local drafts",
+      "title": "Enable drafts without remote synchronization",
       "default": true
     }
   }
