@@ -547,7 +547,7 @@
     "messaging.localDrafts.isEnabled": {
       "type": "boolean",
       "title": "Enable local drafts",
-      "default": "false"
+      "default": true
     }
   }
 }
