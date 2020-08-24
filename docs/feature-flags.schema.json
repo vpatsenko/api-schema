@@ -543,6 +543,11 @@
       "type": "integer",
       "title": "The maximum number of mentions per message",
       "default": 5
+    },
+    "messaging.drafts.isNoSyncEnabled": {
+      "type": "boolean",
+      "title": "Enable drafts with no sync",
+      "default": "false"
     }
   }
 }
