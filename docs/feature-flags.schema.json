@@ -544,9 +544,9 @@
       "title": "The maximum number of mentions per message",
       "default": 5
     },
-    "messaging.drafts.isNoSyncEnabled": {
+    "messaging.localDrafts.isEnabled": {
       "type": "boolean",
-      "title": "Enable drafts with no sync",
+      "title": "Enable local drafts",
       "default": "false"
     }
   }
