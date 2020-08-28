@@ -151,6 +151,7 @@
     - [RequestGetGroupInviteUrl](#dialog.RequestGetGroupInviteUrl)
     - [RequestGetGroupInviteUrlBase](#dialog.RequestGetGroupInviteUrlBase)
     - [RequestGetGroupMemberPermissions](#dialog.RequestGetGroupMemberPermissions)
+    - [RequestGetGroupPartialInfo](#dialog.RequestGetGroupPartialInfo)
     - [RequestInviteUser](#dialog.RequestInviteUser)
     - [RequestJoinGroup](#dialog.RequestJoinGroup)
     - [RequestJoinGroupByPeer](#dialog.RequestJoinGroupByPeer)
@@ -2858,6 +2859,21 @@ Fetches the group administration permissions for each of the users from the list
 
 
 
+<a name="dialog.RequestGetGroupPartialInfo"></a>
+
+### RequestGetGroupPartialInfo
+get group info by invite token
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestInviteUser"></a>
 
 ### RequestInviteUser
@@ -3590,6 +3606,7 @@ Possible permissions on a group
 | JoinGroup | [RequestJoinGroup](#dialog.RequestJoinGroup) | [ResponseJoinGroup](#dialog.ResponseJoinGroup) |  |
 | JoinGroupByPeer | [RequestJoinGroupByPeer](#dialog.RequestJoinGroupByPeer) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | DeleteGroup | [RequestDeleteGroup](#dialog.RequestDeleteGroup) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| GetGroupPartialInfo | [RequestGetGroupPartialInfo](#dialog.RequestGetGroupPartialInfo) | [GroupPartialInfo](#dialog.GroupPartialInfo) |  |
 
  
 
@@ -6106,16 +6123,18 @@ Update about plain message
 | ----- | ---- | ----- | ----------- |
 | peer | [Peer](#dialog.Peer) |  |  |
 | sender_uid | [int32](#int32) |  |  |
-| date | [int64](#int64) |  | message creation date |
+| date | [int64](#int64) |  | message creation date (interval end) |
 | mid | [UUIDValue](#dialog.UUIDValue) |  | Message id |
 | message | [MessageContent](#dialog.MessageContent) |  |  |
 | attributes | [MessageAttributes](#dialog.MessageAttributes) |  | attributes to help reasoning about message |
 | forward | [ReferencedMessages](#dialog.ReferencedMessages) |  |  |
 | reply | [ReferencedMessages](#dialog.ReferencedMessages) |  |  |
 | previous_mid | [UUIDValue](#dialog.UUIDValue) |  | Message id of previos message from current conversation |
+| prev_message_date | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | interval start |
 | counter | [google.protobuf.Int32Value](#google.protobuf.Int32Value) |  | counter of the unread messages |
 | my_read_date | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | date of my own read |
 | random_id | [int64](#int64) |  |  |
+| modified_at | [int64](#int64) |  | when greater than date, then message is edited |
 
 
 
@@ -10983,6 +11002,7 @@ Update about user became online
 | ---- | ------ | ----------- |
 | TYPINGTYPE_UNKNOWN | 0 |  |
 | TYPINGTYPE_TEXT | 1 |  |
+| TYPINGTYPE_VOICE | 2 |  |
 
 
  

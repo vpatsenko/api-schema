@@ -786,6 +786,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestGetGroupPartialInfo"><span class="badge">M</span>RequestGetGroupPartialInfo</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestInviteUser"><span class="badge">M</span>RequestInviteUser</a>
                 </li>
               
@@ -6929,6 +6933,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>GetGroupPartialInfo</td>
+                <td><a href="#dialog.RequestGetGroupPartialInfo">RequestGetGroupPartialInfo</a></td>
+                <td><a href="#dialog.GroupPartialInfo">GroupPartialInfo</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -7648,6 +7659,29 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>user_ids</td>
                   <td><a href="#int32">int32</a></td>
                   <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.RequestGetGroupPartialInfo">RequestGetGroupPartialInfo</h3>
+        <p>get group info by invite token</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               
@@ -14622,7 +14656,7 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td>date</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>message creation date </p></td>
+                  <td><p>message creation date (interval end) </p></td>
                 </tr>
               
                 <tr>
@@ -14668,6 +14702,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 </tr>
               
                 <tr>
+                  <td>prev_message_date</td>
+                  <td><a href="#google.protobuf.Int64Value">google.protobuf.Int64Value</a></td>
+                  <td></td>
+                  <td><p>interval start </p></td>
+                </tr>
+              
+                <tr>
                   <td>counter</td>
                   <td><a href="#google.protobuf.Int32Value">google.protobuf.Int32Value</a></td>
                   <td></td>
@@ -14686,6 +14727,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>modified_at</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p>when greater than date, then message is edited </p></td>
                 </tr>
               
             </tbody>
@@ -25156,6 +25204,12 @@ For loading members of big groups by chunks. </p></td>
               <tr>
                 <td>TYPINGTYPE_TEXT</td>
                 <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>TYPINGTYPE_VOICE</td>
+                <td>2</td>
                 <td><p></p></td>
               </tr>
             
