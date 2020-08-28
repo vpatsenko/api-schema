@@ -440,6 +440,12 @@
       "description": "if true = external phone calls are enable for users",
       "default": false
     },
+    "weakChannel.isEnabled": {
+      "type": "boolean",
+      "title": "Enable weak channel",
+      "description": "if enabled, WeakUpdatBox/WeakCommand will be processed, otherwise no",
+      "default": true
+    },
     "calls.history.isFeatureEnabled": {
       "type": "boolean",
       "title": "Enable calls history feature",
