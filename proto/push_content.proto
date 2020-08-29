@@ -52,5 +52,4 @@ message EncryptedPushContent {
     int64 date = 13; // date of the event (usually message)
     PushEventType event_type = 14; // type of the event    
     google.protobuf.StringValue sender_title = 15; // name of person who wrote in group chat (optional)
-    bool isChannel = 16; 
 }
