@@ -6135,6 +6135,7 @@ Update about plain message
 | my_read_date | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | date of my own read |
 | random_id | [int64](#int64) |  |  |
 | modified_at | [int64](#int64) |  | when greater than date, then message is edited |
+| prev_edit_in_peer_at | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | make sense for edited message only (modified_at &gt; date) |
 
 
 
