@@ -457,6 +457,27 @@
   
     - [Permissions](#dialog.Permissions)
   
+- [presence.proto](#presence.proto)
+    - [RequestGetUserLastPresence](#dialog.RequestGetUserLastPresence)
+    - [RequestSetOnline](#dialog.RequestSetOnline)
+    - [RequestStartTyping](#dialog.RequestStartTyping)
+    - [RequestStopTyping](#dialog.RequestStopTyping)
+    - [ResponseUserLastPresence](#dialog.ResponseUserLastPresence)
+    - [ResponseUserLastPresence.UserNotFoundError](#dialog.ResponseUserLastPresence.UserNotFoundError)
+    - [UpdateGroupOnline](#dialog.UpdateGroupOnline)
+    - [UpdateGroupTyping](#dialog.UpdateGroupTyping)
+    - [UpdateGroupTyping.UserTyping](#dialog.UpdateGroupTyping.UserTyping)
+    - [UpdateTyping](#dialog.UpdateTyping)
+    - [UpdateTypingStop](#dialog.UpdateTypingStop)
+    - [UpdateUserLastSeen](#dialog.UpdateUserLastSeen)
+    - [UpdateUserOffline](#dialog.UpdateUserOffline)
+    - [UpdateUserOnline](#dialog.UpdateUserOnline)
+  
+    - [DeviceType](#dialog.DeviceType)
+    - [TypingType](#dialog.TypingType)
+  
+    - [Presence](#dialog.Presence)
+  
 - [privacy.proto](#privacy.proto)
     - [RequestBlockUser](#dialog.RequestBlockUser)
     - [RequestLoadBlockedUsers](#dialog.RequestLoadBlockedUsers)
@@ -606,6 +627,7 @@
     - [WeakUpdateCommand](#dialog.WeakUpdateCommand)
     - [WeakUpdateCommand.ChangeMyOnline](#dialog.WeakUpdateCommand.ChangeMyOnline)
     - [WeakUpdateCommand.ChangeMyTyping](#dialog.WeakUpdateCommand.ChangeMyTyping)
+    - [WeakUpdateCommand.SubscribeToOnlines](#dialog.WeakUpdateCommand.SubscribeToOnlines)
   
     - [SequenceAndUpdates](#dialog.SequenceAndUpdates)
   
@@ -671,29 +693,6 @@
     - [RequestCreateThread.JoinPolicy](#dialog.RequestCreateThread.JoinPolicy)
   
     - [Threads](#dialog.Threads)
-  
-- [typing_and_online.proto](#typing_and_online.proto)
-    - [RequestGetUserLastPresence](#dialog.RequestGetUserLastPresence)
-    - [RequestPauseNotifications](#dialog.RequestPauseNotifications)
-    - [RequestRestoreNotifications](#dialog.RequestRestoreNotifications)
-    - [RequestSetOnline](#dialog.RequestSetOnline)
-    - [RequestStopTyping](#dialog.RequestStopTyping)
-    - [RequestTyping](#dialog.RequestTyping)
-    - [ResponseUserLastPresence](#dialog.ResponseUserLastPresence)
-    - [ResponseUserLastPresence.UserNotFoundError](#dialog.ResponseUserLastPresence.UserNotFoundError)
-    - [UpdateGroupOnline](#dialog.UpdateGroupOnline)
-    - [UpdatePauseNotifications](#dialog.UpdatePauseNotifications)
-    - [UpdateRestoreNotifications](#dialog.UpdateRestoreNotifications)
-    - [UpdateTyping](#dialog.UpdateTyping)
-    - [UpdateTypingStop](#dialog.UpdateTypingStop)
-    - [UpdateUserLastSeen](#dialog.UpdateUserLastSeen)
-    - [UpdateUserOffline](#dialog.UpdateUserOffline)
-    - [UpdateUserOnline](#dialog.UpdateUserOnline)
-  
-    - [DeviceType](#dialog.DeviceType)
-    - [TypingType](#dialog.TypingType)
-  
-    - [TypingAndOnline](#dialog.TypingAndOnline)
   
 - [users.proto](#users.proto)
     - [BotCommand](#dialog.BotCommand)
@@ -7616,6 +7615,290 @@ Permissions definition
 
 
 
+<a name="presence.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## presence.proto
+
+
+
+<a name="dialog.RequestGetUserLastPresence"></a>
+
+### RequestGetUserLastPresence
+Request for last user online timestamp
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_out_peer | [UserOutPeer](#dialog.UserOutPeer) |  |  |
+
+
+
+
+
+
+<a name="dialog.RequestSetOnline"></a>
+
+### RequestSetOnline
+Sending online state
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_online | [bool](#bool) |  |  |
+| timeout | [int64](#int64) |  | offline after timeout |
+| device_type | [DeviceType](#dialog.DeviceType) |  |  |
+
+
+
+
+
+
+<a name="dialog.RequestStartTyping"></a>
+
+### RequestStartTyping
+Sending typing notification
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [OutPeer](#dialog.OutPeer) |  |  |
+| typing_type | [TypingType](#dialog.TypingType) |  |  |
+
+
+
+
+
+
+<a name="dialog.RequestStopTyping"></a>
+
+### RequestStopTyping
+Stop typing
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [OutPeer](#dialog.OutPeer) |  |  |
+| typing_type | [TypingType](#dialog.TypingType) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseUserLastPresence"></a>
+
+### ResponseUserLastPresence
+Response for RequestGetUserLastPresence
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| last_online_at | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
+| not_found_error | [ResponseUserLastPresence.UserNotFoundError](#dialog.ResponseUserLastPresence.UserNotFoundError) |  |  |
+
+
+
+
+
+
+<a name="dialog.ResponseUserLastPresence.UserNotFoundError"></a>
+
+### ResponseUserLastPresence.UserNotFoundError
+
+
+
+
+
+
+
+<a name="dialog.UpdateGroupOnline"></a>
+
+### UpdateGroupOnline
+Update about group online change
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| count | [int32](#int32) |  | amount of online users. |
+| users_id | [int32](#int32) | repeated | The list of online users will only be sent if the flag was set during the subscription. |
+
+
+
+
+
+
+<a name="dialog.UpdateGroupTyping"></a>
+
+### UpdateGroupTyping
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_id | [int32](#int32) |  |  |
+| users_typing | [UpdateGroupTyping.UserTyping](#dialog.UpdateGroupTyping.UserTyping) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.UpdateGroupTyping.UserTyping"></a>
+
+### UpdateGroupTyping.UserTyping
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int32](#int32) |  |  |
+| typing_type | [TypingType](#dialog.TypingType) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateTyping"></a>
+
+### UpdateTyping
+Update about user&#39;s typing
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| user_id | [int32](#int32) |  |  |
+| typing_type | [TypingType](#dialog.TypingType) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateTypingStop"></a>
+
+### UpdateTypingStop
+Update about user&#39;s typing stop
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| user_id | [int32](#int32) |  |  |
+| typing_type | [TypingType](#dialog.TypingType) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateUserLastSeen"></a>
+
+### UpdateUserLastSeen
+Update about user&#39;s last seen state
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uid | [int32](#int32) |  |  |
+| last_seen_at | [int64](#int64) |  |  |
+| device_type | [DeviceType](#dialog.DeviceType) |  |  |
+| current_time | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateUserOffline"></a>
+
+### UpdateUserOffline
+Update about user became offline
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| uid | [int32](#int32) |  |  |
+| device_type | [DeviceType](#dialog.DeviceType) |  |  |
+
+
+
+
+
+
+<a name="dialog.UpdateUserOnline"></a>
+
+### UpdateUserOnline
+Update about user became online
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_id | [int32](#int32) |  |  |
+| device_type | [DeviceType](#dialog.DeviceType) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="dialog.DeviceType"></a>
+
+### DeviceType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| DEVICETYPE_UNKNOWN | 0 |  |
+| DEVICETYPE_GENERIC | 1 |  |
+| DEVICETYPE_PC | 2 |  |
+| DEVICETYPE_MOBILE | 3 |  |
+| DEVICETYPE_TABLET | 4 |  |
+| DEVICETYPE_WATCH | 5 |  |
+| DEVICETYPE_MIRROR | 6 |  |
+| DEVICETYPE_CAR | 7 |  |
+| DEVICETYPE_TABLE | 8 |  |
+
+
+
+<a name="dialog.TypingType"></a>
+
+### TypingType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| TYPINGTYPE_UNKNOWN | 0 |  |
+| TYPINGTYPE_TEXT | 1 |  |
+| TYPINGTYPE_VOICE | 2 |  |
+
+
+ 
+
+ 
+
+
+<a name="dialog.Presence"></a>
+
+### Presence
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| StartTyping | [RequestStartTyping](#dialog.RequestStartTyping) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| StopTyping | [RequestStopTyping](#dialog.RequestStopTyping) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| SetOnline | [RequestSetOnline](#dialog.RequestSetOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| GetUserLastPresence | [RequestGetUserLastPresence](#dialog.RequestGetUserLastPresence) | [ResponseUserLastPresence](#dialog.ResponseUserLastPresence) |  |
+
+ 
+
+
+
 <a name="privacy.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -9329,6 +9612,7 @@ Subscribing for groups online
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | groups | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
+| send_users_id | [bool](#bool) |  | If set to true UpdateGroupOnline will return list of online users id. |
 
 
 
@@ -9591,8 +9875,6 @@ Sequence update
 | updateStickerCollectionsChanged | [UpdateStickerCollectionsChanged](#dialog.UpdateStickerCollectionsChanged) |  |  |
 | updateStickerPackRemoved | [UpdateStickerPackRemoved](#dialog.UpdateStickerPackRemoved) |  |  |
 | updateStickerPackAdded | [UpdateStickerPackAdded](#dialog.UpdateStickerPackAdded) |  |  |
-| updatePauseNotifications | [UpdatePauseNotifications](#dialog.UpdatePauseNotifications) |  |  |
-| updateRestoreNotifications | [UpdateRestoreNotifications](#dialog.UpdateRestoreNotifications) |  |  |
 | updateTyping | [UpdateTyping](#dialog.UpdateTyping) |  |  |
 | updateTypingStop | [UpdateTypingStop](#dialog.UpdateTypingStop) |  |  |
 | updateUserOnline | [UpdateUserOnline](#dialog.UpdateUserOnline) |  |  |
@@ -9624,6 +9906,7 @@ Sequence update
 | updateGroupMemberInvited | [UpdateGroupMemberInvited](#dialog.UpdateGroupMemberInvited) |  |  |
 | messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
 | updatePermissionsChange | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
+| updateGroupTyping | [UpdateGroupTyping](#dialog.UpdateGroupTyping) |  |  |
 
 
 
@@ -9684,7 +9967,7 @@ Out of sequence update (for typing and online statuses)
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| typing_start | [UpdateTyping](#dialog.UpdateTyping) |  |  |
+| typing | [UpdateTyping](#dialog.UpdateTyping) |  |  |
 | typing_stop | [UpdateTypingStop](#dialog.UpdateTypingStop) |  |  |
 | user_last_seen | [UpdateUserLastSeen](#dialog.UpdateUserLastSeen) |  |  |
 | group_online | [UpdateGroupOnline](#dialog.UpdateGroupOnline) |  |  |
@@ -9697,6 +9980,8 @@ Out of sequence update (for typing and online statuses)
 | message_read | [UpdateMessageRead](#dialog.UpdateMessageRead) |  |  |
 | message_received | [UpdateMessageReceived](#dialog.UpdateMessageReceived) |  |  |
 | message_read_by_me | [UpdateMessageReadByMe](#dialog.UpdateMessageReadByMe) |  |  |
+| user_online | [UpdateUserOnline](#dialog.UpdateUserOnline) |  |  |
+| group_typing | [UpdateGroupTyping](#dialog.UpdateGroupTyping) |  |  |
 
 
 
@@ -9744,7 +10029,7 @@ Out of sequence update (for typing and online statuses)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | change_my_online | [WeakUpdateCommand.ChangeMyOnline](#dialog.WeakUpdateCommand.ChangeMyOnline) |  |  |
-| subscribe_to_onlines | [PeersList](#dialog.PeersList) |  |  |
+| subscribe_to_onlines | [WeakUpdateCommand.SubscribeToOnlines](#dialog.WeakUpdateCommand.SubscribeToOnlines) |  |  |
 | unsubscribe_from_onlines | [PeersList](#dialog.PeersList) |  |  |
 | unsubscribe_from_all_onlines | [google.protobuf.Empty](#google.protobuf.Empty) |  |  |
 | change_my_typing | [WeakUpdateCommand.ChangeMyTyping](#dialog.WeakUpdateCommand.ChangeMyTyping) |  |  |
@@ -9783,6 +10068,22 @@ Out of sequence update (for typing and online statuses)
 | peer | [Peer](#dialog.Peer) |  |  |
 | type | [TypingType](#dialog.TypingType) |  |  |
 | start | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.WeakUpdateCommand.SubscribeToOnlines"></a>
+
+### WeakUpdateCommand.SubscribeToOnlines
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peers | [PeersList](#dialog.PeersList) |  |  |
+| send_users_id | [bool](#bool) |  |  |
 
 
 
@@ -10718,312 +11019,6 @@ Thread lift response
 | LiftThread | [RequestLiftThread](#dialog.RequestLiftThread) | [ResponseLiftThread](#dialog.ResponseLiftThread) |  |
 | LoadGroupThreads | [RequestLoadGroupThreads](#dialog.RequestLoadGroupThreads) | [ResponseLoadGroupThreads](#dialog.ResponseLoadGroupThreads) |  |
 | JoinThread | [RequestJoinThread](#dialog.RequestJoinThread) | [ResponseVoid](#dialog.ResponseVoid) |  |
-
- 
-
-
-
-<a name="typing_and_online.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## typing_and_online.proto
-
-
-
-<a name="dialog.RequestGetUserLastPresence"></a>
-
-### RequestGetUserLastPresence
-Request for last user online timestamp
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| user_out_peer | [UserOutPeer](#dialog.UserOutPeer) |  |  |
-
-
-
-
-
-
-<a name="dialog.RequestPauseNotifications"></a>
-
-### RequestPauseNotifications
-Pause notifications
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| timeout | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="dialog.RequestRestoreNotifications"></a>
-
-### RequestRestoreNotifications
-Restoring notifications
-
-
-
-
-
-
-<a name="dialog.RequestSetOnline"></a>
-
-### RequestSetOnline
-Sending online state
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| is_online | [bool](#bool) |  |  |
-| timeout | [int64](#int64) |  | offline after timeout |
-| device_type | [DeviceType](#dialog.DeviceType) |  |  |
-| device_category | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-
-
-
-
-
-
-<a name="dialog.RequestStopTyping"></a>
-
-### RequestStopTyping
-Stop typing
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| peer | [OutPeer](#dialog.OutPeer) |  |  |
-| typing_type | [TypingType](#dialog.TypingType) |  |  |
-
-
-
-
-
-
-<a name="dialog.RequestTyping"></a>
-
-### RequestTyping
-Sending typing notification
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| peer | [OutPeer](#dialog.OutPeer) |  |  |
-| typing_type | [TypingType](#dialog.TypingType) |  |  |
-
-
-
-
-
-
-<a name="dialog.ResponseUserLastPresence"></a>
-
-### ResponseUserLastPresence
-Response for RequestGetUserLastPresence
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| last_online_at | [google.protobuf.Timestamp](#google.protobuf.Timestamp) |  |  |
-| not_found_error | [ResponseUserLastPresence.UserNotFoundError](#dialog.ResponseUserLastPresence.UserNotFoundError) |  |  |
-
-
-
-
-
-
-<a name="dialog.ResponseUserLastPresence.UserNotFoundError"></a>
-
-### ResponseUserLastPresence.UserNotFoundError
-
-
-
-
-
-
-
-<a name="dialog.UpdateGroupOnline"></a>
-
-### UpdateGroupOnline
-Update about group online change
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| group_id | [int32](#int32) |  |  |
-| count | [int32](#int32) |  | amount of online users |
-
-
-
-
-
-
-<a name="dialog.UpdatePauseNotifications"></a>
-
-### UpdatePauseNotifications
-Update about pausing notifications
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| timeout | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateRestoreNotifications"></a>
-
-### UpdateRestoreNotifications
-Update about restoring notifications
-
-
-
-
-
-
-<a name="dialog.UpdateTyping"></a>
-
-### UpdateTyping
-Update about user&#39;s typing
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| peer | [Peer](#dialog.Peer) |  |  |
-| uid | [int32](#int32) |  |  |
-| typing_type | [TypingType](#dialog.TypingType) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateTypingStop"></a>
-
-### UpdateTypingStop
-Update about user&#39;s typing stop
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| peer | [Peer](#dialog.Peer) |  |  |
-| uid | [int32](#int32) |  |  |
-| typing_type | [TypingType](#dialog.TypingType) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateUserLastSeen"></a>
-
-### UpdateUserLastSeen
-Update about user&#39;s last seen state
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| uid | [int32](#int32) |  |  |
-| date | [int64](#int64) |  |  |
-| device_type | [DeviceType](#dialog.DeviceType) |  |  |
-| device_category | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateUserOffline"></a>
-
-### UpdateUserOffline
-Update about user became offline
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| uid | [int32](#int32) |  |  |
-| device_type | [DeviceType](#dialog.DeviceType) |  |  |
-| device_category | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-
-
-
-
-
-
-<a name="dialog.UpdateUserOnline"></a>
-
-### UpdateUserOnline
-Update about user became online
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| uid | [int32](#int32) |  |  |
-| device_type | [DeviceType](#dialog.DeviceType) |  |  |
-| device_category | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
-
-
-
-
-
- 
-
-
-<a name="dialog.DeviceType"></a>
-
-### DeviceType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| DEVICETYPE_UNKNOWN | 0 |  |
-| DEVICETYPE_GENERIC | 1 |  |
-| DEVICETYPE_PC | 2 |  |
-| DEVICETYPE_MOBILE | 3 |  |
-| DEVICETYPE_TABLET | 4 |  |
-| DEVICETYPE_WATCH | 5 |  |
-| DEVICETYPE_MIRROR | 6 |  |
-| DEVICETYPE_CAR | 7 |  |
-| DEVICETYPE_TABLE | 8 |  |
-
-
-
-<a name="dialog.TypingType"></a>
-
-### TypingType
-
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| TYPINGTYPE_UNKNOWN | 0 |  |
-| TYPINGTYPE_TEXT | 1 |  |
-| TYPINGTYPE_VOICE | 2 |  |
-
-
- 
-
- 
-
-
-<a name="dialog.TypingAndOnline"></a>
-
-### TypingAndOnline
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| Typing | [RequestTyping](#dialog.RequestTyping) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| StopTyping | [RequestStopTyping](#dialog.RequestStopTyping) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| SetOnline | [RequestSetOnline](#dialog.RequestSetOnline) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| PauseNotifications | [RequestPauseNotifications](#dialog.RequestPauseNotifications) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| RestoreNotifications | [RequestRestoreNotifications](#dialog.RequestRestoreNotifications) | [ResponseVoid](#dialog.ResponseVoid) |  |
-| GetUserLastPresence | [RequestGetUserLastPresence](#dialog.RequestGetUserLastPresence) | [ResponseUserLastPresence](#dialog.ResponseUserLastPresence) |  |
 
  
 
