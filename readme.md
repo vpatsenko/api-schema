@@ -5923,6 +5923,7 @@ Text message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | text | [string](#string) |  |  |
+| obsolete_mentions | [int32](#int32) | repeated | Field is deprecated since server 2.6 version. |
 | ext | [TextMessageEx](#dialog.TextMessageEx) |  | Optional bytes of extension |
 | media | [MessageMedia](#dialog.MessageMedia) | repeated |  |
 | extensions | [Any](#dialog.Any) | repeated |  |
