@@ -33,6 +33,7 @@
     - [ResponseAuth](#dialog.ResponseAuth)
     - [ResponseGetAuthSessions](#dialog.ResponseGetAuthSessions)
     - [ResponseGetOAuth2Params](#dialog.ResponseGetOAuth2Params)
+    - [ResponseGetSelf](#dialog.ResponseGetSelf)
     - [ResponseSendAuthCodeObsolete](#dialog.ResponseSendAuthCodeObsolete)
     - [ResponseStartEmailAuth](#dialog.ResponseStartEmailAuth)
     - [ResponseStartPhoneAuth](#dialog.ResponseStartPhoneAuth)
@@ -1257,6 +1258,21 @@ Deprecated
 
 
 
+<a name="dialog.ResponseGetSelf"></a>
+
+### ResponseGetSelf
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user | [User](#dialog.User) |  | Registered/authorized user |
+
+
+
+
+
+
 <a name="dialog.ResponseSendAuthCodeObsolete"></a>
 
 ### ResponseSendAuthCodeObsolete
@@ -1424,6 +1440,7 @@ Holder of session
 | SendAuthCodeObsolete | [RequestSendAuthCodeObsolete](#dialog.RequestSendAuthCodeObsolete) | [ResponseSendAuthCodeObsolete](#dialog.ResponseSendAuthCodeObsolete) | Deprecated |
 | SendAuthCallObsolete | [RequestSendAuthCallObsolete](#dialog.RequestSendAuthCallObsolete) | [ResponseVoid](#dialog.ResponseVoid) | Deprecated |
 | ChangePassword | [RequestChangePassword](#dialog.RequestChangePassword) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| GetSelf | [.google.protobuf.Empty](#google.protobuf.Empty) | [ResponseGetSelf](#dialog.ResponseGetSelf) |  |
 
  
 
