@@ -1,0 +1,1 @@
+../../../HelloWorld/Stickers.pbobjc.h

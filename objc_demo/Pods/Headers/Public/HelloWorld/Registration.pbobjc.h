@@ -1,0 +1,1 @@
+../../../HelloWorld/Registration.pbobjc.h

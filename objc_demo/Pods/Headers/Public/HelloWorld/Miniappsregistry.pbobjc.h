@@ -1,0 +1,1 @@
+../../../HelloWorld/Miniappsregistry.pbobjc.h
