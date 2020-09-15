@@ -1,18 +1,18 @@
 Pod::Spec.new do |s|
-  s.name     = "HelloWorld"
-  s.version  = "0.0.1"
+  s.name     = "Dialog-gRPC-Objc"
+  s.version  = "1.65.0"
   s.license  = "Apache License, Version 2.0"
   s.authors  = { 'gRPC contributors' => 'grpc-io@googlegroups.com' }
   s.homepage = "https://grpc.io/"
-  s.summary = "HelloWorld example"
+  s.summary = "Dialog gRPC access library"
   s.source = { :git => 'https://github.com/grpc/grpc.git' }
 
   s.ios.deployment_target = "7.1"
   s.osx.deployment_target = "10.9"
 
   # Base directory where the .proto files are.
-  src = "../proto"
-  api_import = "../include"
+  src = "proto"
+  api_import = "include"
   google_api = "#{api_import}/google/api"
   descriptor = "#{api_import}/google/protobuf/descriptor.proto"
   scalapb = "#{api_import}/scalapb/scalapb.proto"
