@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   # Path where Cocoapods downloads protoc and the gRPC plugin.
   protoc_dir = "objc_dependency"
   protoc = "#{protoc_dir}/protoc"
-  plugin = "#{pods_root}/grpc_objective_c_plugin"
+  plugin = "#{protoc_dir}/grpc_objective_c_plugin"
 
   # Directory where the generated files will be placed.
   dir = "#{pods_root}/#{s.name}"
