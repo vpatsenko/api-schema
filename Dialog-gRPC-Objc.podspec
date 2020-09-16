@@ -47,6 +47,7 @@ Pod::Spec.new do |s|
   s.subspec "Messages" do |ms|
     ms.source_files = "#{dir}/*.pbobjc.{h,m}", "#{dir}/**/*.pbobjc.{h,m}"
     ms.header_mappings_dir = dir
+    ms.pod_target_xcconfig  = { "HEADER_SEARCH_PATHS" => "$(PODS_TARGET_SRCROOT)" }
     ms.requires_arc = false
     # The generated files depend on the protobuf runtime.
     ms.dependency "Protobuf"
