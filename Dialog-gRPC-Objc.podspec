@@ -67,10 +67,5 @@ Pod::Spec.new do |s|
     'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1',
     # This is needed by all pods that depend on gRPC-RxLibrary:
     'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
-    
-    "USE_HEADERMAP" => "NO",
-    "ALWAYS_SEARCH_USER_PATHS" => "NO",
-    "USER_HEADER_SEARCH_PATHS" => "$(PODS_ROOT)/Dialog-gRPC-Objc",
-    "HEADER_SEARCH_PATHS" => "$(PODS_ROOT)/Dialog-gRPC-Objc"
   }
 end

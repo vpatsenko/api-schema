@@ -4,9 +4,9 @@ package dialog;
 
 // Peer is an identificator of specific conversation.
 
-import "google/protobuf/wrappers.proto";
+import "wrappers.proto";
 import "definitions.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

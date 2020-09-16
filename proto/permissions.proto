@@ -3,8 +3,8 @@ syntax = "proto3";
 package dialog;
 
 import "definitions.proto";
-import "google/api/annotations.proto";
-import "scalapb/scalapb.proto";
+import "annotations.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

@@ -12,9 +12,9 @@ package dialog;
 // In some updates there can be references to users that are not available at client yet. In this case application need
 // to ignore such update and init getting difference.
 
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/empty.proto";
-import "google/api/annotations.proto";
+import "wrappers.proto";
+import "empty.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
 import "authentication.proto";
@@ -33,7 +33,7 @@ import "users.proto";
 import "spaces.proto";
 import "reactions.proto";
 import "permissions.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

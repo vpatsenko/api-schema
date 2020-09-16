@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package dialog;
 
-import "google/protobuf/wrappers.proto";
+import "wrappers.proto";
 
 option go_package = "dialog";
 option objc_class_prefix = "API";

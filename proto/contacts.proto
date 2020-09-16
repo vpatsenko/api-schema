@@ -16,13 +16,13 @@ package dialog;
 //
 // For adding/deleting contacts AddContact and DeleteContact.
 
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
+import "wrappers.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
 import "peers.proto";
 import "users.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

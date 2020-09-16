@@ -4,13 +4,13 @@ package dialog;
 
 // WebRTC package that enables support to audio and video calls
 
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
+import "wrappers.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
 import "peers.proto";
 import "device_info.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

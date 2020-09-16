@@ -4,16 +4,16 @@ package dialog;
 
 // Searching API
 
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
-import "google/protobuf/timestamp.proto";
+import "wrappers.proto";
+import "annotations.proto";
+import "timestamp.proto";
 import "definitions.proto";
 import "groups.proto";
 import "peers.proto";
 import "messaging.proto";
 import "users.proto";
 import "miscellaneous.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

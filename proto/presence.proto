@@ -3,13 +3,13 @@ syntax = "proto3";
 package dialog;
 
 
-import "google/protobuf/timestamp.proto";
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
+import "timestamp.proto";
+import "wrappers.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
 import "peers.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

@@ -4,11 +4,11 @@ package dialog;
 
 // Support for threads inside group chats.
 
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
+import "wrappers.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 import "peers.proto";
 import "groups.proto";
 

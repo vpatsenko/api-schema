@@ -11,13 +11,13 @@ package dialog;
 // Each User have optional localName - name of user that was set by current user and can be changed
 // any time by calling EditUserLocalName method.
 
-import "google/protobuf/wrappers.proto";
-import "google/api/annotations.proto";
+import "wrappers.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "miscellaneous.proto";
 import "peers.proto";
 import "media_and_files.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

@@ -2,11 +2,11 @@ syntax = "proto3";
 
 package dialog.reactions;
 
-import "google/api/annotations.proto";
+import "annotations.proto";
 import "peers.proto";
 import "definitions.proto";
-import "scalapb/scalapb.proto";
-import "google/protobuf/empty.proto";
+import "scalapb.proto";
+import "empty.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";

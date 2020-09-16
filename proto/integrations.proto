@@ -4,10 +4,10 @@ package dialog;
 
 // Package contains methods for providing integration
 
-import "google/api/annotations.proto";
+import "annotations.proto";
 import "definitions.proto";
 import "peers.proto";
-import "scalapb/scalapb.proto";
+import "scalapb.proto";
 
 option go_package = "dialog";
 option java_package = "im.dlg.grpc.services";
