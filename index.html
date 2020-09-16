@@ -280,6 +280,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestStartAuthTransaction"><span class="badge">M</span>RequestStartAuthTransaction</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestStartEmailAuth"><span class="badge">M</span>RequestStartEmailAuth</a>
                 </li>
               
@@ -329,6 +333,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.ResponseSendAuthCodeObsolete"><span class="badge">M</span>ResponseSendAuthCodeObsolete</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseStartAuthTransaction"><span class="badge">M</span>ResponseStartAuthTransaction</a>
                 </li>
               
                 <li>
@@ -3303,6 +3311,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               </tr>
             
               <tr>
+                <td>StartAuthTransaction</td>
+                <td><a href="#dialog.RequestStartAuthTransaction">RequestStartAuthTransaction</a></td>
+                <td><a href="#dialog.ResponseStartAuthTransaction">ResponseStartAuthTransaction</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>ValidateCode</td>
                 <td><a href="#dialog.RequestValidateCode">RequestValidateCode</a></td>
                 <td><a href="#dialog.ResponseAuth">ResponseAuth</a></td>
@@ -4029,6 +4044,36 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
 
         
       
+        <h3 id="dialog.RequestStartAuthTransaction">RequestStartAuthTransaction</h3>
+        <p>Start Authentication/Authorization via external oAuth2/OpenID SSO Provider</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>time_zone</td>
+                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
+                  <td></td>
+                  <td><p>Client timezone * </p></td>
+                </tr>
+              
+                <tr>
+                  <td>preferred_languages</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>First language from this array will be used for some notifications from server * </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.RequestStartEmailAuth">RequestStartEmailAuth</h3>
         <p>Start EMail Activation</p>
 
@@ -4402,6 +4447,29 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseStartAuthTransaction">ResponseStartAuthTransaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>transaction_hash</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>Hash of authorization transaction * </p></td>
                 </tr>
               
             </tbody>

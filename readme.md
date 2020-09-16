@@ -22,6 +22,7 @@
     - [RequestSignUp](#dialog.RequestSignUp)
     - [RequestSignUpObsolete](#dialog.RequestSignUpObsolete)
     - [RequestStartAnonymousAuth](#dialog.RequestStartAnonymousAuth)
+    - [RequestStartAuthTransaction](#dialog.RequestStartAuthTransaction)
     - [RequestStartEmailAuth](#dialog.RequestStartEmailAuth)
     - [RequestStartPhoneAuth](#dialog.RequestStartPhoneAuth)
     - [RequestStartTokenAuth](#dialog.RequestStartTokenAuth)
@@ -35,6 +36,7 @@
     - [ResponseGetOAuth2Params](#dialog.ResponseGetOAuth2Params)
     - [ResponseGetSelf](#dialog.ResponseGetSelf)
     - [ResponseSendAuthCodeObsolete](#dialog.ResponseSendAuthCodeObsolete)
+    - [ResponseStartAuthTransaction](#dialog.ResponseStartAuthTransaction)
     - [ResponseStartEmailAuth](#dialog.ResponseStartEmailAuth)
     - [ResponseStartPhoneAuth](#dialog.ResponseStartPhoneAuth)
     - [ResponseStartUsernameAuth](#dialog.ResponseStartUsernameAuth)
@@ -1085,6 +1087,22 @@ Starting Anonymous login - deprecated
 
 
 
+<a name="dialog.RequestStartAuthTransaction"></a>
+
+### RequestStartAuthTransaction
+Start Authentication/Authorization via external oAuth2/OpenID SSO Provider
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time_zone | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | Client timezone * |
+| preferred_languages | [string](#string) | repeated | First language from this array will be used for some notifications from server * |
+
+
+
+
+
+
 <a name="dialog.RequestStartEmailAuth"></a>
 
 ### RequestStartEmailAuth
@@ -1289,6 +1307,21 @@ Deprecated
 
 
 
+<a name="dialog.ResponseStartAuthTransaction"></a>
+
+### ResponseStartAuthTransaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| transaction_hash | [string](#string) |  | Hash of authorization transaction * |
+
+
+
+
+
+
 <a name="dialog.ResponseStartEmailAuth"></a>
 
 ### ResponseStartEmailAuth
@@ -1425,6 +1458,7 @@ Holder of session
 | StartAnonymousAuth | [RequestStartAnonymousAuth](#dialog.RequestStartAnonymousAuth) | [ResponseAuth](#dialog.ResponseAuth) | Deprecated |
 | StartTokenAuth | [RequestStartTokenAuth](#dialog.RequestStartTokenAuth) | [ResponseAuth](#dialog.ResponseAuth) | Start token auth authorization (actual for bots) |
 | StartUsernameAuth | [RequestStartUsernameAuth](#dialog.RequestStartUsernameAuth) | [ResponseStartUsernameAuth](#dialog.ResponseStartUsernameAuth) | Start login/password authorization process |
+| StartAuthTransaction | [RequestStartAuthTransaction](#dialog.RequestStartAuthTransaction) | [ResponseStartAuthTransaction](#dialog.ResponseStartAuthTransaction) |  |
 | ValidateCode | [RequestValidateCode](#dialog.RequestValidateCode) | [ResponseAuth](#dialog.ResponseAuth) | Validate code received by phone or email Returns error if user does not exist |
 | ResendCode | [RequestResendCode](#dialog.RequestResendCode) | [ResponseVoid](#dialog.ResponseVoid) | Resend code if you don&#39;t receive it with first attempt |
 | ValidatePassword | [RequestValidatePassword](#dialog.RequestValidatePassword) | [ResponseAuth](#dialog.ResponseAuth) | Validate your passwword |
