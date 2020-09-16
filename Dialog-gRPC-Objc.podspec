@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
   api_import = "include"
   google_api_ann = "#{api_import}/annotations.proto"
   google_api_http = "#{api_import}/http.proto"
-  descriptor = "#{api_import}/descriptor.proto"
   scalapb = "#{api_import}/scalapb.proto"
 
   # Run protoc with the Objective-C and gRPC plugins to generate protocol messages and gRPC clients.
