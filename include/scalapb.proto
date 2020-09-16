@@ -9,7 +9,7 @@ option (options) = {
   flat_package: true
 };
 
-import "google/protobuf/descriptor.proto";
+import "descriptor.proto";
 
 message ScalaPbOptions {
   // If set then it overrides the java_package and package.
