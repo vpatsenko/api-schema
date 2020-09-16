@@ -10103,6 +10103,8 @@ Out of sequence update (for typing and online statuses)
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | online | [bool](#bool) |  |  |
+| timeout | [int64](#int64) |  | offline after timeout |
+| device_type | [DeviceType](#dialog.DeviceType) |  |  |
 
 
 
