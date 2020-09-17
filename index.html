@@ -1375,6 +1375,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestReadDialogLater"><span class="badge">M</span>RequestReadDialogLater</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestSendMessage"><span class="badge">M</span>RequestSendMessage</a>
                 </li>
               
@@ -1588,6 +1592,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.UpdateDialogFavouriteChanged"><span class="badge">M</span>UpdateDialogFavouriteChanged</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.UpdateDialogReadLaterChanged"><span class="badge">M</span>UpdateDialogReadLaterChanged</a>
                 </li>
               
                 <li>
@@ -10622,6 +10630,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <td><p>Returns receive status of the message per user</p></td>
               </tr>
             
+              <tr>
+                <td>ReadDialogLater</td>
+                <td><a href="#dialog.RequestReadDialogLater">RequestReadDialogLater</a></td>
+                <td><a href="#dialog.ResponseVoid">ResponseVoid</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -10825,6 +10840,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>read_later</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -11011,6 +11033,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <tr>
                   <td>last_reaction_date</td>
                   <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>read_later</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -12899,6 +12928,36 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.RequestReadDialogLater">RequestReadDialogLater</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.OutPeer">OutPeer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>read_later</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.RequestSendMessage">RequestSendMessage</h3>
         <p>Sending plain message</p>
 
@@ -14679,6 +14738,36 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>is_favourite</td>
                   <td><a href="#google.protobuf.BoolValue">google.protobuf.BoolValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.UpdateDialogReadLaterChanged">UpdateDialogReadLaterChanged</h3>
+        <p>Update about dialog read later changed</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>read_later</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -23047,6 +23136,13 @@ For loading members of big groups by chunks. </p></td>
                 <tr>
                   <td>updateGroupTyping</td>
                   <td><a href="#dialog.UpdateGroupTyping">UpdateGroupTyping</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>updateDialogReadLaterChanged</td>
+                  <td><a href="#dialog.UpdateDialogReadLaterChanged">UpdateDialogReadLaterChanged</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

@@ -301,6 +301,7 @@
     - [RequestMessageSetReaction](#dialog.RequestMessageSetReaction)
     - [RequestNotifyDialogOpened](#dialog.RequestNotifyDialogOpened)
     - [RequestPinMessage](#dialog.RequestPinMessage)
+    - [RequestReadDialogLater](#dialog.RequestReadDialogLater)
     - [RequestSendMessage](#dialog.RequestSendMessage)
     - [RequestShowDialog](#dialog.RequestShowDialog)
     - [RequestUnfavouriteDialog](#dialog.RequestUnfavouriteDialog)
@@ -355,6 +356,7 @@
     - [UpdateChatDelete](#dialog.UpdateChatDelete)
     - [UpdateChatGroupsChanged](#dialog.UpdateChatGroupsChanged)
     - [UpdateDialogFavouriteChanged](#dialog.UpdateDialogFavouriteChanged)
+    - [UpdateDialogReadLaterChanged](#dialog.UpdateDialogReadLaterChanged)
     - [UpdateInteractiveMediaEvent](#dialog.UpdateInteractiveMediaEvent)
     - [UpdateMessage](#dialog.UpdateMessage)
     - [UpdateMessageContentChanged](#dialog.UpdateMessageContentChanged)
@@ -4281,6 +4283,7 @@ historyMessage Optional last messages
 | last_receive | [int64](#int64) |  |  |
 | last_read | [int64](#int64) |  |  |
 | last_reaction_at | [int64](#int64) |  |  |
+| read_later | [bool](#bool) |  |  |
 
 
 
@@ -4364,6 +4367,7 @@ data data related to dialog itself
 | entry_clock | [int64](#int64) |  |  |
 | last_update_of_message_date | [int64](#int64) |  |  |
 | last_reaction_date | [int64](#int64) |  |  |
+| read_later | [bool](#bool) |  |  |
 | data | [DialogData](#dialog.DialogData) |  |  |
 
 
@@ -5274,6 +5278,22 @@ Pin message in conversation
 
 
 
+<a name="dialog.RequestReadDialogLater"></a>
+
+### RequestReadDialogLater
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [OutPeer](#dialog.OutPeer) |  |  |
+| read_later | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestSendMessage"></a>
 
 ### RequestSendMessage
@@ -6146,6 +6166,22 @@ Update about dialog favourite changed
 
 
 
+<a name="dialog.UpdateDialogReadLaterChanged"></a>
+
+### UpdateDialogReadLaterChanged
+Update about dialog read later changed
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [Peer](#dialog.Peer) |  |  |
+| read_later | [bool](#bool) |  |  |
+
+
+
+
+
+
 <a name="dialog.UpdateInteractiveMediaEvent"></a>
 
 ### UpdateInteractiveMediaEvent
@@ -6523,6 +6559,7 @@ Webpage media
 | GetUpdatedMessages | [RequestGetUpdatedMessages](#dialog.RequestGetUpdatedMessages) | [ResponseGetUpdatedMessages](#dialog.ResponseGetUpdatedMessages) |  |
 | GetMessageReads | [RequestMessageReads](#dialog.RequestMessageReads) | [ResponseMessageReads](#dialog.ResponseMessageReads) | Returns read status of the message per user |
 | GetMessageReceives | [RequestMessageReceives](#dialog.RequestMessageReceives) | [ResponseMessageReceives](#dialog.ResponseMessageReceives) | Returns receive status of the message per user |
+| ReadDialogLater | [RequestReadDialogLater](#dialog.RequestReadDialogLater) | [ResponseVoid](#dialog.ResponseVoid) |  |
 
  
 
@@ -9959,6 +9996,7 @@ Sequence update
 | messageReactionsUpdate | [reactions.MessageReactionsUpdate](#dialog.reactions.MessageReactionsUpdate) |  |  |
 | updatePermissionsChange | [UpdatePermissionsChange](#dialog.UpdatePermissionsChange) |  |  |
 | updateGroupTyping | [UpdateGroupTyping](#dialog.UpdateGroupTyping) |  |  |
+| updateDialogReadLaterChanged | [UpdateDialogReadLaterChanged](#dialog.UpdateDialogReadLaterChanged) |  |  |
 
 
 
