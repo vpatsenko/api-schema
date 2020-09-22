@@ -444,7 +444,7 @@
       "type": "boolean",
       "title": "Enable weak channel",
       "description": "if enabled, WeakUpdatBox/WeakCommand will be processed, otherwise no",
-      "default": true
+      "default": false
     },
     "calls.history.isFeatureEnabled": {
       "type": "boolean",
