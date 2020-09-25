@@ -2194,6 +2194,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestRegisterAvroraPushToken"><span class="badge">M</span>RequestRegisterAvroraPushToken</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestRegisterGooglePush"><span class="badge">M</span>RequestRegisterGooglePush</a>
                 </li>
               
@@ -2207,6 +2211,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.RequestUnregisterApplePushToken"><span class="badge">M</span>RequestUnregisterApplePushToken</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.RequestUnregisterAvroraPushToken"><span class="badge">M</span>RequestUnregisterAvroraPushToken</a>
                 </li>
               
                 <li>
@@ -19221,6 +19229,20 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>RegisterAvroraPushToken</td>
+                <td><a href="#dialog.RequestRegisterAvroraPushToken">RequestRegisterAvroraPushToken</a></td>
+                <td><a href="#dialog.ResponseVoid">ResponseVoid</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>UnregisterAvroraPushToken</td>
+                <td><a href="#dialog.RequestUnregisterAvroraPushToken">RequestUnregisterAvroraPushToken</a></td>
+                <td><a href="#dialog.ResponseVoid">ResponseVoid</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -19330,6 +19352,29 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.RequestRegisterAvroraPushToken">RequestRegisterAvroraPushToken</h3>
+        <p>Registering Avrora Push Token</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.RequestRegisterGooglePush">RequestRegisterGooglePush</h3>
         <p>Registering push token on server</p>
 
@@ -19408,6 +19453,29 @@ Can be empty if messageId is present and message is in current peer. </p></td>
       
         <h3 id="dialog.RequestUnregisterApplePushToken">RequestUnregisterApplePushToken</h3>
         <p>Unregister Apple Push token</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.RequestUnregisterAvroraPushToken">RequestUnregisterAvroraPushToken</h3>
+        <p>Unregister Avrora Push token</p>
 
         
           <table class="field-table">

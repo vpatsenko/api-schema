@@ -513,10 +513,12 @@
     - [RequestRegisterApplePush](#dialog.RequestRegisterApplePush)
     - [RequestRegisterApplePushKit](#dialog.RequestRegisterApplePushKit)
     - [RequestRegisterApplePushToken](#dialog.RequestRegisterApplePushToken)
+    - [RequestRegisterAvroraPushToken](#dialog.RequestRegisterAvroraPushToken)
     - [RequestRegisterGooglePush](#dialog.RequestRegisterGooglePush)
     - [RequestUnregisterApplePush](#dialog.RequestUnregisterApplePush)
     - [RequestUnregisterApplePushKit](#dialog.RequestUnregisterApplePushKit)
     - [RequestUnregisterApplePushToken](#dialog.RequestUnregisterApplePushToken)
+    - [RequestUnregisterAvroraPushToken](#dialog.RequestUnregisterAvroraPushToken)
     - [RequestUnregisterGooglePush](#dialog.RequestUnregisterGooglePush)
   
     - [Push](#dialog.Push)
@@ -8371,6 +8373,21 @@ Registering Apple Push Token
 
 
 
+<a name="dialog.RequestRegisterAvroraPushToken"></a>
+
+### RequestRegisterAvroraPushToken
+Registering Avrora Push Token
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestRegisterGooglePush"></a>
 
 ### RequestRegisterGooglePush
@@ -8432,6 +8449,21 @@ Unregister Apple Push token
 
 
 
+<a name="dialog.RequestUnregisterAvroraPushToken"></a>
+
+### RequestUnregisterAvroraPushToken
+Unregister Avrora Push token
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| token | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="dialog.RequestUnregisterGooglePush"></a>
 
 ### RequestUnregisterGooglePush
@@ -8468,6 +8500,8 @@ Unregistering Google Push
 | UnregisterApplePushKit | [RequestUnregisterApplePushKit](#dialog.RequestUnregisterApplePushKit) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | RegisterApplePushToken | [RequestRegisterApplePushToken](#dialog.RequestRegisterApplePushToken) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | UnregisterApplePushToken | [RequestUnregisterApplePushToken](#dialog.RequestUnregisterApplePushToken) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| RegisterAvroraPushToken | [RequestRegisterAvroraPushToken](#dialog.RequestRegisterAvroraPushToken) | [ResponseVoid](#dialog.ResponseVoid) |  |
+| UnregisterAvroraPushToken | [RequestUnregisterAvroraPushToken](#dialog.RequestUnregisterAvroraPushToken) | [ResponseVoid](#dialog.ResponseVoid) |  |
 
  
 
