@@ -6244,6 +6244,7 @@ Update about message change
 | message | [MessageContent](#dialog.MessageContent) |  |  |
 | edited_at | [int64](#int64) |  |  |
 | prev_edit_in_peer_at | [int64](#int64) |  |  |
+| is_silent | [google.protobuf.BoolValue](#google.protobuf.BoolValue) |  | Update on behalf of a system, should not be displayed as edited. |
 
 
 
