@@ -15740,6 +15740,22 @@ Can be empty if messageId is present and message is in current peer. </p></td>
         <p>Request to get list of mini-apps</p>
 
         
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>from_clock</td>
+                  <td><a href="#google.protobuf.Int64Value">google.protobuf.Int64Value</a></td>
+                  <td></td>
+                  <td><p>if present then return only apps created/modified since given clock </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
 
         
       
@@ -15757,6 +15773,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td>apps</td>
                   <td><a href="#dialog.MiniApp">MiniApp</a></td>
                   <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
                   <td><p> </p></td>
                 </tr>
               

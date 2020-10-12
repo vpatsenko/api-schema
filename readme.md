@@ -6611,6 +6611,11 @@ App found by id (or empty)
 Request to get list of mini-apps
 
 
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from_clock | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | if present then return only apps created/modified since given clock |
+
+
 
 
 
@@ -6624,6 +6629,7 @@ List of the mini-app
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | apps | [MiniApp](#dialog.MiniApp) | repeated |  |
+| clock | [int64](#int64) |  |  |
 
 
 
