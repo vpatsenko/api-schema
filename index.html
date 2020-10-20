@@ -2385,6 +2385,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.RequestGetPromotedPeers"><span class="badge">M</span>RequestGetPromotedPeers</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.RequestGetRecommendations"><span class="badge">M</span>RequestGetRecommendations</a>
                 </li>
               
@@ -2422,6 +2426,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.ResponseFieldAutocomplete"><span class="badge">M</span>ResponseFieldAutocomplete</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.ResponseGetPromotedPeers"><span class="badge">M</span>ResponseGetPromotedPeers</a>
                 </li>
               
                 <li>
@@ -20479,6 +20487,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>GetPromotedPeers</td>
+                <td><a href="#dialog.RequestGetPromotedPeers">RequestGetPromotedPeers</a></td>
+                <td><a href="#dialog.ResponseGetPromotedPeers">ResponseGetPromotedPeers</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
@@ -20670,6 +20685,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
               
             </tbody>
           </table>
+        
+
+        
+      
+        <h3 id="dialog.RequestGetPromotedPeers">RequestGetPromotedPeers</h3>
+        <p></p>
+
         
 
         
@@ -20955,6 +20977,36 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>field_value</td>
                   <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ResponseGetPromotedPeers">ResponseGetPromotedPeers</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>user_peers</td>
+                  <td><a href="#dialog.UserOutPeer">UserOutPeer</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_peers</td>
+                  <td><a href="#dialog.GroupOutPeer">GroupOutPeer</a></td>
                   <td>repeated</td>
                   <td><p> </p></td>
                 </tr>

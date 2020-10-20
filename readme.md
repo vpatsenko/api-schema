@@ -563,6 +563,7 @@
     - [MessageSearchResult](#dialog.MessageSearchResult)
     - [PeerSearchResult](#dialog.PeerSearchResult)
     - [RequestFieldAutocomplete](#dialog.RequestFieldAutocomplete)
+    - [RequestGetPromotedPeers](#dialog.RequestGetPromotedPeers)
     - [RequestGetRecommendations](#dialog.RequestGetRecommendations)
     - [RequestLoadUserSearchByPredicatesCount](#dialog.RequestLoadUserSearchByPredicatesCount)
     - [RequestLoadUserSearchByPredicatesResults](#dialog.RequestLoadUserSearchByPredicatesResults)
@@ -573,6 +574,7 @@
     - [RequestSimpleSearch](#dialog.RequestSimpleSearch)
     - [RequestSimpleSearchMore](#dialog.RequestSimpleSearchMore)
     - [ResponseFieldAutocomplete](#dialog.ResponseFieldAutocomplete)
+    - [ResponseGetPromotedPeers](#dialog.ResponseGetPromotedPeers)
     - [ResponseGetRecommendations](#dialog.ResponseGetRecommendations)
     - [ResponseLoadUserSearchByPredicatesCount](#dialog.ResponseLoadUserSearchByPredicatesCount)
     - [ResponseLoadUserSearchByPredicatesResults](#dialog.ResponseLoadUserSearchByPredicatesResults)
@@ -9004,6 +9006,16 @@ Peer search result
 
 
 
+<a name="dialog.RequestGetPromotedPeers"></a>
+
+### RequestGetPromotedPeers
+
+
+
+
+
+
+
 <a name="dialog.RequestGetRecommendations"></a>
 
 ### RequestGetRecommendations
@@ -9154,6 +9166,22 @@ Resolve peer by shortname
 | ----- | ---- | ----- | ----------- |
 | field_name | [string](#string) |  |  |
 | field_value | [string](#string) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.ResponseGetPromotedPeers"></a>
+
+### ResponseGetPromotedPeers
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user_peers | [UserOutPeer](#dialog.UserOutPeer) | repeated |  |
+| group_peers | [GroupOutPeer](#dialog.GroupOutPeer) | repeated |  |
 
 
 
@@ -9577,6 +9605,7 @@ Search among contacts/groups/users
 | LoadUserSearchByPredicatesResults | [RequestLoadUserSearchByPredicatesResults](#dialog.RequestLoadUserSearchByPredicatesResults) | [ResponseLoadUserSearchByPredicatesResults](#dialog.ResponseLoadUserSearchByPredicatesResults) |  |
 | LoadUserSearchByPredicatesCount | [RequestLoadUserSearchByPredicatesCount](#dialog.RequestLoadUserSearchByPredicatesCount) | [ResponseLoadUserSearchByPredicatesCount](#dialog.ResponseLoadUserSearchByPredicatesCount) |  |
 | GetRecommendations | [RequestGetRecommendations](#dialog.RequestGetRecommendations) | [ResponseGetRecommendations](#dialog.ResponseGetRecommendations) |  |
+| GetPromotedPeers | [RequestGetPromotedPeers](#dialog.RequestGetPromotedPeers) | [ResponseGetPromotedPeers](#dialog.ResponseGetPromotedPeers) |  |
 
  
 
