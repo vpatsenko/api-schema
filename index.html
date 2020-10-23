@@ -5017,6 +5017,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><p> </p></td>
                 </tr>
               
+                <tr>
+                  <td>deduplication_id</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
             </tbody>
           </table>
         
@@ -20366,32 +20373,38 @@ Can be empty if messageId is present and message is in current peer. </p></td>
           <tbody>
             
               <tr>
-                <td>nothing</td>
+                <td>AUTHORIZATION_METHOD_NOTHING</td>
                 <td>0</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>login_password</td>
+                <td>AUTHORIZATION_METHOD_USERNAME</td>
                 <td>1</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>phone</td>
+                <td>AUTHORIZATION_METHOD_PHONE</td>
                 <td>2</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>email</td>
+                <td>AUTHORIZATION_METHOD_EMAIL</td>
                 <td>3</td>
                 <td><p></p></td>
               </tr>
             
               <tr>
-                <td>certificate</td>
+                <td>AUTHORIZATION_METHOD_CERTIFICATE</td>
                 <td>4</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>AUTHORIZATION_METHOD_OAUTH</td>
+                <td>5</td>
                 <td><p></p></td>
               </tr>
             

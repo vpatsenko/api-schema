@@ -1604,6 +1604,7 @@ Holder of session
 | timing | [TrackTiming](#clickroad.TrackTiming) |  |  |
 | social | [TrackSocial](#clickroad.TrackSocial) |  |  |
 | error | [TrackError](#clickroad.TrackError) |  |  |
+| deduplication_id | [int64](#int64) |  |  |
 
 
 
@@ -8898,11 +8899,12 @@ The structure of encrypted push content
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| nothing | 0 |  |
-| login_password | 1 |  |
-| phone | 2 |  |
-| email | 3 |  |
-| certificate | 4 |  |
+| AUTHORIZATION_METHOD_NOTHING | 0 |  |
+| AUTHORIZATION_METHOD_USERNAME | 1 |  |
+| AUTHORIZATION_METHOD_PHONE | 2 |  |
+| AUTHORIZATION_METHOD_EMAIL | 3 |  |
+| AUTHORIZATION_METHOD_CERTIFICATE | 4 |  |
+| AUTHORIZATION_METHOD_OAUTH | 5 |  |
 
 
  
