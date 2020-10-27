@@ -1690,6 +1690,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
               
                 <li>
+                  <a href="#dialog.AccessTokenResponse"><span class="badge">M</span>AccessTokenResponse</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.FindAppRequest"><span class="badge">M</span>FindAppRequest</a>
                 </li>
               
@@ -1706,12 +1710,24 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.IssueAccessTokenRequest"><span class="badge">M</span>IssueAccessTokenRequest</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.MiniApp"><span class="badge">M</span>MiniApp</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.UpdateMiniApp"><span class="badge">M</span>UpdateMiniApp</a>
                 </li>
               
               
                 <li>
                   <a href="#dialog.AppType"><span class="badge">E</span>AppType</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.UpdateMiniApp.AppLifecycle"><span class="badge">E</span>UpdateMiniApp.AppLifecycle</a>
                 </li>
               
               
@@ -15700,10 +15716,40 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td><p></p></td>
               </tr>
             
+              <tr>
+                <td>IssueAccessToken</td>
+                <td><a href="#dialog.IssueAccessTokenRequest">IssueAccessTokenRequest</a></td>
+                <td><a href="#dialog.AccessTokenResponse">AccessTokenResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
           </tbody>
         </table>
       
 
+      
+        <h3 id="dialog.AccessTokenResponse">AccessTokenResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
       
         <h3 id="dialog.FindAppRequest">FindAppRequest</h3>
         <p>Findig mini-app by id</p>
@@ -15763,9 +15809,9 @@ Can be empty if messageId is present and message is in current peer. </p></td>
               
                 <tr>
                   <td>from_clock</td>
-                  <td><a href="#google.protobuf.Int64Value">google.protobuf.Int64Value</a></td>
+                  <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p>if present then return only apps created/modified since given clock </p></td>
+                  <td><p>return only apps created/modified since given clock </p></td>
                 </tr>
               
             </tbody>
@@ -15794,6 +15840,29 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>clock</td>
                   <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.IssueAccessTokenRequest">IssueAccessTokenRequest</h3>
+        <p>Issue JWT token for third-party applications</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>app_id</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -15897,6 +15966,36 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.UpdateMiniApp">UpdateMiniApp</h3>
+        <p>App update</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>app_lifecycle</td>
+                  <td><a href="#dialog.UpdateMiniApp.AppLifecycle">UpdateMiniApp.AppLifecycle</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>app_data</td>
+                  <td><a href="#dialog.MiniApp">MiniApp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
 
       
         <h3 id="dialog.AppType">AppType</h3>
@@ -15917,6 +16016,47 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <td>WEB_VIEW</td>
                 <td>1</td>
                 <td><p>Url which can be opened inside WebView in dialog app</p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+        <h3 id="dialog.UpdateMiniApp.AppLifecycle">UpdateMiniApp.AppLifecycle</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>APPLIFECYCLE_CREATED</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>APPLIFECYCLE_UPDATED</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>APPLIFECYCLE_ENABLED</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>APPLIFECYCLE_DISABLED</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>APPLIFECYCLE_DELETED</td>
+                <td>4</td>
+                <td><p></p></td>
               </tr>
             
           </tbody>
@@ -23522,6 +23662,13 @@ For loading members of big groups by chunks. </p></td>
                 <tr>
                   <td>group_typing</td>
                   <td><a href="#dialog.UpdateGroupTyping">UpdateGroupTyping</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mini_app</td>
+                  <td><a href="#dialog.UpdateMiniApp">UpdateMiniApp</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>

@@ -381,13 +381,17 @@
     - [Messaging](#dialog.Messaging)
   
 - [miniappsregistry.proto](#miniappsregistry.proto)
+    - [AccessTokenResponse](#dialog.AccessTokenResponse)
     - [FindAppRequest](#dialog.FindAppRequest)
     - [FindAppResponse](#dialog.FindAppResponse)
     - [GetAppsRequest](#dialog.GetAppsRequest)
     - [GetAppsResponse](#dialog.GetAppsResponse)
+    - [IssueAccessTokenRequest](#dialog.IssueAccessTokenRequest)
     - [MiniApp](#dialog.MiniApp)
+    - [UpdateMiniApp](#dialog.UpdateMiniApp)
   
     - [AppType](#dialog.AppType)
+    - [UpdateMiniApp.AppLifecycle](#dialog.UpdateMiniApp.AppLifecycle)
   
     - [ClientsMiniAppsRegistry](#dialog.ClientsMiniAppsRegistry)
   
@@ -6578,6 +6582,21 @@ Webpage media
 
 
 
+<a name="dialog.AccessTokenResponse"></a>
+
+### AccessTokenResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| access_token | [string](#string) |  |  |
+
+
+
+
+
+
 <a name="dialog.FindAppRequest"></a>
 
 ### FindAppRequest
@@ -6616,7 +6635,7 @@ Request to get list of mini-apps
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| from_clock | [google.protobuf.Int64Value](#google.protobuf.Int64Value) |  | if present then return only apps created/modified since given clock |
+| from_clock | [int64](#int64) |  | return only apps created/modified since given clock |
 
 
 
@@ -6633,6 +6652,21 @@ List of the mini-app
 | ----- | ---- | ----- | ----------- |
 | apps | [MiniApp](#dialog.MiniApp) | repeated |  |
 | clock | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.IssueAccessTokenRequest"></a>
+
+### IssueAccessTokenRequest
+Issue JWT token for third-party applications
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_id | [UUIDValue](#dialog.UUIDValue) |  |  |
 
 
 
@@ -6663,6 +6697,22 @@ List of the mini-app
 
 
 
+
+<a name="dialog.UpdateMiniApp"></a>
+
+### UpdateMiniApp
+App update
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_lifecycle | [UpdateMiniApp.AppLifecycle](#dialog.UpdateMiniApp.AppLifecycle) |  |  |
+| app_data | [MiniApp](#dialog.MiniApp) |  |  |
+
+
+
+
+
  
 
 
@@ -6675,6 +6725,21 @@ Defines the type of the app. Currently only WebView supported, but more types ca
 | ---- | ------ | ----------- |
 | UNKNOWN | 0 |  |
 | WEB_VIEW | 1 | Url which can be opened inside WebView in dialog app |
+
+
+
+<a name="dialog.UpdateMiniApp.AppLifecycle"></a>
+
+### UpdateMiniApp.AppLifecycle
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| APPLIFECYCLE_CREATED | 0 |  |
+| APPLIFECYCLE_UPDATED | 1 |  |
+| APPLIFECYCLE_ENABLED | 2 |  |
+| APPLIFECYCLE_DISABLED | 3 |  |
+| APPLIFECYCLE_DELETED | 4 |  |
 
 
  
@@ -6691,6 +6756,7 @@ Defines the type of the app. Currently only WebView supported, but more types ca
 | ----------- | ------------ | ------------- | ------------|
 | FindApp | [FindAppRequest](#dialog.FindAppRequest) | [FindAppResponse](#dialog.FindAppResponse) |  |
 | GetApps | [GetAppsRequest](#dialog.GetAppsRequest) | [GetAppsResponse](#dialog.GetAppsResponse) |  |
+| IssueAccessToken | [IssueAccessTokenRequest](#dialog.IssueAccessTokenRequest) | [AccessTokenResponse](#dialog.AccessTokenResponse) |  |
 
  
 
@@ -10144,6 +10210,7 @@ Out of sequence update (for typing and online statuses)
 | message_read_by_me | [UpdateMessageReadByMe](#dialog.UpdateMessageReadByMe) |  |  |
 | user_online | [UpdateUserOnline](#dialog.UpdateUserOnline) |  |  |
 | group_typing | [UpdateGroupTyping](#dialog.UpdateGroupTyping) |  |  |
+| mini_app | [UpdateMiniApp](#dialog.UpdateMiniApp) |  |  |
 
 
 
