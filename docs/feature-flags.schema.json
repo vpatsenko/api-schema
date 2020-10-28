@@ -90,6 +90,11 @@
       "title": "Maximum size of user's profile avatar",
       "default": 1048576
     },
+    "userProfile.isAppearanceSettingsEnabled": {
+      "type": "boolean",
+      "title": "User can edit his profile appearance",
+      "default": true
+    },
     "userProfile.isEnabledEditProfile": {
       "type": "boolean",
       "title": "User can edit his profile or not",
