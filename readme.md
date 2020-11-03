@@ -134,6 +134,20 @@
   
     - [EventBus](#dialog.EventBus)
   
+- [events.proto](#events.proto)
+    - [Event](#dialog.events.Event)
+    - [Event.Mention](#dialog.events.Event.Mention)
+    - [Event.Reactions](#dialog.events.Event.Reactions)
+    - [Event.Reactions.Reaction](#dialog.events.Event.Reactions.Reaction)
+    - [Event.Reactions.Reaction.UsersEntry](#dialog.events.Event.Reactions.Reaction.UsersEntry)
+    - [LoadEventsRequest](#dialog.events.LoadEventsRequest)
+    - [LoadEventsResponse](#dialog.events.LoadEventsResponse)
+    - [UpdateEvent](#dialog.events.UpdateEvent)
+  
+    - [LoadMode](#dialog.events.LoadMode)
+  
+    - [Events](#dialog.events.Events)
+  
 - [gateway_service.proto](#gateway_service.proto)
     - [GetDifferenceCommand](#dialog.GetDifferenceCommand)
     - [ServiceUpdate](#dialog.ServiceUpdate)
@@ -2580,6 +2594,178 @@ Event Bus Message
 | JoinEventBus | [RequestJoinEventBus](#dialog.RequestJoinEventBus) | [ResponseJoinEventBus](#dialog.ResponseJoinEventBus) |  |
 | KeepAliveEventBus | [RequestKeepAliveEventBus](#dialog.RequestKeepAliveEventBus) | [ResponseVoid](#dialog.ResponseVoid) |  |
 | PostToEventBus | [RequestPostToEventBus](#dialog.RequestPostToEventBus) | [ResponseVoid](#dialog.ResponseVoid) |  |
+
+ 
+
+
+
+<a name="events.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## events.proto
+
+
+
+<a name="dialog.events.Event"></a>
+
+### Event
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| clock | [int64](#int64) |  |  |
+| id | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| mention | [Event.Mention](#dialog.events.Event.Mention) |  |  |
+| reactions | [Event.Reactions](#dialog.events.Event.Reactions) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.Event.Mention"></a>
+
+### Event.Mention
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| user | [int32](#int32) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.Event.Reactions"></a>
+
+### Event.Reactions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  |  |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| reactions | [Event.Reactions.Reaction](#dialog.events.Event.Reactions.Reaction) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.events.Event.Reactions.Reaction"></a>
+
+### Event.Reactions.Reaction
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [string](#string) |  |  |
+| users | [Event.Reactions.Reaction.UsersEntry](#dialog.events.Event.Reactions.Reaction.UsersEntry) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.events.Event.Reactions.Reaction.UsersEntry"></a>
+
+### Event.Reactions.Reaction.UsersEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [int32](#int32) |  |  |
+| value | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.LoadEventsRequest"></a>
+
+### LoadEventsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| from_clock | [int64](#int64) |  |  |
+| load_mode | [LoadMode](#dialog.events.LoadMode) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.LoadEventsResponse"></a>
+
+### LoadEventsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| events | [Event](#dialog.events.Event) | repeated |  |
+| clock | [int64](#int64) |  |  |
+| next_available | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.UpdateEvent"></a>
+
+### UpdateEvent
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| event | [Event](#dialog.events.Event) |  |  |
+| prev_clock | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="dialog.events.LoadMode"></a>
+
+### LoadMode
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| LOADMODE_UNKNOWN | 0 |  |
+| LOADMODE_FORWARD | 1 |  |
+| LOADMODE_BACKWARD | 2 |  |
+
+
+ 
+
+ 
+
+
+<a name="dialog.events.Events"></a>
+
+### Events
+
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| LoadEvents | [LoadEventsRequest](#dialog.events.LoadEventsRequest) | [LoadEventsResponse](#dialog.events.LoadEventsResponse) |  |
 
  
 
@@ -10211,6 +10397,7 @@ Out of sequence update (for typing and online statuses)
 | user_online | [UpdateUserOnline](#dialog.UpdateUserOnline) |  |  |
 | group_typing | [UpdateGroupTyping](#dialog.UpdateGroupTyping) |  |  |
 | mini_app | [UpdateMiniApp](#dialog.UpdateMiniApp) |  |  |
+| event | [events.UpdateEvent](#dialog.events.UpdateEvent) |  |  |
 
 
 

@@ -710,6 +710,57 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
           
           <li>
+            <a href="#events.proto">events.proto</a>
+            <ul>
+              
+                <li>
+                  <a href="#dialog.events.Events"><span class="badge">S</span>Events</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.events.Event"><span class="badge">M</span>Event</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Mention"><span class="badge">M</span>Event.Mention</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Reactions"><span class="badge">M</span>Event.Reactions</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Reactions.Reaction"><span class="badge">M</span>Event.Reactions.Reaction</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Reactions.Reaction.UsersEntry"><span class="badge">M</span>Event.Reactions.Reaction.UsersEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.LoadEventsRequest"><span class="badge">M</span>LoadEventsRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.LoadEventsResponse"><span class="badge">M</span>LoadEventsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.UpdateEvent"><span class="badge">M</span>UpdateEvent</a>
+                </li>
+              
+              
+                <li>
+                  <a href="#dialog.events.LoadMode"><span class="badge">E</span>LoadMode</a>
+                </li>
+              
+              
+            </ul>
+          </li>
+        
+          
+          <li>
             <a href="#gateway_service.proto">gateway_service.proto</a>
             <ul>
               
@@ -6836,6 +6887,343 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
       
 
+      
+
+  
+    
+      
+      <div class="file-heading">
+        <h2 id="events.proto">events.proto</h2><a href="#title">Top</a>
+      </div>
+      <p></p>
+    
+
+      
+        <h3 id="dialog.events.Events">Events</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LoadEvents</td>
+                <td><a href="#dialog.events.LoadEventsRequest">LoadEventsRequest</a></td>
+                <td><a href="#dialog.events.LoadEventsResponse">LoadEventsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
+
+      
+        <h3 id="dialog.events.Event">Event</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mention</td>
+                  <td><a href="#dialog.events.Event.Mention">Event.Mention</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reactions</td>
+                  <td><a href="#dialog.events.Event.Reactions">Event.Reactions</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Mention">Event.Mention</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Reactions">Event.Reactions</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reactions</td>
+                  <td><a href="#dialog.events.Event.Reactions.Reaction">Event.Reactions.Reaction</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Reactions.Reaction">Event.Reactions.Reaction</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>code</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>users</td>
+                  <td><a href="#dialog.events.Event.Reactions.Reaction.UsersEntry">Event.Reactions.Reaction.UsersEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Reactions.Reaction.UsersEntry">Event.Reactions.Reaction.UsersEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.LoadEventsRequest">LoadEventsRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>from_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>load_mode</td>
+                  <td><a href="#dialog.events.LoadMode">LoadMode</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.LoadEventsResponse">LoadEventsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>events</td>
+                  <td><a href="#dialog.events.Event">Event</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>next_available</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.UpdateEvent">UpdateEvent</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>event</td>
+                  <td><a href="#dialog.events.Event">Event</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>prev_clock</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+
+      
+        <h3 id="dialog.events.LoadMode">LoadMode</h3>
+        <p></p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>LOADMODE_UNKNOWN</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LOADMODE_FORWARD</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>LOADMODE_BACKWARD</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
       
 
   
@@ -23669,6 +24057,13 @@ For loading members of big groups by chunks. </p></td>
                 <tr>
                   <td>mini_app</td>
                   <td><a href="#dialog.UpdateMiniApp">UpdateMiniApp</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>event</td>
+                  <td><a href="#dialog.events.UpdateEvent">events.UpdateEvent</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
