@@ -6894,6 +6894,7 @@ App update
 | ----- | ---- | ----- | ----------- |
 | app_lifecycle | [UpdateMiniApp.AppLifecycle](#dialog.UpdateMiniApp.AppLifecycle) |  |  |
 | app_data | [MiniApp](#dialog.MiniApp) |  |  |
+| prev_clock | [int64](#int64) |  |  |
 
 
 
