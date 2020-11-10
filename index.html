@@ -723,6 +723,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.events.Event.Invite"><span class="badge">M</span>Event.Invite</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Kick"><span class="badge">M</span>Event.Kick</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.events.Event.Mention"><span class="badge">M</span>Event.Mention</a>
                 </li>
               
@@ -736,6 +744,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               
                 <li>
                   <a href="#dialog.events.Event.Reactions.Reaction.UsersEntry"><span class="badge">M</span>Event.Reactions.Reaction.UsersEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.events.Event.Reply"><span class="badge">M</span>Event.Reply</a>
                 </li>
               
                 <li>
@@ -6933,14 +6945,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>clock</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>time when event happened </p></td>
                 </tr>
               
                 <tr>
                   <td>id</td>
-                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>unique id of event (no more than 50 symbols) </p></td>
                 </tr>
               
                 <tr>
@@ -6955,6 +6967,87 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><a href="#dialog.events.Event.Reactions">Event.Reactions</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>reply</td>
+                  <td><a href="#dialog.events.Event.Reply">Event.Reply</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>invite</td>
+                  <td><a href="#dialog.events.Event.Invite">Event.Invite</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>kick</td>
+                  <td><a href="#dialog.events.Event.Kick">Event.Kick</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Invite">Event.Invite</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p>group </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>inviter userId </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.events.Event.Kick">Event.Kick</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p>group </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>kicker userId </p></td>
                 </tr>
               
             </tbody>
@@ -6977,21 +7070,21 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>peer</td>
                   <td><a href="#dialog.Peer">dialog.Peer</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>dialog where mentioned </p></td>
                 </tr>
               
                 <tr>
                   <td>mid</td>
                   <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>id of message where mentioned </p></td>
                 </tr>
               
                 <tr>
                   <td>user</td>
                   <td><a href="#int32">int32</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>mention author </p></td>
                 </tr>
               
             </tbody>
@@ -7014,14 +7107,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>peer</td>
                   <td><a href="#dialog.Peer">dialog.Peer</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>dialog where mentioned </p></td>
                 </tr>
               
                 <tr>
                   <td>mid</td>
                   <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>id of message that has reactions </p></td>
                 </tr>
               
                 <tr>
@@ -7051,14 +7144,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>code</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>emoji </p></td>
                 </tr>
               
                 <tr>
                   <td>users</td>
                   <td><a href="#dialog.events.Event.Reactions.Reaction.UsersEntry">Event.Reactions.Reaction.UsersEntry</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>userId to time when reaction is set by user </p></td>
                 </tr>
               
             </tbody>
@@ -7097,6 +7190,43 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
 
         
       
+        <h3 id="dialog.events.Event.Reply">Event.Reply</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>peer</td>
+                  <td><a href="#dialog.Peer">dialog.Peer</a></td>
+                  <td></td>
+                  <td><p>dialog where replied </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mid</td>
+                  <td><a href="#dialog.UUIDValue">dialog.UUIDValue</a></td>
+                  <td></td>
+                  <td><p>id of message where replied </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>message author </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.events.LoadEventsRequest">LoadEventsRequest</h3>
         <p></p>
 
@@ -7111,7 +7241,7 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>from_clock</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>clock to load from </p></td>
                 </tr>
               
                 <tr>
@@ -7119,6 +7249,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td><a href="#dialog.events.LoadMode">LoadMode</a></td>
                   <td></td>
                   <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>limit</td>
+                  <td><a href="#int32">int32</a></td>
+                  <td></td>
+                  <td><p>how much to load </p></td>
                 </tr>
               
             </tbody>
@@ -7148,14 +7285,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>clock</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>clock of last event </p></td>
                 </tr>
               
                 <tr>
                   <td>next_available</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>is there more to load to requested direction </p></td>
                 </tr>
               
             </tbody>
@@ -7185,7 +7322,7 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                   <td>prev_clock</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>time of previous event </p></td>
                 </tr>
               
             </tbody>
@@ -7213,13 +7350,13 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
               <tr>
                 <td>LOADMODE_FORWARD</td>
                 <td>1</td>
-                <td><p></p></td>
+                <td><p>load from clock to future</p></td>
               </tr>
             
               <tr>
                 <td>LOADMODE_BACKWARD</td>
                 <td>2</td>
-                <td><p></p></td>
+                <td><p>load from clock to past</p></td>
               </tr>
             
           </tbody>

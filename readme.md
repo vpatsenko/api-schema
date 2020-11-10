@@ -136,10 +136,13 @@
   
 - [events.proto](#events.proto)
     - [Event](#dialog.events.Event)
+    - [Event.Invite](#dialog.events.Event.Invite)
+    - [Event.Kick](#dialog.events.Event.Kick)
     - [Event.Mention](#dialog.events.Event.Mention)
     - [Event.Reactions](#dialog.events.Event.Reactions)
     - [Event.Reactions.Reaction](#dialog.events.Event.Reactions.Reaction)
     - [Event.Reactions.Reaction.UsersEntry](#dialog.events.Event.Reactions.Reaction.UsersEntry)
+    - [Event.Reply](#dialog.events.Event.Reply)
     - [LoadEventsRequest](#dialog.events.LoadEventsRequest)
     - [LoadEventsResponse](#dialog.events.LoadEventsResponse)
     - [UpdateEvent](#dialog.events.UpdateEvent)
@@ -2614,10 +2617,45 @@ Event Bus Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| clock | [int64](#int64) |  |  |
-| id | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| clock | [int64](#int64) |  | time when event happened |
+| id | [string](#string) |  | unique id of event (no more than 50 symbols) |
 | mention | [Event.Mention](#dialog.events.Event.Mention) |  |  |
 | reactions | [Event.Reactions](#dialog.events.Event.Reactions) |  |  |
+| reply | [Event.Reply](#dialog.events.Event.Reply) |  |  |
+| invite | [Event.Invite](#dialog.events.Event.Invite) |  |  |
+| kick | [Event.Kick](#dialog.events.Event.Kick) |  |  |
+
+
+
+
+
+
+<a name="dialog.events.Event.Invite"></a>
+
+### Event.Invite
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  | group |
+| user | [int32](#int32) |  | inviter userId |
+
+
+
+
+
+
+<a name="dialog.events.Event.Kick"></a>
+
+### Event.Kick
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  | group |
+| user | [int32](#int32) |  | kicker userId |
 
 
 
@@ -2632,9 +2670,9 @@ Event Bus Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer | [dialog.Peer](#dialog.Peer) |  |  |
-| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
-| user | [int32](#int32) |  |  |
+| peer | [dialog.Peer](#dialog.Peer) |  | dialog where mentioned |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  | id of message where mentioned |
+| user | [int32](#int32) |  | mention author |
 
 
 
@@ -2649,8 +2687,8 @@ Event Bus Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| peer | [dialog.Peer](#dialog.Peer) |  |  |
-| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  |  |
+| peer | [dialog.Peer](#dialog.Peer) |  | dialog where mentioned |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  | id of message that has reactions |
 | reactions | [Event.Reactions.Reaction](#dialog.events.Event.Reactions.Reaction) | repeated |  |
 
 
@@ -2666,8 +2704,8 @@ Event Bus Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [string](#string) |  |  |
-| users | [Event.Reactions.Reaction.UsersEntry](#dialog.events.Event.Reactions.Reaction.UsersEntry) | repeated |  |
+| code | [string](#string) |  | emoji |
+| users | [Event.Reactions.Reaction.UsersEntry](#dialog.events.Event.Reactions.Reaction.UsersEntry) | repeated | userId to time when reaction is set by user |
 
 
 
@@ -2690,6 +2728,23 @@ Event Bus Message
 
 
 
+<a name="dialog.events.Event.Reply"></a>
+
+### Event.Reply
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| peer | [dialog.Peer](#dialog.Peer) |  | dialog where replied |
+| mid | [dialog.UUIDValue](#dialog.UUIDValue) |  | id of message where replied |
+| user | [int32](#int32) |  | message author |
+
+
+
+
+
+
 <a name="dialog.events.LoadEventsRequest"></a>
 
 ### LoadEventsRequest
@@ -2698,8 +2753,9 @@ Event Bus Message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| from_clock | [int64](#int64) |  |  |
+| from_clock | [int64](#int64) |  | clock to load from |
 | load_mode | [LoadMode](#dialog.events.LoadMode) |  |  |
+| limit | [int32](#int32) |  | how much to load |
 
 
 
@@ -2715,8 +2771,8 @@ Event Bus Message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | events | [Event](#dialog.events.Event) | repeated |  |
-| clock | [int64](#int64) |  |  |
-| next_available | [bool](#bool) |  |  |
+| clock | [int64](#int64) |  | clock of last event |
+| next_available | [bool](#bool) |  | is there more to load to requested direction |
 
 
 
@@ -2732,7 +2788,7 @@ Event Bus Message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | event | [Event](#dialog.events.Event) |  |  |
-| prev_clock | [int64](#int64) |  |  |
+| prev_clock | [int64](#int64) |  | time of previous event |
 
 
 
@@ -2749,8 +2805,8 @@ Event Bus Message
 | Name | Number | Description |
 | ---- | ------ | ----------- |
 | LOADMODE_UNKNOWN | 0 |  |
-| LOADMODE_FORWARD | 1 |  |
-| LOADMODE_BACKWARD | 2 |  |
+| LOADMODE_FORWARD | 1 | load from clock to future |
+| LOADMODE_BACKWARD | 2 | load from clock to past |
 
 
  
