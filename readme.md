@@ -9272,6 +9272,7 @@ Message container
 | sender_id | [int32](#int32) |  |  |
 | content | [MessageContent](#dialog.MessageContent) |  |  |
 | mid | [UUIDValue](#dialog.UUIDValue) |  |  |
+| highlight_tokens | [string](#string) | repeated |  |
 
 
 
