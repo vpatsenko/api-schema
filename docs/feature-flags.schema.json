@@ -591,6 +591,11 @@
       "type": "boolean",
       "title": "Activates processing weakMessaging",
       "default": false
+    },
+    "database.isEncryptionEnabled": {
+      "type": "boolean",
+      "title": "Activates encryption database on client",
+      "default": true
     }
   }
 }
