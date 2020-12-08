@@ -920,7 +920,7 @@ peer the peer whose history should be reloaded
 <a name="dialog.RequestCompleteOAuth2"></a>
 
 ### RequestCompleteOAuth2
-Complete OAuth2 Authentication - deprecated
+Complete OAuth2 Authentication
 
 
 | Field | Type | Label | Description |
@@ -946,7 +946,7 @@ Getting of all active user&#39;s authentication sessions
 <a name="dialog.RequestGetOAuth2Params"></a>
 
 ### RequestGetOAuth2Params
-Loading OAuth2 Parameters - deprecated
+Loading OAuth2 Parameters
 
 
 | Field | Type | Label | Description |
@@ -1291,7 +1291,7 @@ Authentication result
 <a name="dialog.ResponseGetOAuth2Params"></a>
 
 ### ResponseGetOAuth2Params
-Deprecated
+Redirect url result
 
 
 | Field | Type | Label | Description |
@@ -1489,8 +1489,8 @@ Holder of session
 | ValidateCode | [RequestValidateCode](#dialog.RequestValidateCode) | [ResponseAuth](#dialog.ResponseAuth) | Validate code received by phone or email Returns error if user does not exist |
 | ResendCode | [RequestResendCode](#dialog.RequestResendCode) | [ResponseVoid](#dialog.ResponseVoid) | Resend code if you don&#39;t receive it with first attempt |
 | ValidatePassword | [RequestValidatePassword](#dialog.RequestValidatePassword) | [ResponseAuth](#dialog.ResponseAuth) | Validate your passwword |
-| GetOAuth2Params | [RequestGetOAuth2Params](#dialog.RequestGetOAuth2Params) | [ResponseGetOAuth2Params](#dialog.ResponseGetOAuth2Params) | Deprecated |
-| CompleteOAuth2 | [RequestCompleteOAuth2](#dialog.RequestCompleteOAuth2) | [ResponseAuth](#dialog.ResponseAuth) | Deprecated |
+| GetOAuth2Params | [RequestGetOAuth2Params](#dialog.RequestGetOAuth2Params) | [ResponseGetOAuth2Params](#dialog.ResponseGetOAuth2Params) | Get redirect url |
+| CompleteOAuth2 | [RequestCompleteOAuth2](#dialog.RequestCompleteOAuth2) | [ResponseAuth](#dialog.ResponseAuth) | Complete OAuth2 Authentication |
 | SignUp | [RequestSignUp](#dialog.RequestSignUp) | [ResponseAuth](#dialog.ResponseAuth) | Sign up existed user |
 | GetAuthSessions | [RequestGetAuthSessions](#dialog.RequestGetAuthSessions) | [ResponseGetAuthSessions](#dialog.ResponseGetAuthSessions) | Returns all authorized user&#39;s sessions |
 | TerminateSession | [RequestTerminateSession](#dialog.RequestTerminateSession) | [ResponseVoid](#dialog.ResponseVoid) | Deprecated. Does not produce any effect. |
@@ -11944,6 +11944,7 @@ Main user object
 | bot_commands | [BotCommand](#dialog.BotCommand) | repeated |  |
 | custom_profile | [google.protobuf.StringValue](#google.protobuf.StringValue) |  |  |
 | hint | [UserData.Hint](#dialog.UserData.Hint) |  | This parameter intended just to show in UI (client shouldn&#39;t base any logic on that) |
+| was_authorized | [bool](#bool) |  |  |
 | clock | [int64](#int64) |  |  |
 
 

@@ -3446,14 +3446,14 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 <td>GetOAuth2Params</td>
                 <td><a href="#dialog.RequestGetOAuth2Params">RequestGetOAuth2Params</a></td>
                 <td><a href="#dialog.ResponseGetOAuth2Params">ResponseGetOAuth2Params</a></td>
-                <td><p>Deprecated</p></td>
+                <td><p>Get redirect url</p></td>
               </tr>
             
               <tr>
                 <td>CompleteOAuth2</td>
                 <td><a href="#dialog.RequestCompleteOAuth2">RequestCompleteOAuth2</a></td>
                 <td><a href="#dialog.ResponseAuth">ResponseAuth</a></td>
-                <td><p>Deprecated</p></td>
+                <td><p>Complete OAuth2 Authentication</p></td>
               </tr>
             
               <tr>
@@ -3722,7 +3722,7 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
       
         <h3 id="dialog.RequestCompleteOAuth2">RequestCompleteOAuth2</h3>
-        <p>Complete OAuth2 Authentication - deprecated</p>
+        <p>Complete OAuth2 Authentication</p>
 
         
           <table class="field-table">
@@ -3759,7 +3759,7 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
       
         <h3 id="dialog.RequestGetOAuth2Params">RequestGetOAuth2Params</h3>
-        <p>Loading OAuth2 Parameters - deprecated</p>
+        <p>Loading OAuth2 Parameters</p>
 
         
           <table class="field-table">
@@ -4483,7 +4483,7 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
         
       
         <h3 id="dialog.ResponseGetOAuth2Params">ResponseGetOAuth2Params</h3>
-        <p>Deprecated</p>
+        <p>Redirect url result</p>
 
         
           <table class="field-table">
@@ -27318,6 +27318,13 @@ for extenrnal networks. </p></td>
                   <td><a href="#dialog.UserData.Hint">UserData.Hint</a></td>
                   <td></td>
                   <td><p>This parameter intended just to show in UI (client shouldn't base any logic on that) </p></td>
+                </tr>
+              
+                <tr>
+                  <td>was_authorized</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
