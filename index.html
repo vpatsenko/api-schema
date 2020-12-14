@@ -1757,6 +1757,10 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.ExtensionPoint"><span class="badge">M</span>ExtensionPoint</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.FindAppRequest"><span class="badge">M</span>FindAppRequest</a>
                 </li>
               
@@ -1773,11 +1777,39 @@ drawDiagram("title%20%D0%90%D1%83%D1%82%D0%B5%D0%BD%D1%82%D0%B8%D1%84%D0%B8%D0%B
                 </li>
               
                 <li>
+                  <a href="#dialog.GetExtensionsResponse"><span class="badge">M</span>GetExtensionsResponse</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.GroupConditions"><span class="badge">M</span>GroupConditions</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.GroupConditions.GroupCondition"><span class="badge">M</span>GroupConditions.GroupCondition</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.IssueAccessTokenRequest"><span class="badge">M</span>IssueAccessTokenRequest</a>
                 </li>
               
                 <li>
+                  <a href="#dialog.MessageConditions"><span class="badge">M</span>MessageConditions</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.MessageConditions.MessageCondition"><span class="badge">M</span>MessageConditions.MessageCondition</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.MessageConditions.MessageCondition.DocumentCondition"><span class="badge">M</span>MessageConditions.MessageCondition.DocumentCondition</a>
+                </li>
+              
+                <li>
                   <a href="#dialog.MiniApp"><span class="badge">M</span>MiniApp</a>
+                </li>
+              
+                <li>
+                  <a href="#dialog.MiniApp.LocalesEntry"><span class="badge">M</span>MiniApp.LocalesEntry</a>
                 </li>
               
                 <li>
@@ -16242,6 +16274,13 @@ Can be empty if messageId is present and message is in current peer. </p></td>
               </tr>
             
               <tr>
+                <td>GetExtensions</td>
+                <td><a href="#google.protobuf.Empty">.google.protobuf.Empty</a></td>
+                <td><a href="#dialog.GetExtensionsResponse">GetExtensionsResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
                 <td>IssueAccessToken</td>
                 <td><a href="#dialog.IssueAccessTokenRequest">IssueAccessTokenRequest</a></td>
                 <td><a href="#dialog.AccessTokenResponse">AccessTokenResponse</a></td>
@@ -16266,6 +16305,57 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 <tr>
                   <td>access_token</td>
                   <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.ExtensionPoint">ExtensionPoint</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>app_id</td>
+                  <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>action</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>label</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message_conditions</td>
+                  <td><a href="#dialog.MessageConditions">MessageConditions</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>group_conditions</td>
+                  <td><a href="#dialog.GroupConditions">GroupConditions</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -16375,6 +16465,96 @@ Can be empty if messageId is present and message is in current peer. </p></td>
 
         
       
+        <h3 id="dialog.GetExtensionsResponse">GetExtensionsResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message_extensions</td>
+                  <td><a href="#dialog.ExtensionPoint">ExtensionPoint</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>chat_extensions</td>
+                  <td><a href="#dialog.ExtensionPoint">ExtensionPoint</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.GroupConditions">GroupConditions</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_condition</td>
+                  <td><a href="#dialog.GroupConditions.GroupCondition">GroupConditions.GroupCondition</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.GroupConditions.GroupCondition">GroupConditions.GroupCondition</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>group_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>visibility</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>permission</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
         <h3 id="dialog.IssueAccessTokenRequest">IssueAccessTokenRequest</h3>
         <p>Issue JWT token for third-party applications</p>
 
@@ -16389,6 +16569,103 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td>app_id</td>
                   <td><a href="#dialog.UUIDValue">UUIDValue</a></td>
                   <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.MessageConditions">MessageConditions</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>message_condition</td>
+                  <td><a href="#dialog.MessageConditions.MessageCondition">MessageConditions.MessageCondition</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.MessageConditions.MessageCondition">MessageConditions.MessageCondition</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>text_message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>document_message</td>
+                  <td><a href="#dialog.MessageConditions.MessageCondition.DocumentCondition">MessageConditions.MessageCondition.DocumentCondition</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.MessageConditions.MessageCondition.DocumentCondition">MessageConditions.MessageCondition.DocumentCondition</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>is_image</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_video</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>is_audio</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mime_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
                   <td><p> </p></td>
                 </tr>
               
@@ -16458,20 +16735,6 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                 </tr>
               
                 <tr>
-                  <td>json_content</td>
-                  <td><a href="#google.protobuf.StringValue">google.protobuf.StringValue</a></td>
-                  <td></td>
-                  <td><p>additional data stored in json format </p></td>
-                </tr>
-              
-                <tr>
-                  <td>created_at_ts</td>
-                  <td><a href="#int64">int64</a></td>
-                  <td></td>
-                  <td><p>creation date/time in millis </p></td>
-                </tr>
-              
-                <tr>
                   <td>modified_at_ts</td>
                   <td><a href="#int64">int64</a></td>
                   <td></td>
@@ -16483,6 +16746,50 @@ Can be empty if messageId is present and message is in current peer. </p></td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
                   <td><p>specifies if this app enabled and user can use it, ot not </p></td>
+                </tr>
+              
+                <tr>
+                  <td>locales</td>
+                  <td><a href="#dialog.MiniApp.LocalesEntry">MiniApp.LocalesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p>supported locales </p></td>
+                </tr>
+              
+                <tr>
+                  <td>permissions</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>application-level permissions </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+        
+
+        
+      
+        <h3 id="dialog.MiniApp.LocalesEntry">MiniApp.LocalesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>

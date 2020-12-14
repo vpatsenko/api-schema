@@ -399,12 +399,20 @@
   
 - [miniappsregistry.proto](#miniappsregistry.proto)
     - [AccessTokenResponse](#dialog.AccessTokenResponse)
+    - [ExtensionPoint](#dialog.ExtensionPoint)
     - [FindAppRequest](#dialog.FindAppRequest)
     - [FindAppResponse](#dialog.FindAppResponse)
     - [GetAppsRequest](#dialog.GetAppsRequest)
     - [GetAppsResponse](#dialog.GetAppsResponse)
+    - [GetExtensionsResponse](#dialog.GetExtensionsResponse)
+    - [GroupConditions](#dialog.GroupConditions)
+    - [GroupConditions.GroupCondition](#dialog.GroupConditions.GroupCondition)
     - [IssueAccessTokenRequest](#dialog.IssueAccessTokenRequest)
+    - [MessageConditions](#dialog.MessageConditions)
+    - [MessageConditions.MessageCondition](#dialog.MessageConditions.MessageCondition)
+    - [MessageConditions.MessageCondition.DocumentCondition](#dialog.MessageConditions.MessageCondition.DocumentCondition)
     - [MiniApp](#dialog.MiniApp)
+    - [MiniApp.LocalesEntry](#dialog.MiniApp.LocalesEntry)
     - [UpdateMiniApp](#dialog.UpdateMiniApp)
   
     - [AppType](#dialog.AppType)
@@ -6839,6 +6847,25 @@ Webpage media
 
 
 
+<a name="dialog.ExtensionPoint"></a>
+
+### ExtensionPoint
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| app_id | [UUIDValue](#dialog.UUIDValue) |  |  |
+| action | [string](#string) |  |  |
+| label | [string](#string) |  |  |
+| message_conditions | [MessageConditions](#dialog.MessageConditions) |  |  |
+| group_conditions | [GroupConditions](#dialog.GroupConditions) |  |  |
+
+
+
+
+
+
 <a name="dialog.FindAppRequest"></a>
 
 ### FindAppRequest
@@ -6900,6 +6927,54 @@ List of the mini-app
 
 
 
+<a name="dialog.GetExtensionsResponse"></a>
+
+### GetExtensionsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message_extensions | [ExtensionPoint](#dialog.ExtensionPoint) | repeated |  |
+| chat_extensions | [ExtensionPoint](#dialog.ExtensionPoint) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.GroupConditions"></a>
+
+### GroupConditions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_condition | [GroupConditions.GroupCondition](#dialog.GroupConditions.GroupCondition) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.GroupConditions.GroupCondition"></a>
+
+### GroupConditions.GroupCondition
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| group_type | [string](#string) |  |  |
+| visibility | [string](#string) |  |  |
+| permission | [string](#string) | repeated |  |
+
+
+
+
+
+
 <a name="dialog.IssueAccessTokenRequest"></a>
 
 ### IssueAccessTokenRequest
@@ -6909,6 +6984,55 @@ Issue JWT token for third-party applications
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | app_id | [UUIDValue](#dialog.UUIDValue) |  |  |
+
+
+
+
+
+
+<a name="dialog.MessageConditions"></a>
+
+### MessageConditions
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| message_condition | [MessageConditions.MessageCondition](#dialog.MessageConditions.MessageCondition) | repeated |  |
+
+
+
+
+
+
+<a name="dialog.MessageConditions.MessageCondition"></a>
+
+### MessageConditions.MessageCondition
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| text_message | [string](#string) |  |  |
+| document_message | [MessageConditions.MessageCondition.DocumentCondition](#dialog.MessageConditions.MessageCondition.DocumentCondition) |  |  |
+
+
+
+
+
+
+<a name="dialog.MessageConditions.MessageCondition.DocumentCondition"></a>
+
+### MessageConditions.MessageCondition.DocumentCondition
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| is_image | [bool](#bool) |  |  |
+| is_video | [bool](#bool) |  |  |
+| is_audio | [bool](#bool) |  |  |
+| mime_type | [string](#string) | repeated |  |
 
 
 
@@ -6930,10 +7054,26 @@ Issue JWT token for third-party applications
 | version | [string](#string) |  | version of app |
 | icon | [string](#string) |  | icon name for this app |
 | link | [string](#string) |  | link to this app |
-| json_content | [google.protobuf.StringValue](#google.protobuf.StringValue) |  | additional data stored in json format |
-| created_at_ts | [int64](#int64) |  | creation date/time in millis |
 | modified_at_ts | [int64](#int64) |  | update date/time in millis |
 | is_enabled | [bool](#bool) |  | specifies if this app enabled and user can use it, ot not |
+| locales | [MiniApp.LocalesEntry](#dialog.MiniApp.LocalesEntry) | repeated | supported locales |
+| permissions | [string](#string) | repeated | application-level permissions |
+
+
+
+
+
+
+<a name="dialog.MiniApp.LocalesEntry"></a>
+
+### MiniApp.LocalesEntry
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| key | [string](#string) |  |  |
+| value | [string](#string) |  |  |
 
 
 
@@ -6999,6 +7139,7 @@ Defines the type of the app. Currently only WebView supported, but more types ca
 | ----------- | ------------ | ------------- | ------------|
 | FindApp | [FindAppRequest](#dialog.FindAppRequest) | [FindAppResponse](#dialog.FindAppResponse) |  |
 | GetApps | [GetAppsRequest](#dialog.GetAppsRequest) | [GetAppsResponse](#dialog.GetAppsResponse) |  |
+| GetExtensions | [.google.protobuf.Empty](#google.protobuf.Empty) | [GetExtensionsResponse](#dialog.GetExtensionsResponse) |  |
 | IssueAccessToken | [IssueAccessTokenRequest](#dialog.IssueAccessTokenRequest) | [AccessTokenResponse](#dialog.AccessTokenResponse) |  |
 
  
