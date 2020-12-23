@@ -14,7 +14,7 @@ enum AppType {
 }
 
 message MiniApp {
-    reserved 8, 9;
+    reserved 8, 9, 11;
 
     // unique identifier of the app
     UUIDValue id = 1;
@@ -32,8 +32,6 @@ message MiniApp {
     string link = 7;
     // update date/time in millis
     int64 modified_at_ts = 10;
-    // specifies if this app enabled and user can use it, ot not
-    bool is_enabled = 11;
     // supported locales
     map <string, string> locales = 12;
     // application-level permissions
